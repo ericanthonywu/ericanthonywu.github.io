@@ -72,6 +72,7 @@
     <link rel="preload" href="script.min.js" as="script">
 
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body>
@@ -116,6 +117,12 @@
                 <span class="hero__title-line">Hi, I'm <span class="hero__name">Eric Anthony</span></span>
                 <span class="hero__title-line hero__title-line--sub">Senior Software Engineer</span>
             </h1>
+            <div class="hero__lottie animate-in">
+                <!-- Replace the src URL with your preferred Network/Server Lottie URL from Lottiefiles -->
+                <dotlottie-player src="https://lottie.host/0150b07a-9a99-4c28-91ed-e22dd70fbf1a/X3N5vXn0w7.lottie"
+                    background="transparent" speed="1" style="width: 150px; height: 150px; margin: 0 auto 1.5rem;" loop
+                    autoplay></dotlottie-player>
+            </div>
 
             <p class="hero__description animate-in">
                 I build <strong>backend systems</strong> and <strong>full-stack applications</strong> that handle millions of users daily.
