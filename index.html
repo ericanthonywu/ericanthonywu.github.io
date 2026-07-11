@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Eric Anthony — Senior Software Engineer</title>
+    <meta name="title" content="Eric Anthony — Senior Software Engineer">
+    <meta name="description" content="Eric Anthony is a Senior Software Engineer with 7+ years specializing in backend development using Node.js, Go & Java. Open to complex engineering challenges, technical collaborations, freelance projects, and full-time opportunities.">
+    <meta name="keywords" content="Eric Anthony, Senior Software Engineer, Backend Developer, Full-Stack Developer, Node.js Developer, Go Developer, Java Developer, Freelance Developer Indonesia, Software Architect, API Developer, Microservices, System Design, GoPay, Halodoc, Full-time Backend Role, Remote Backend Developer">
+    <meta name="author" content="Eric Anthony">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://ericanthony.dev">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="ID">
+    <meta name="geo.placename" content="Jakarta, Indonesia">
+    <meta name="language" content="English">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#6c5ce7" media="(prefers-color-scheme: light)">
+    <meta name="color-scheme" content="dark">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ericanthony.dev">
+    <meta property="og:title" content="Eric Anthony — Senior Software Engineer">
+    <meta property="og:description" content="7+ years building scalable backend systems with Node.js, Go & Java. From fintech (GoPay) to health-tech (Halodoc).">
+    <meta property="og:image" content="https://ericanthony.dev/icons/og-image.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Eric Anthony - Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ericanthony.dev">
+    <meta name="twitter:title" content="Eric Anthony — Senior Software Engineer">
+    <meta name="twitter:description" content="Backend-focused engineer building scalable systems with Node.js, Go & Java.">
+    <meta name="twitter:image" content="https://ericanthony.dev/icons/og-image.svg">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Eric Anthony">
+    <meta name="application-name" content="Eric Anthony">
+    <meta name="msapplication-TileColor" content="#0a0a0f">
+
+    <!-- Performance: Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="#hero" class="nav__logo">
+                <span class="nav__logo-bracket">&lt;</span>EA<span class="nav__logo-bracket"> /&gt;</span>
+            </a>
+            <div class="nav__links" id="navLinks">
+                <a href="#about" class="nav__link">About</a>
+                <a href="#skills" class="nav__link">Skills</a>
+                <a href="#experience" class="nav__link">Experience</a>
+                <a href="#portfolio" class="nav__link">Portfolio</a>
+                <a href="#contact" class="nav__link nav__link--cta">Let's Talk</a>
+            </div>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero__bg">
+            <div class="hero__grid"></div>
+            <div class="hero__orb hero__orb--1"></div>
+            <div class="hero__orb hero__orb--2"></div>
+            <div class="hero__orb hero__orb--3"></div>
+        </div>
+        <div class="hero__container">
+            <div class="hero__badge animate-in">
+                <span class="hero__badge-dot"></span>
+                Always exploring new ideas
+            </div>
+            <h1 class="hero__title animate-in">
+                <span class="hero__title-line">Hi, I'm <span class="hero__name">Eric Anthony</span></span>
+                <span class="hero__title-line hero__title-line--sub">Senior Software Engineer</span>
+            </h1>
+            <div class="hero__lottie animate-in">
+                <dotlottie-player src="https://lottie.host/4db68bbd-31f6-4cd8-84eb-189de081159a/IGmMCqhzpt.lottie" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></dotlottie-player>
+            </div>
+            <p class="hero__description animate-in">
+                I build <strong>backend systems</strong> that handle millions of users daily. 
+                Most of my work is in <strong>Node.js, Go & Java</strong>, across fintech, health-tech, 
+                and real-time communication platforms.
+            </p>
+            <div class="hero__actions animate-in">
+                <a href="#portfolio" class="btn btn--primary">
+                    <span>View My Work</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <a href="#contact" class="btn btn--secondary">
+                    <span>Get In Touch</span>
+                </a>
+            </div>
+            <div class="hero__stats animate-in">
+                <div class="hero__stat">
+                    <span class="hero__stat-number" data-start-year="2019">0</span><span class="hero__stat-plus">+</span>
+                    <span class="hero__stat-label">Years Experience</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-number" data-count="10">0</span><span class="hero__stat-plus">+</span>
+                    <span class="hero__stat-label">Projects Delivered</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-number" data-count="5">0</span><span class="hero__stat-plus">+</span>
+                    <span class="hero__stat-label">Companies Served</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll">
+            <span>Scroll to explore</span>
+            <div class="hero__scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section__header animate-in">
+                <span class="section__label">01 — About</span>
+                <h2 class="section__title">A Bit<br>About Me</h2>
+            </div>
+            <div class="about__content">
+                <div class="about__text animate-in">
+                    <p class="about__lead">
+                        I'm a <strong>backend-focused software engineer</strong> with over <span class="dynamic-years">6</span> years of hands-on experience 
+                        shipping production systems in fintech, health-tech, e-commerce, and telecom.
+                    </p>
+                    <p>
+                        I've worked on insurance platforms at <strong>GoPay</strong> that serve millions of users, 
+                        built a WhatsApp broadcasting SaaS at <strong>1Engage</strong> from the ground up, 
+                        and helped migrate legacy monoliths into proper microservices at <strong>Halodoc</strong>.
+                    </p>
+                    <p>
+                        Along the way I've managed to cut Redis costs by 80%, shave 30% off API response times, 
+                        and ship new features with zero critical incidents. I'm equally comfortable building 
+                        greenfield systems entirely from scratch as I am jumping into complex, legacy codebases 
+                        to maintain and scale them. I care about writing code that's clean, easy to maintain, 
+                        and actually solves the problem.
+                    </p>
+                    <p>
+                        Right now I'm getting into <strong>AI development and infrastructure</strong> on the side, 
+                        but my bread and butter is still backend engineering. I'm always open to exploring complex 
+                        technical challenges and collaborating with global teams, with a particular interest 
+                        in the tech ecosystems of Dubai and Australia.
+                    </p>
+                </div>
+                <div class="about__highlights animate-in">
+                    <div class="about__highlight-card">
+                        <div class="about__highlight-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3>Scalable Architecture</h3>
+                        <p>Designed and scaled systems handling millions of users, from migrating legacy monoliths to modern microservices, to building robust SaaS platforms from scratch.</p>
+                    </div>
+                    <div class="about__highlight-card">
+                        <div class="about__highlight-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <h3>Full-Stack Capable</h3>
+                        <p>Backend is my thing, but I can hold my own in React, Next.js, and React Native when needed.</p>
+                    </div>
+                    <div class="about__highlight-card">
+                        <div class="about__highlight-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Team Leadership</h3>
+                        <p>I write RFCs, help junior devs level up, and make sure architecture decisions stick across teams.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <div class="section__header animate-in">
+                <span class="section__label">02 — Skills</span>
+                <h2 class="section__title">Tech Stack &<br>Expertise</h2>
+            </div>
+            <div class="skills__grid">
+                <div class="skills__category animate-in">
+                    <h3 class="skills__category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        Languages
+                    </h3>
+                    <div class="skills__tags">
+                        <span class="skills__tag">JavaScript</span>
+                        <span class="skills__tag">TypeScript</span>
+                        <span class="skills__tag">Go</span>
+                        <span class="skills__tag">Java</span>
+                    </div>
+                </div>
+                <div class="skills__category animate-in">
+                    <h3 class="skills__category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg>
+                        Frameworks & Runtime
+                    </h3>
+                    <div class="skills__tags">
+                        <span class="skills__tag">Node.js</span>
+                        <span class="skills__tag">Express</span>
+                        <span class="skills__tag">NestJS</span>
+                        <span class="skills__tag">Spring Boot</span>
+                        <span class="skills__tag">React</span>
+                        <span class="skills__tag">Next.js</span>
+                        <span class="skills__tag">React Native</span>
+                    </div>
+                </div>
+                <div class="skills__category animate-in">
+                    <h3 class="skills__category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                        Databases & Caching
+                    </h3>
+                    <div class="skills__tags">
+                        <span class="skills__tag">PostgreSQL</span>
+                        <span class="skills__tag">MySQL</span>
+                        <span class="skills__tag">MongoDB</span>
+                        <span class="skills__tag">Redis</span>
+                        <span class="skills__tag">ElasticSearch</span>
+                    </div>
+                </div>
+                <div class="skills__category animate-in">
+                    <h3 class="skills__category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                        Cloud & DevOps
+                    </h3>
+                    <div class="skills__tags">
+                        <span class="skills__tag">Google Cloud Platform</span>
+                        <span class="skills__tag">AWS</span>
+                        <span class="skills__tag">Kubernetes</span>
+                        <span class="skills__tag">Docker</span>
+                    </div>
+                </div>
+                <div class="skills__category animate-in">
+                    <h3 class="skills__category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Specializations
+                    </h3>
+                    <div class="skills__tags">
+                        <span class="skills__tag">WebRTC</span>
+                        <span class="skills__tag">Socket.IO</span>
+                        <span class="skills__tag">REST APIs</span>
+                        <span class="skills__tag">Microservices</span>
+                        <span class="skills__tag">System Design</span>
+                        <span class="skills__tag">API Gateway</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
+        <div class="container">
+            <div class="section__header animate-in">
+                <span class="section__label">03 — Experience</span>
+                <h2 class="section__title">Professional<br>Journey</h2>
+            </div>
+            <div class="experience__timeline">
+                <!-- GoTo Financial -->
+                <div class="experience__item animate-in">
+                    <div class="experience__marker">
+                        <div class="experience__dot experience__dot--active"></div>
+                        <div class="experience__line"></div>
+                    </div>
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <div>
+                                <h3 class="experience__company"><a href="https://www.gotocompany.com" target="_blank" rel="noopener noreferrer" class="experience__company-link">GoTo Financial (GoPay)</a></h3>
+                                <p class="experience__role">Software Engineer — Backend</p>
+                            </div>
+                            <span class="experience__date">Apr 2025 — Present</span>
+                        </div>
+                        <div class="experience__details">
+                            <p class="experience__summary">Placed in the GoPay Insurance team as a mid-level backend engineer, contributing to core systems that support multiple insurance products and scalable user journeys used by millions of active users.</p>
+                            <ul class="experience__list">
+                                <li>Architected the Insurance Homepage backend using <strong>Server-Driven UI (SDUI)</strong> as my day-to-day work, aggregating data from multiple services while reducing API latency by <strong>~30%</strong> and improving page load reliability</li>
+                                <li>Led greenfield development of experimental insurance products, owning system design, API contracts, database modeling, and production deployment with <strong>zero critical post-release incidents</strong></li>
+                                <li>Built a customer segmentation and eligibility engine enabling personalized insurance offerings, improving product targeting and increasing conversion rate by <strong>~15–20%</strong></li>
+                                <li>Designed and implemented insurance product issuance pipelines, integrating with external providers (e.g., OONA) via secure APIs, handling policy creation, validation, and error recovery</li>
+                                <li>Authored and executed RFCs and ADRs, driving architecture decisions around service boundaries, data ownership, and scalability, adopted by cross-team stakeholders</li>
+                                <li>Played a key role in GoPay Insurance re-architecture, refactoring legacy systems into modular services, improving maintainability and reducing onboarding time for new engineers by <strong>~25%</strong></li>
+                            </ul>
+                            <div class="experience__tags">
+                                <span>Go</span><span>Microservices</span><span>System Design</span><span>RFC/ADR</span><span>Fintech</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Noice -->
+                <div class="experience__item animate-in">
+                    <div class="experience__marker">
+                        <div class="experience__dot"></div>
+                        <div class="experience__line"></div>
+                    </div>
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <div>
+                                <h3 class="experience__company"><a href="https://www.noice.id" target="_blank" rel="noopener noreferrer" class="experience__company-link">Noice</a></h3>
+                                <p class="experience__role">Senior Software Engineer — Backend</p>
+                            </div>
+                            <span class="experience__date">Jan 2025 — Apr 2025</span>
+                        </div>
+                        <div class="experience__details">
+                            <p class="experience__summary">Maintained and scaled production microservices for Indonesia's multi-vertical audio platform serving millions of users.</p>
+                            <ul class="experience__list">
+                                <li>Reduced Redis infrastructure costs by <strong>~80%</strong> through data structure optimization, eviction policies, and TTL strategies</li>
+                                <li>Designed custom KrakenD API Gateway plugins in Go and revamped Android IAP subscription backend with Pub/Sub reconciliation pipelines</li>
+                            </ul>
+                            <div class="experience__tags">
+                                <span>Go</span><span>NestJS</span><span>Redis</span><span>KrakenD</span><span>Pub/Sub</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1Engage -->
+                <div class="experience__item animate-in">
+                    <div class="experience__marker">
+                        <div class="experience__dot"></div>
+                        <div class="experience__line"></div>
+                    </div>
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <div>
+                                <h3 class="experience__company"><a href="https://1engage.ai" target="_blank" rel="noopener noreferrer" class="experience__company-link">1Engage</a></h3>
+                                <p class="experience__role">Senior Software Engineer — Fullstack</p>
+                            </div>
+                            <span class="experience__date">Jan 2023 — Dec 2024</span>
+                        </div>
+                        <div class="experience__details">
+                            <p class="experience__summary">Built from scratch a SaaS communication platform for enterprise WhatsApp broadcasting, chatbot, and call services under the Sinarmas Group.</p>
+                            <ul class="experience__list">
+                                <li>Designed and developed backend APIs in <strong>Go & Node.js</strong> with the entire web platform in <strong>Next.js</strong></li>
+                                <li>Integrated WhatsApp Business & Meta APIs for broadcasting at scale, and built real-time call center apps using <strong>WebRTC & Socket.IO</strong></li>
+                            </ul>
+                            <div class="experience__tags">
+                                <span>Go</span><span>Node.js</span><span>Next.js</span><span>WebRTC</span><span>Meta APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ajaib -->
+                <div class="experience__item animate-in">
+                    <div class="experience__marker">
+                        <div class="experience__dot"></div>
+                        <div class="experience__line"></div>
+                    </div>
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <div>
+                                <h3 class="experience__company"><a href="https://www.ajaib.co.id" target="_blank" rel="noopener noreferrer" class="experience__company-link">Ajaib</a></h3>
+                                <p class="experience__role">Software Engineer — Backend</p>
+                            </div>
+                            <span class="experience__date">Apr 2022 — Dec 2022</span>
+                        </div>
+                        <div class="experience__details">
+                            <p class="experience__summary">Placed in the onboarding and platform team, handling authentication, user KYC flows, promo systems, and third-party integrations in a regulated fintech environment.</p>
+                            <ul class="experience__list">
+                                <li>Maintained and enhanced core authentication and KYC services, supporting high-volume onboarding flows for Indonesia's leading investment app</li>
+                                <li>Led the migration of backend services from <strong>Django to Java Spring Boot</strong>, improving performance, maintainability, and long-term scalability</li>
+                                <li>Added application-level metrics and monitoring using <strong>New Relic</strong>, reducing incident response time by <strong>~30%</strong></li>
+                                <li>Improved system reliability and performance by implementing load testing with <strong>k6</strong>, identifying bottlenecks under peak traffic</li>
+                                <li>Integrated third-party chat functionality using <strong>Sendbird</strong>, supporting in-app communication within the platform ecosystem</li>
+                            </ul>
+                            <div class="experience__tags">
+                                <span>Java</span><span>Spring Boot</span><span>Django</span><span>k6</span><span>New Relic</span><span>Sendbird</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Halodoc -->
+                <div class="experience__item animate-in">
+                    <div class="experience__marker">
+                        <div class="experience__dot"></div>
+                        <div class="experience__line"></div>
+                    </div>
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <div>
+                                <h3 class="experience__company"><a href="https://www.halodoc.com" target="_blank" rel="noopener noreferrer" class="experience__company-link">Halodoc</a></h3>
+                                <p class="experience__role">Software Engineer — Backend</p>
+                            </div>
+                            <span class="experience__date">Mar 2020 — Apr 2022</span>
+                        </div>
+                        <div class="experience__details">
+                            <p class="experience__summary">Placed in the B2B squad as a Fullstack Web Developer, working on advanced internal web applications for Indonesia's leading health-tech platform.</p>
+                            <ul class="experience__list">
+                                <li>Led the migration of legacy Laravel MVC applications into modern cross-platform systems, redesigning architecture using <strong>Go/Node.js backends and React frontends</strong></li>
+                                <li>Designed and developed B2B web applications tailored to enterprise client requirements, improving internal operational efficiency and system usability</li>
+                                <li>Built and maintained RESTful APIs using <strong>Node.js and Go</strong>, supporting internal platforms with secure access and scalable data flows</li>
+                                <li>Implemented ReactJS (SaaS-style) web applications, enabling faster feature delivery and improved reusability across multiple B2B clients</li>
+                                <li>Conducted technical research and long-term stack planning, contributing to architectural decisions and implementing future-ready technologies</li>
+                            </ul>
+                            <div class="experience__tags">
+                                <span>Go</span><span>Node.js</span><span>React</span><span>Laravel</span><span>Health-tech</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PT Inovatif -->
+                <div class="experience__item animate-in">
+                    <div class="experience__marker">
+                        <div class="experience__dot"></div>
+                    </div>
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <div>
+                                <h3 class="experience__company">PT Inovatif Digital Solusindo</h3>
+                                <p class="experience__role">Backend Developer</p>
+                            </div>
+                            <span class="experience__date">Apr 2019 — Aug 2019</span>
+                        </div>
+                        <div class="experience__details">
+                            <p class="experience__summary">Delivered 3 end-to-end client projects within a software house, owning backend development from requirements to production.</p>
+                            <ul class="experience__list">
+                                <li>Designed RESTful APIs using <strong>Laravel & MySQL</strong> for Android applications and built custom CMS platforms</li>
+                            </ul>
+                            <div class="experience__tags">
+                                <span>Laravel</span><span>MySQL</span><span>jQuery</span><span>Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio section" id="portfolio">
+        <div class="container">
+            <div class="section__header animate-in">
+                <span class="section__label">04 — Portfolio</span>
+                <h2 class="section__title">Featured<br>Projects</h2>
+            </div>
+            <div class="portfolio__grid">
+                <!-- The Luxe Week -->
+                <div class="portfolio__card portfolio__card--featured animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Freelance</div>
+                        <h3 class="portfolio__card-title">The Luxe Week</h3>
+                        <p class="portfolio__card-description">
+                            Migrated a travel company off legacy Strapi onto a proper Node.js + Next.js stack. 
+                            Set up Stripe installment payments, Apple Pay, Google Pay, multi-currency support, 
+                            and built an AI chatbot in Python that plugs into CloseCRM.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Node.js</span><span>Next.js</span><span>PostgreSQL</span><span>Python (Chatbot)</span><span>Stripe</span><span>AWS</span><span>AI Chatbot</span>
+                        </div>
+                        <a href="https://www.theluxeweek.com" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                            Visit Site
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 1Engage -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Full-time</div>
+                        <h3 class="portfolio__card-title">1Engage</h3>
+                        <p class="portfolio__card-description">
+                            Built the whole platform from scratch: WhatsApp broadcasting, chatbot management, 
+                            and a real-time call center with WebRTC. This was under the Sinarmas Group.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Go</span><span>Node.js</span><span>Next.js</span><span>WebRTC</span><span>Meta APIs</span>
+                        </div>
+                        <a href="https://1engage.ai" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                            Visit Site
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Niosoapp -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Freelance</div>
+                        <h3 class="portfolio__card-title">Niosoapp</h3>
+                        <p class="portfolio__card-description">
+                            Built the backend for a ride-hailing super app targeting Africa (think Gojek). Covered 
+                            rides, food delivery, real-time driver tracking, and in-app chat across 4 different app types.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Node.js</span><span>Socket.IO</span><span>Redis</span><span>MySQL</span>
+                        </div>
+                        <a href="https://niosoapp.com" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                            Visit Site
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Splitoff -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Freelance</div>
+                        <h3 class="portfolio__card-title">Splitoff</h3>
+                        <p class="portfolio__card-description">
+                            Developed the backend for a fashion e-commerce mobile application available on 
+                            both Google Play Store and Apple App Store.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Node.js</span><span>PostgreSQL</span>
+                        </div>
+                        <div class="portfolio__card-stores">
+                            <a href="https://play.google.com/store/apps/details?id=id.splitoff.mobile.splitoff&hl=en" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                                Play Store
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                            <a href="https://apps.apple.com/id/app/splitoff/id6743959010" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                                App Store
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Socialbread -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Freelance</div>
+                        <h3 class="portfolio__card-title">Socialbread</h3>
+                        <p class="portfolio__card-description">
+                            Web and mobile platform that connects small businesses with influencers 
+                            for marketing campaigns. Handled both the backend APIs and deployment.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Node.js</span><span>Go</span><span>PostgreSQL</span><span>Redis</span><span>K8s</span>
+                        </div>
+                        <a href="https://socialbread.id" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                            Visit Site
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blanjaseru -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Freelance</div>
+                        <h3 class="portfolio__card-title">Blanjaseru</h3>
+                        <p class="portfolio__card-description">
+                            Developed a full-featured e-commerce platform with an open API for B2B product data access, 
+                            inventory management, and Doku payment gateway integration.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>React</span><span>Node.js</span><span>MySQL</span><span>Redis</span><span>Doku</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edodon -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Freelance</div>
+                        <h3 class="portfolio__card-title">Edodon</h3>
+                        <p class="portfolio__card-description">
+                            Created a reading platform for e-books and e-stories (similar to Wattpad) with real-time 
+                            community chat, connecting readers and writers across cities.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Node.js</span><span>AngularJS</span><span>React</span><span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optics POS -->
+                <div class="portfolio__card portfolio__card--featured animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge badge--highlight">Freelance · AI</div>
+                        <h3 class="portfolio__card-title">Optics POS System</h3>
+                        <p class="portfolio__card-description">
+                            A POS system made specifically for optical shops. It handles prescriptions, frame inventory, 
+                            customer records, and sales. I also plugged in an <strong>AI chatbot</strong> so staff can quickly 
+                            look up products, check prescriptions, and answer common questions without leaving the register.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Node.js</span><span>PostgreSQL</span><span>AI Chatbot</span><span>EJS</span><span>REST API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GoPay Insurance -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Full-time · GoTo</div>
+                        <h3 class="portfolio__card-title">GoPay Insurance Platform</h3>
+                        <p class="portfolio__card-description">
+                            Core backend work for GoPay's insurance products. Built customer segmentation, 
+                            eligibility checks, and integrations with providers like OONA. 
+                            This serves millions of active GoPay users.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Go</span><span>Microservices</span><span>System Design</span><span>API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Noice -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Full-time</div>
+                        <h3 class="portfolio__card-title">Noice Audio Platform</h3>
+                        <p class="portfolio__card-description">
+                            Helped scale the backend for Indonesia's audio platform. Built custom KrakenD plugins, 
+                            a push notification service handling ~10K/hour, and reworked the whole 
+                            in-app purchase subscription flow.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Go</span><span>NestJS</span><span>Redis</span><span>KrakenD</span><span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Halodoc -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Full-time</div>
+                        <h3 class="portfolio__card-title">Halodoc B2B Platform</h3>
+                        <p class="portfolio__card-description">
+                            Took old Laravel monolith apps and rebuilt them into Go/Node.js microservices 
+                            with React frontends. This was for Halodoc's B2B enterprise clients.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Go</span><span>Node.js</span><span>React</span><span>Laravel</span><span>Health-tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ajaib -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Full-time</div>
+                        <h3 class="portfolio__card-title">Ajaib Onboarding & Auth</h3>
+                        <p class="portfolio__card-description">
+                            Worked on authentication, KYC, and onboarding for Indonesia's top investment app. 
+                            Migrated the backend from Django to Java Spring Boot and added Sendbird chat.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Java</span><span>Spring Boot</span><span>k6</span><span>New Relic</span><span>Sendbird</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNTAR Thesis -->
+                <div class="portfolio__card animate-in">
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-badge">Thesis · Academic</div>
+                        <h3 class="portfolio__card-title">Research Management System</h3>
+                        <p class="portfolio__card-description">
+                            My thesis project. Built an internal web app for Universitas Tarumanagara 
+                            to help manage research publications and admin tasks for faculty and students.
+                        </p>
+                        <div class="portfolio__card-tags">
+                            <span>Node.js</span><span>Express.js</span><span>PostgreSQL</span><span>jQuery</span>
+                        </div>
+                        <div class="portfolio__card-stores">
+                            <a href="https://github.com/ericanthonywu/skripsi-untar" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                                GitHub
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                            <a href="https://journal.untar.ac.id/index.php/jiksi/article/view/31564" target="_blank" rel="noopener noreferrer" class="portfolio__card-link">
+                                Published Paper
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education section" id="education">
+        <div class="container">
+            <div class="section__header animate-in">
+                <span class="section__label">05 — Education</span>
+                <h2 class="section__title">Academic<br>Background</h2>
+            </div>
+            <div class="education__grid">
+                <div class="education__card animate-in">
+                    <div class="education__icon">🎓</div>
+                    <h3>Universitas Tarumanagara</h3>
+                    <p class="education__degree">Bachelor of Information System</p>
+                    <span class="education__year">2020 — 2024</span>
+                </div>
+                <div class="education__card animate-in">
+                    <div class="education__icon">💻</div>
+                    <h3>Purwadhika Startup & Coding School</h3>
+                    <p class="education__degree">Graduate Certificate — Fullstack Web Development (MERN)</p>
+                    <span class="education__year">Jun 2019 — Dec 2019</span>
+                </div>
+                <div class="education__card animate-in">
+                    <div class="education__icon">📚</div>
+                    <h3>SMK Immanuel</h3>
+                    <p class="education__degree">Vocational High School</p>
+                    <span class="education__year">2016 — 2019</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section__header animate-in">
+                <span class="section__label">06 — Contact</span>
+                <h2 class="section__title">Let's Build<br>Something Great</h2>
+            </div>
+            <div class="contact__wrapper">
+                <div class="contact__info animate-in">
+                    <p class="contact__description">
+                        I'm always eager to discuss <strong>software architecture</strong> and <strong>engineering challenges</strong>. 
+                        Whether you want to talk about backend systems, modernizing infrastructure, or 
+                        exploring new ideas, let's connect.
+                    </p>
+                    <div class="contact__details">
+                        <a href="mailto:ericanthonywu89@gmail.com" class="contact__detail-item">
+                            <div class="contact__detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact__detail-label">Email</span>
+                                <span class="contact__detail-value">ericanthonywu89@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ericanthonywu/" target="_blank" rel="noopener noreferrer" class="contact__detail-item">
+                            <div class="contact__detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact__detail-label">LinkedIn</span>
+                                <span class="contact__detail-value">ericanthonywu</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/ericanthonywu" target="_blank" rel="noopener noreferrer" class="contact__detail-item">
+                            <div class="contact__detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact__detail-label">GitHub</span>
+                                <span class="contact__detail-value">ericanthonywu</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="contact__availability">
+                        <span class="contact__availability-dot"></span>
+                        Open to technical discussions
+                    </div>
+                </div>
+                <form class="contact__form animate-in" id="contactForm">
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+                    <input type="hidden" name="subject" value="New inquiry from portfolio website">
+                    <input type="hidden" name="from_name" value="Portfolio Contact Form">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form__input" placeholder="John Doe" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="email" class="form__label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form__input" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="subject" class="form__label">Subject</label>
+                        <select id="subject" name="inquiry_type" class="form__input form__select" required>
+                            <option value="" disabled selected>What can I help you with?</option>
+                            <option value="Technical Discussion">Technical Discussion</option>
+                            <option value="Architecture Consultation">Architecture Consultation</option>
+                            <option value="Networking">Networking</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="message" class="form__label">Message</label>
+                        <textarea id="message" name="message" class="form__input form__textarea" placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--large btn--full" id="submitBtn">
+                        <span class="btn__text">Send Message</span>
+                        <span class="btn__loading" style="display:none;">
+                            <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                            Sending...
+                        </span>
+                        <span class="btn__success" style="display:none;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Sent Successfully!
+                        </span>
+                    </button>
+                    <div class="form__status" id="formStatus"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__left">
+                    <a href="#hero" class="nav__logo">
+                        <span class="nav__logo-bracket">&lt;</span>EA<span class="nav__logo-bracket"> /&gt;</span>
+                    </a>
+                    <p>Crafting scalable systems, one commit at a time.</p>
+                </div>
+                <div class="footer__right">
+                    <p>&copy; 2025 Eric Anthony. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Eric Anthony",
+        "url": "https://ericanthony.dev",
+        "email": "ericanthonywu89@gmail.com",
+        "jobTitle": "Senior Software Engineer",
+        "description": "Senior Software Engineer with 7+ years specializing in backend development using Node.js, Go & Java. Expert in scalable systems for fintech, health-tech & e-commerce.",
+        "knowsAbout": [
+            "Node.js", "Go", "Java", "TypeScript", "JavaScript",
+            "PostgreSQL", "MySQL", "Redis", "MongoDB", "ElasticSearch",
+            "React", "Next.js", "React Native",
+            "AWS", "Google Cloud Platform", "Kubernetes", "Docker",
+            "Microservices", "System Design", "REST APIs", "WebRTC", "Socket.IO"
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/ericanthonywu/"
+        ],
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Universitas Tarumanagara",
+                "url": "https://www.untar.ac.id"
+            },
+            {
+                "@type": "EducationalOrganization",
+                "name": "Purwadhika Startup & Coding School"
+            }
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "GoTo Financial (GoPay)",
+            "url": "https://www.gotocompany.com"
+        },
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Software Engineer",
+            "occupationalCategory": "15-1252.00",
+            "skills": "Node.js, Go, Java, TypeScript, PostgreSQL, Redis, Microservices, System Design"
+        },
+        "nationality": {
+            "@type": "Country",
+            "name": "Indonesia"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Eric Anthony — Senior Software Engineer",
+        "url": "https://ericanthony.dev",
+        "description": "Personal portfolio of Eric Anthony, a Senior Software Engineer specializing in backend development.",
+        "author": {
+            "@type": "Person",
+            "name": "Eric Anthony"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ericanthony.dev"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://ericanthony.dev/#about"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Experience",
+                "item": "https://ericanthony.dev/#experience"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Portfolio",
+                "item": "https://ericanthony.dev/#portfolio"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Contact",
+                "item": "https://ericanthony.dev/#contact"
+            }
+        ]
+    }
+    </script>
+</body>
+</html>

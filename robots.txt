@@ -1,0 +1,14 @@
+# Robots.txt for Eric Anthony Portfolio
+# https://ericanthony.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ericanthony.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Block access to system files
+Disallow: /icons/*.svg$
