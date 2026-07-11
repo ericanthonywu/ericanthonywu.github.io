@@ -339,10 +339,16 @@ lottie-player {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    /* `safe center` keeps content vertically centered when it fits, but
+       falls back to top-alignment when it's taller than the available
+       space instead of spilling symmetrically into the scroll cue. */
+    align-items: safe center;
     position: relative;
     overflow: hidden;
     padding-top: 80px;
+    /* Reserve space for the absolutely-positioned scroll cue so content
+       never overlaps it (the cue occupies ~113px from the bottom). */
+    padding-bottom: 160px;
 }
 
 .hero__bg {
@@ -1412,6 +1418,8 @@ lottie-player {
     .hero {
         min-height: 100dvh;
         padding-top: 72px;
+        /* Scroll cue is hidden below this breakpoint, so no reserve needed. */
+        padding-bottom: 40px;
     }
 
     .hero__badge {
