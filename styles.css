@@ -408,6 +408,15 @@ lottie-player {
     padding: 0 24px;
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 48px;
+}
+
+.hero__text {
+    text-align: left;
+    min-width: 0;
 }
 
 .hero__badge {
@@ -492,7 +501,10 @@ lottie-player {
 }
 
 .hero__lottie {
-    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
 }
 
 .hero__stat-number {
@@ -1328,6 +1340,28 @@ lottie-player {
 
     .hero__container {
         max-width: 720px;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .hero__text {
+        text-align: center;
+    }
+
+    /* Stack: animation on top, text below */
+    .hero__lottie {
+        order: -1;
+    }
+
+    .hero__actions,
+    .hero__stats {
+        justify-content: center;
+    }
+
+    .hero__description {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .experience__timeline {
@@ -1624,6 +1658,16 @@ lottie-player {
     /* Hide section header Lotties on small screens */
     .section__header-lottie {
         display: none;
+    }
+
+    /* ...but keep the contact envelope aside on mobile too */
+    .contact .section__header-lottie {
+        display: flex;
+    }
+
+    .contact .section__header-lottie lottie-player {
+        width: 64px !important;
+        height: 64px !important;
     }
 
     .hero__lottie lottie-player {

@@ -111,6 +111,7 @@
             <div class="hero__orb hero__orb--3"></div>
         </div>
         <div class="hero__container">
+            <div class="hero__text">
             <div class="hero__badge animate-in">
                 <span class="hero__badge-dot"></span>
                 Always exploring new ideas
@@ -119,12 +120,6 @@
                 <span class="hero__title-line">Hi, I'm <span class="hero__name">Eric Anthony</span></span>
                 <span class="hero__title-line hero__title-line--sub">Senior Software Engineer</span>
             </h1>
-            <div class="hero__lottie animate-in">
-                <lottie-player src="/animations/hero-coding.json"
-                    background="transparent" speed="0.8" style="width: 160px; height: 160px; margin: 0 auto 1.5rem;" loop
-                    autoplay></lottie-player>
-            </div>
-
             <p class="hero__description animate-in">
                 I build <strong>backend systems</strong> and <strong>full-stack applications</strong> that handle millions of users daily.
                 My core expertise is in <strong>Node.js, Go & Java</strong>, but I'm fully capable of shipping modern frontends with <strong>React and Next.js</strong>.
@@ -158,6 +153,12 @@
                     <span class="hero__stat-number" data-count="5">0</span><span class="hero__stat-plus">+</span>
                     <span class="hero__stat-label">Companies Served</span>
                 </div>
+            </div>
+            </div>
+            <div class="hero__lottie animate-in">
+                <lottie-player src="/animations/hero-coding.json"
+                    background="transparent" speed="0.8" style="width: 260px; height: 260px; max-width: 100%;" loop
+                    autoplay></lottie-player>
             </div>
         </div>
         <div class="hero__scroll">
@@ -936,9 +937,16 @@
 
     <section class="contact section" id="contact">
         <div class="container">
-            <div class="section__header animate-in">
-                <span class="section__label">06 — Contact</span>
-                <h2 class="section__title">Let's Build<br>Something Great</h2>
+            <div class="section__header section__header--with-lottie animate-in">
+                <div class="section__header-text">
+                    <span class="section__label">06 — Contact</span>
+                    <h2 class="section__title">Let's Build<br>Something Great</h2>
+                </div>
+                <div class="section__header-lottie contact__header-lottie">
+                    <lottie-player src="/animations/contact-envelope.json"
+                        background="transparent" speed="0.6" style="width: 120px; height: 120px;" loop
+                        autoplay></lottie-player>
+                </div>
             </div>
             <div class="contact__wrapper">
                 <div class="contact__info animate-in">
@@ -998,11 +1006,6 @@
                         <span class="contact__availability-dot"></span>
                         Open to new opportunities &amp; technical discussions
                     </div>
-                    <div class="contact__lottie">
-                        <lottie-player src="/animations/contact-envelope.json"
-                            background="transparent" speed="0.6" style="width: 140px; height: 140px;" loop
-                            autoplay></lottie-player>
-                    </div>
                 </div>
                 <form class="contact__form animate-in" id="contactForm">
                     <input type="hidden" name="subject" value="New inquiry from portfolio website">
@@ -1010,16 +1013,16 @@
                     <input type="checkbox" name="botcheck" style="display: none;">
                     <div class="form__group">
                         <label for="name" class="form__label">Full Name</label>
-                        <input type="text" id="name" name="name" class="form__input" placeholder="John Doe" required>
+                        <input type="text" id="name" name="name" class="form__input" placeholder="John Doe" autocomplete="name" required>
                     </div>
                     <div class="form__group">
                         <label for="email" class="form__label">Email Address</label>
                         <input type="email" id="email" name="email" class="form__input" placeholder="john@example.com"
-                            required>
+                            autocomplete="email" required>
                     </div>
                     <div class="form__group">
                         <label for="subject" class="form__label">Subject</label>
-                        <select id="subject" name="inquiry_type" class="form__input form__select" required>
+                        <select id="subject" name="inquiry_type" class="form__input form__select" autocomplete="off" required>
                             <option value="" disabled selected>What can I help you with?</option>
                             <option value="Technical Discussion">Technical Discussion</option>
                             <option value="Architecture Consultation">Architecture Consultation</option>
@@ -1030,7 +1033,7 @@
                     <div class="form__group">
                         <label for="message" class="form__label">Message</label>
                         <textarea id="message" name="message" class="form__input form__textarea"
-                            placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
+                            placeholder="Tell me about your project or opportunity..." rows="5" autocomplete="off" required></textarea>
                     </div>
                     <button type="submit" class="btn btn--primary btn--large btn--full" id="submitBtn">
                         <span class="btn__text">Send Message</span>
