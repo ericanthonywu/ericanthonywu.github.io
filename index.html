@@ -72,7 +72,7 @@
     <link rel="preload" href="script.min.js" as="script">
 
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -118,10 +118,9 @@
                 <span class="hero__title-line hero__title-line--sub">Senior Software Engineer</span>
             </h1>
             <div class="hero__lottie animate-in">
-                <!-- Replace the src URL with your preferred Network/Server Lottie URL from Lottiefiles -->
-                <dotlottie-player src="https://lottie.host/0150b07a-9a99-4c28-91ed-e22dd70fbf1a/X3N5vXn0w7.lottie"
-                    background="transparent" speed="1" style="width: 150px; height: 150px; margin: 0 auto 1.5rem;" loop
-                    autoplay></dotlottie-player>
+                <lottie-player src="/animations/hero-coding.json"
+                    background="transparent" speed="0.8" style="width: 160px; height: 160px; margin: 0 auto 1.5rem;" loop
+                    autoplay></lottie-player>
             </div>
 
             <p class="hero__description animate-in">
@@ -258,9 +257,16 @@
 
     <section class="skills section" id="skills">
         <div class="container">
-            <div class="section__header animate-in">
-                <span class="section__label">02 — Skills</span>
-                <h2 class="section__title">Tech Stack &<br>Expertise</h2>
+            <div class="section__header section__header--with-lottie animate-in">
+                <div class="section__header-text">
+                    <span class="section__label">02 — Skills</span>
+                    <h2 class="section__title">Tech Stack &<br>Expertise</h2>
+                </div>
+                <div class="section__header-lottie">
+                    <lottie-player src="/animations/skills-network.json"
+                        background="transparent" speed="0.6" style="width: 120px; height: 120px;" loop
+                        autoplay></lottie-player>
+                </div>
             </div>
             <div class="skills__grid">
                 <div class="skills__category animate-in">
@@ -359,9 +365,16 @@
 
     <section class="experience section" id="experience">
         <div class="container">
-            <div class="section__header animate-in">
-                <span class="section__label">03 — Experience</span>
-                <h2 class="section__title">Professional<br>Journey</h2>
+            <div class="section__header section__header--with-lottie animate-in">
+                <div class="section__header-text">
+                    <span class="section__label">03 — Experience</span>
+                    <h2 class="section__title">Professional<br>Journey</h2>
+                </div>
+                <div class="section__header-lottie">
+                    <lottie-player src="/animations/experience-rocket.json"
+                        background="transparent" speed="0.7" style="width: 110px; height: 110px;" loop
+                        autoplay></lottie-player>
+                </div>
             </div>
             <div class="experience__timeline">
 
@@ -982,6 +995,11 @@
                     <div class="contact__availability">
                         <span class="contact__availability-dot"></span>
                         Open to technical discussions
+                    </div>
+                    <div class="contact__lottie">
+                        <lottie-player src="/animations/contact-envelope.json"
+                            background="transparent" speed="0.6" style="width: 140px; height: 140px;" loop
+                            autoplay></lottie-player>
                     </div>
                 </div>
                 <form class="contact__form animate-in" id="contactForm">

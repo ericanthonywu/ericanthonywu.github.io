@@ -143,6 +143,49 @@ img {
     color: var(--text-primary);
 }
 
+/* Section headers with Lottie animations */
+.section__header--with-lottie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.section__header-text {
+    flex: 1;
+}
+
+.section__header-lottie {
+    flex-shrink: 0;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 20px rgba(108, 92, 231, 0.15));
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.section__header-lottie:hover {
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(108, 92, 231, 0.25));
+}
+
+/* Contact Lottie */
+.contact__lottie {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 16px rgba(108, 92, 231, 0.12));
+    transition: opacity 0.3s ease;
+}
+
+.contact__lottie:hover {
+    opacity: 1;
+}
+
+/* Lottie player global resets */
+lottie-player {
+    display: block;
+}
+
 /* ==========================================
    ANIMATIONS
    ========================================== */
@@ -1381,9 +1424,20 @@ img {
         margin-bottom: 4px;
     }
 
-    .hero__lottie dotlottie-player {
+    .hero__lottie lottie-player {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    /* Section header Lottie responsive */
+    .section__header-lottie lottie-player {
         width: 80px !important;
         height: 80px !important;
+    }
+
+    .contact__lottie lottie-player {
+        width: 100px !important;
+        height: 100px !important;
     }
 
     .hero__stats {
@@ -1557,6 +1611,21 @@ img {
 
     .container {
         padding: 0 16px;
+    }
+
+    /* Hide section header Lotties on small screens */
+    .section__header-lottie {
+        display: none;
+    }
+
+    .hero__lottie lottie-player {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .contact__lottie lottie-player {
+        width: 80px !important;
+        height: 80px !important;
     }
 
     .hero__title-line {

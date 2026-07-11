@@ -20,6 +20,11 @@ This is a static personal portfolio/website for **Eric Anthony**, a Senior Softw
 ├── manifest.json       # PWA manifest
 ├── service-worker.js   # Offline-capable service worker
 ├── AGENTS.md           # This file
+├── animations/
+│   ├── hero-coding.json        # Hero section: animated terminal with typing code lines
+│   ├── skills-network.json     # Skills section: orbiting network nodes constellation
+│   ├── experience-rocket.json  # Experience section: rocket with flame trail
+│   └── contact-envelope.json   # Contact section: animated envelope with letter
 └── icons/
     ├── icon-72x72.svg
     ├── icon-96x96.svg
@@ -87,7 +92,7 @@ The contact form uses **Web3Forms** (free tier). To activate:
 - **Mobile nav** — Hamburger menu with slide-in drawer
 - **Experience accordion** — Cards collapse on mobile, expanded on desktop
 - **PWA** — Installable, offline-capable, themed splash screen
-- **Lottie** — Animated coding illustration in hero section
+- **Lottie** — Self-hosted JSON animations via `lottie-player` in Hero (code terminal), Skills (network nodes), Experience (rocket), and Contact (envelope) sections
 
 ## Personal Information
 - **Name**: Eric Anthony

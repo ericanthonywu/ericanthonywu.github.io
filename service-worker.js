@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eric-anthony-v1';
+const CACHE_NAME = 'eric-anthony-v2';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
@@ -6,7 +6,11 @@ const STATIC_ASSETS = [
     '/script.js',
     '/manifest.json',
     '/icons/icon-192x192.svg',
-    '/icons/icon-512x512.svg'
+    '/icons/icon-512x512.svg',
+    '/animations/hero-coding.json',
+    '/animations/skills-network.json',
+    '/animations/experience-rocket.json',
+    '/animations/contact-envelope.json'
 ];
 
 // Install — cache static assets
