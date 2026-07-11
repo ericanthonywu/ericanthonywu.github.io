@@ -1,11 +1,11 @@
 # Robots.txt for Eric Anthony Portfolio
-# https://ericanthony.dev
+# https://ericanthonywu.github.io
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ericanthony.dev/sitemap.xml
+Sitemap: https://ericanthonywu.github.io/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
