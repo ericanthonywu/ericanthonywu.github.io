@@ -218,29 +218,9 @@ function initContactForm() {
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-
-        // Check if access key is set
-        if (data.access_key === 'YOUR_WEB3FORMS_KEY') {
-            // Fallback: open mailto with form data
-            const subject = encodeURIComponent(`[Portfolio] ${data.inquiry_type || 'Inquiry'} from ${data.name}`);
-            const body = encodeURIComponent(
-                `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.inquiry_type}\n\nMessage:\n${data.message}`
-            );
-            window.location.href = `mailto:ericanthonywu89@gmail.com?subject=${subject}&body=${body}`;
-
-            // Reset button state
-            btnLoading.style.display = 'none';
-            btnSuccess.style.display = 'inline-flex';
-            formStatus.textContent = 'Opening your email client...';
-            formStatus.className = 'form__status form__status--success';
-
-            setTimeout(() => {
-                btnSuccess.style.display = 'none';
-                btnText.style.display = 'inline-flex';
-                submitBtn.disabled = false;
-            }, 3000);
-            return;
-        }
+        
+        // Inject access key dynamically
+        data.access_key = 'e24711e5-ecf8-4265-a880-68e184e1c72e';
 
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
@@ -270,11 +250,23 @@ function initContactForm() {
                 throw new Error(result.message || 'Something went wrong');
             }
         } catch (error) {
+            // Fallback: open mailto with form data
+            const subject = encodeURIComponent(`[Portfolio] ${data.inquiry_type || 'Inquiry'} from ${data.name}`);
+            const body = encodeURIComponent(
+                `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.inquiry_type}\n\nMessage:\n${data.message}`
+            );
+            window.location.href = `mailto:ericanthonywu89@gmail.com?subject=${subject}&body=${body}`;
+
             btnLoading.style.display = 'none';
-            btnText.style.display = 'inline-flex';
-            submitBtn.disabled = false;
-            formStatus.textContent = 'Failed to send. Please try emailing me directly.';
-            formStatus.className = 'form__status form__status--error';
+            btnSuccess.style.display = 'inline-flex';
+            formStatus.textContent = 'API failed. Opening your email client instead...';
+            formStatus.className = 'form__status form__status--success'; // Treat as soft-success
+
+            setTimeout(() => {
+                btnSuccess.style.display = 'none';
+                btnText.style.display = 'inline-flex';
+                submitBtn.disabled = false;
+            }, 4000);
         }
     });
 }
