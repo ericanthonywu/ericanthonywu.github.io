@@ -1509,11 +1509,24 @@ img {
     }
 
     .contact__detail-item {
-        padding: 14px 16px;
+        padding: 14px 8px;
+        flex-direction: column;
+        flex: 1;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .contact__details {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .contact__detail-icon {
+        margin: 0 auto;
     }
 
     .contact__detail-value {
-        font-size: 14px;
+        display: none;
     }
 
     /* Footer Mobile */
