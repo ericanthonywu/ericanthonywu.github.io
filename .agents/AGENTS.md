@@ -6,10 +6,25 @@ This is a static personal portfolio/website for **Eric Anthony**, a Senior Softw
 ## Tech Stack
 - **HTML5** — Semantic structure with SEO meta tags and Open Graph
 - **Vanilla CSS** — Custom design system with CSS custom properties, glassmorphism, animations
-- **Vanilla JavaScript** — No frameworks; uses IntersectionObserver, fetch API, requestAnimationFrame
+- **Vanilla JavaScript** — No frameworks for app logic; script.js is an IIFE of isolated init systems
+- **GSAP 3.13 + ScrollTrigger + SplitText + ScrambleTextPlugin** — self-hosted in `vendor/`, drives all scroll choreography and text reveals
+- **Lenis** — smooth scrolling (fine-pointer desktop only), self-hosted in `vendor/`
+- **WebGL (raw, no three.js)** — hero aurora fragment shader (`initHeroAurora`), CSS-orb fallback when unavailable
+- **Canvas 2D** — interactive hero node-mesh with traveling packets (`initHeroMesh`)
 - **PWA** — Full Progressive Web App with manifest.json and service-worker.js (network-first strategy)
-- **Lottie** — dotlottie-player for subtle hero animations
+- **Lottie** — lottie-player for hero/section accent animations
 - **Web3Forms** — Contact form email delivery (requires access key setup)
+
+### Build steps after editing script.js
+1. `npx terser script.js -c -m -o script.min.js` (index.html loads script.min.js)
+2. Bump `CACHE_NAME` in service-worker.js so returning visitors get the new bundle
+
+### Animation architecture rules
+- All copy is sacred — animations must never add/remove/alter visible words
+- Content hiding is gated behind the `html.js` class (added by an inline head script with a 2.5s boot-guard that removes it if the bundle fails) — crawlers/no-JS always see everything
+- `prefers-reduced-motion` skips preloader, canvases, Lenis, and all GSAP motion (checked in JS + targeted CSS overrides)
+- Touch devices: no custom cursor/magnetic/tilt/Lenis; scroll reveals and canvases still run at reduced density
+- Magnetic/tilt elements need `transition-property` excluding `transform` (see styles.css) or CSS transitions fight GSAP's per-frame updates
 
 ## File Structure
 ```
@@ -84,14 +99,22 @@ The contact form uses **Web3Forms** (free tier). To activate:
 **Fallback**: If the key is not set, the form falls back to `mailto:` which opens the user's email client.
 
 ## Key Features
-- **Cursor glow effect** — Follows mouse on desktop, disabled on mobile
-- **Scroll animations** — IntersectionObserver-based fade-up with staggered delays
+- **Preloader** — `<EA />` + progress bar, once per session, curtain-wipe into hero intro
+- **Hero intro timeline** — SplitText char-cascade title (per-char gradient preserved via `preserveNameGradient`), staggered badge/desc/buttons/stats
+- **WebGL aurora + node mesh** — cursor-reactive hero background; click/tap fires packets between nodes
+- **Custom cursor** — dot + lagging ring, morphs over interactive elements (fine pointer only)
+- **Magnetic elements** — buttons, nav links, contact rows attract toward cursor
+- **Tilt + spotlight cards** — portfolio/about/education/skills cards tilt in 3D with pointer-tracked glow
+- **Scroll choreography** — ScrollTrigger reveals per section: scramble-in labels, masked title lines, skills tag pops, education flip-ups, About paragraphs scrub word-by-word
+- **Experience timeline** — progress line draws on scroll with a glowing packet riding it; dots ignite as passed
+- **Nav** — scroll-spy + sliding magic-line indicator (desktop), staggered drawer links (mobile)
+- **Scroll progress bar** — gradient bar at viewport top
 - **Counter animation** — Stats count up with eased cubic animation
 - **Typed text effect** — Hero subtitle cycles through roles
-- **Parallax orbs** — Decorative background elements move on scroll
+- **Contact form** — ripple on submit, packet burst on success; Web3Forms + mailto fallback
 - **Mobile nav** — Hamburger menu with slide-in drawer
 - **Experience accordion** — Cards collapse on mobile, expanded on desktop
-- **PWA** — Installable, offline-capable, themed splash screen
+- **PWA** — Installable, offline-capable, themed splash screen (vendor libs precached)
 - **Lottie** — Self-hosted JSON animations via `lottie-player` in Hero (code terminal), Skills (network nodes), Experience (rocket), and Contact (envelope) sections
 
 ## Personal Information
