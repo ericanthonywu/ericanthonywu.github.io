@@ -110,8 +110,43 @@
             safeInit('contactReveal', initContactReveal);
             safeInit('catchAllReveal', initCatchAllReveal);
             ScrollTrigger.refresh();
+            safeInit('midPageRestore', restoreMidPageLoad);
         });
     });
+
+    /* ==========================================
+       MID-PAGE LOAD RESTORE
+       On refresh / #hash loads the browser restores scroll before our
+       triggers exist. ScrollTrigger baselines triggers born past their
+       start without firing them, which would leave everything at or above
+       the restored viewport invisible — fast-forward them here.
+       ========================================== */
+    function restoreMidPageLoad() {
+        if (window.scrollY < 10) return;
+
+        ScrollTrigger.getAll().forEach((st) => {
+            if (!st.animation || st.vars.scrub) return;
+            if (st.progress >= 1) st.animation.progress(1);
+            else if (st.progress > 0 && st.animation.paused()) st.animation.play();
+        });
+
+        // Batch/callback-based reveals aren't animation-linked — anything
+        // still hidden in or above the viewport gets a quick reveal
+        const vh = window.innerHeight;
+        document.querySelectorAll('.animate-in').forEach((el) => {
+            if (el.getBoundingClientRect().top < vh && getComputedStyle(el).opacity === '0') {
+                gsap.to(el, {
+                    autoAlpha: 1,
+                    y: 0,
+                    x: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: 'power3.out',
+                    overwrite: 'auto'
+                });
+            }
+        });
+    }
 
     /* ==========================================
        FALLBACKS
