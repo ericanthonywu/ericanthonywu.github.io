@@ -1373,6 +1373,14 @@
         let cooldownUntil = 0;
         let programmaticTimer = null;
 
+        // Stay disarmed until the page's initial scrolling settles: the
+        // browser's scroll restoration / #hash navigation glides smoothly
+        // (CSS scroll-behavior) and fires the same scroll events as a user —
+        // assisting mid-restoration hijacks the page away from where the
+        // visitor actually was (refresh-lands-on-wrong-section bug)
+        let armed = false;
+        let armTimer = setTimeout(() => { armed = true; }, 600);
+
         function glide(target, y) {
             target = Math.max(0, Math.round(target));
             if (Math.abs(target - y) < 8) return;
@@ -1387,6 +1395,12 @@
             const dir = y > lastY ? 1 : y < lastY ? -1 : 0;
             lastY = y;
             if (!dir) return;
+
+            if (!armed) {
+                clearTimeout(armTimer);
+                armTimer = setTimeout(() => { armed = true; }, 300);
+                return;
+            }
 
             // never take over anchor / back-to-top scrolls
             if (programmaticScroll) {
