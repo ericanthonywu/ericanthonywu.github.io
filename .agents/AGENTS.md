@@ -20,6 +20,10 @@ This is a static personal portfolio/website for **Eric Anthony**, a Senior Softw
 2. Bump `CACHE_NAME` in service-worker.js so returning visitors get the new bundle
 
 ### Animation architecture rules
+- NEVER put `scroll-behavior: smooth` back on `html`: it turns load-time #hash/scroll-restoration jumps into slow glides that ScrollTrigger's on-load refresh interrupts mid-flight (page strands near the top). Anchor/back-to-top pass `behavior:'smooth'` explicitly in JS instead
+- Mid-page loads (refresh/#hash) restore scroll before triggers exist, and ScrollTrigger *baselines* triggers born past their start without firing them. `restoreMidPageLoad()` fast-forwards animation-linked triggers and force-reveals stragglers after `ScrollTrigger.refresh()`; callback-based systems (odometer counters, back-to-top) each do their own born-visible check. Any new reveal/trigger must handle this case
+- The snap assist (`initSnapAssist`) stays disarmed until initial scrolling settles, and any programmatic scroll must call `markProgrammaticScroll()` or the assist will hijack it
+- Scrubbed effects that must be *seen* to finish (e.g. the experience timeline) need end points at positions where scroll-snap allows resting — `end: 'bottom bottom'`, not `'bottom 75%'`
 - All copy is sacred — animations must never add/remove/alter visible words
 - Content hiding is gated behind the `html.js` class (added by an inline head script with a 2.5s boot-guard that removes it if the bundle fails) — crawlers/no-JS always see everything
 - `prefers-reduced-motion` skips preloader, canvases, Lenis, and all GSAP motion (checked in JS + targeted CSS overrides)
