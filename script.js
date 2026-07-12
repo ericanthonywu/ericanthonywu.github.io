@@ -254,10 +254,18 @@
     function initLenis() {
         if (!FINE_POINTER || typeof window.Lenis === 'undefined') return;
 
-        lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+        // lerp mode tracks input much tighter than duration-based easing —
+        // duration mode reads as input lag on wheel/trackpad
+        lenis = new Lenis({ lerp: 0.15, smoothWheel: true });
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => lenis.raf(time * 1000));
         gsap.ticker.lagSmoothing(0);
+    }
+
+    /* Scrubbed triggers get their own smoothing only when Lenis isn't already
+       smoothing the scroll itself — otherwise the two ease-outs stack into lag */
+    function scrubValue(fallback) {
+        return lenis ? true : fallback;
     }
 
     function initSmoothAnchors() {
@@ -662,7 +670,7 @@
             y: -70,
             autoAlpha: 0.25,
             ease: 'none',
-            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom 30%', scrub: 0.6 }
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom 30%', scrub: scrubValue(0.6) }
         });
 
         const cue = document.querySelector('.hero__scroll');
@@ -706,8 +714,8 @@
             if (glow) {
                 gx += (mx - gx) * 0.08;
                 gy += (my - gy) * 0.08;
-                glow.style.left = `${gx}px`;
-                glow.style.top = `${gy}px`;
+                // transform only — left/top would force layout every frame
+                glow.style.transform = `translate(${gx}px, ${gy}px) translate(-50%, -50%)`;
             }
         });
 
@@ -859,7 +867,7 @@
                     opacity: 0.12,
                     ease: 'none',
                     stagger: 0.04,
-                    scrollTrigger: { trigger: p, start: 'top 82%', end: 'top 40%', scrub: 0.5 }
+                    scrollTrigger: { trigger: p, start: 'top 82%', end: 'top 40%', scrub: scrubValue(0.5) }
                 });
             });
         }
@@ -954,7 +962,7 @@
             trigger: timeline,
             start: 'top 65%',
             end: 'bottom 75%',
-            scrub: 0.4,
+            scrub: scrubValue(0.4),
             onRefresh: measure,
             onUpdate: (self) => {
                 const y = travel * self.progress;
@@ -1145,13 +1153,31 @@
         const navLinks = [...document.querySelectorAll('.nav__link[href^="#"]')];
         let currentActiveId = null;
 
+        // Cache layout reads — with smooth scrolling the scroll handler runs
+        // every frame, and offsetTop/scrollHeight reads there cause jank
+        let navHeight = 0;
+        let sectionTops = [];
+        let docHeight = 0;
+
+        function measureLayout() {
+            navHeight = nav.offsetHeight;
+            sectionTops = sections.map((s) => s.offsetTop);
+            docHeight = document.documentElement.scrollHeight;
+        }
+        measureLayout();
+        window.addEventListener('resize', measureLayout);
+        window.addEventListener('load', measureLayout);
+        if (HAS_GSAP && typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.addEventListener('refresh', measureLayout);
+        }
+
         function updateActiveLink() {
-            const probeLine = window.scrollY + nav.offsetHeight + window.innerHeight * 0.3;
-            const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+            const probeLine = window.scrollY + navHeight + window.innerHeight * 0.3;
+            const atBottom = window.innerHeight + window.scrollY >= docHeight - 2;
 
             let activeId = '';
-            sections.forEach((section) => {
-                if (atBottom || section.offsetTop <= probeLine) activeId = section.id;
+            sections.forEach((section, i) => {
+                if (atBottom || sectionTops[i] <= probeLine) activeId = section.id;
             });
 
             let activeLink = null;

@@ -95,15 +95,23 @@ img {
    ========================================== */
 .cursor-glow {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 600px;
     height: 600px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(108, 92, 231, 0.06) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
+    opacity: 0;
     transform: translate(-50%, -50%);
     transition: opacity 0.3s;
     will-change: transform;
+}
+
+/* Only shown once the custom-cursor system is driving it via transform */
+html.cursor-enabled .cursor-glow {
+    opacity: 1;
 }
 
 /* ==========================================
@@ -241,9 +249,11 @@ html.js .animate-in.visible {
 
 .nav--scrolled {
     padding: 8px 0;
-    background: rgba(10, 10, 15, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(10, 10, 15, 0.88);
+    /* 12px reads the same as 20px on this dark palette but costs far less
+       while the hero canvases animate underneath */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
 }
 
@@ -1405,6 +1415,7 @@ html:not(.js) .preloader {
     transform: scaleX(0);
     transform-origin: left;
     box-shadow: 0 0 12px var(--accent-glow);
+    will-change: transform;
 }
 
 /* ==========================================
@@ -1418,6 +1429,7 @@ html:not(.js) .preloader {
     pointer-events: none;
     z-index: 9999;
     display: none;
+    will-change: transform;
 }
 
 html.cursor-enabled .cursor-dot,
