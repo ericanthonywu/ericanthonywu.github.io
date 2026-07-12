@@ -8,7 +8,7 @@ This is a static personal portfolio/website for **Eric Anthony**, a Senior Softw
 - **Vanilla CSS** — Custom design system with CSS custom properties, glassmorphism, animations
 - **Vanilla JavaScript** — No frameworks for app logic; script.js is an IIFE of isolated init systems
 - **GSAP 3.13 + ScrollTrigger + SplitText + ScrambleTextPlugin** — self-hosted in `vendor/`, drives all scroll choreography and text reveals
-- **Lenis** — smooth scrolling (fine-pointer desktop only), self-hosted in `vendor/`
+- **Native scrolling** — Lenis was tried and removed (Eric found virtual scrolling laggy); anchor links use `window.scrollTo({behavior:'smooth'})`. Don't reintroduce scroll hijacking
 - **WebGL (raw, no three.js)** — hero aurora fragment shader (`initHeroAurora`), CSS-orb fallback when unavailable
 - **Canvas 2D** — interactive hero node-mesh with traveling packets (`initHeroMesh`)
 - **PWA** — Full Progressive Web App with manifest.json and service-worker.js (network-first strategy)

@@ -5,7 +5,6 @@
    Systems overview:
    - Boot flags + graceful fallbacks (no-GSAP, reduced motion)
    - Preloader → orchestrated hero intro (GSAP SplitText)
-   - Lenis smooth scroll wired into ScrollTrigger
    - WebGL aurora shader + interactive 2D node-mesh (hero)
    - Custom cursor, magnetic elements, tilt + spotlight cards
    - Scroll choreography per section (ScrollTrigger)
@@ -28,8 +27,6 @@
     const ACCENT_PRIMARY = '#6c5ce7';
     const ACCENT_SECONDARY = '#a29bfe';
     const ACCENT_BLUE = '#74b9ff';
-
-    let lenis = null;
 
     /* Run an init system in isolation so one failure never blanks the page */
     function safeInit(name, fn) {
@@ -68,9 +65,9 @@
             return;
         }
 
-        safeInit('lenis', initLenis);
         safeInit('anchors', () => initSmoothAnchors());
         safeInit('cursor', initCursor);
+        safeInit('cursorTrail', initCursorTrail);
         safeInit('magnetic', initMagnetic);
         safeInit('aurora', initHeroAurora);
         safeInit('mesh', initHeroMesh);
@@ -80,6 +77,10 @@
         safeInit('progressBar', initScrollProgressBar);
         safeInit('counters', () => initCounters(gsap));
         safeInit('typed', initTypedEffect);
+        safeInit('rollingLinks', initRollingLinks);
+        safeInit('companyScramble', initCompanyScramble);
+        safeInit('energyBorders', initEnergyBorders);
+        safeInit('velocitySkew', initVelocitySkew);
 
         // Text splitting waits for webfonts (capped) so line/char metrics are final
         const fontsReady = Promise.race([
@@ -91,6 +92,7 @@
         Promise.all([fontsReady, preloaderDone]).then(() => {
             safeInit('heroIntro', runHeroIntro);
             safeInit('sectionHeaders', initSectionHeaderReveals);
+            safeInit('titleParallax', initTitleParallax);
             safeInit('aboutScrub', initAboutScrub);
             safeInit('skillsReveal', initSkillsReveal);
             safeInit('experienceReveal', initExperienceReveal);
@@ -227,7 +229,40 @@
             .to(heroEls.stats, { autoAlpha: 1, y: 0, duration: 0.6, startAt: { y: 22 } }, 1.0)
             .to(heroEls.lottie, { autoAlpha: 1, scale: 1, duration: 0.8, startAt: { scale: 0.85 }, ease: 'back.out(1.4)' }, 0.65)
             .to('.hero__stat', { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.5 }, 1.05)
-            .to('.hero__scroll', { autoAlpha: 1, duration: 0.6 }, 1.3);
+            .to('.hero__scroll', { autoAlpha: 1, duration: 0.6 }, 1.3)
+            .eventCallback('onComplete', () => safeInit('titleRipple', () => enableTitleRipple(titleLine, chars)));
+    }
+
+    /* Hovering the hero title lifts characters in a cursor-following wave */
+    function enableTitleRipple(titleLine, chars) {
+        if (!FINE_POINTER || !chars || !chars.length) return;
+
+        // SplitText's char masks clip vertical movement — release them now
+        // that the masked intro reveal is done
+        chars.forEach((c) => {
+            if (c.parentNode && c.parentNode !== titleLine) c.parentNode.style.overflow = 'visible';
+        });
+
+        const lifts = chars.map((c) => gsap.quickTo(c, 'y', { duration: 0.35, ease: 'power2.out' }));
+        let centers = [];
+        const measure = () => {
+            centers = chars.map((c) => {
+                const r = c.getBoundingClientRect();
+                return r.left + r.width / 2;
+            });
+        };
+        measure();
+        window.addEventListener('resize', measure);
+
+        titleLine.addEventListener('pointermove', (e) => {
+            for (let i = 0; i < chars.length; i++) {
+                const d = e.clientX - centers[i];
+                lifts[i](-16 * Math.exp(-(d * d) / 9800)); // gaussian falloff, σ ≈ 70px
+            }
+        });
+        titleLine.addEventListener('pointerleave', () => {
+            for (let i = 0; i < chars.length; i++) lifts[i](0);
+        });
     }
 
     /* The name uses background-clip:text; after a char split each char needs
@@ -249,25 +284,8 @@
     }
 
     /* ==========================================
-       LENIS SMOOTH SCROLL
+       SMOOTH ANCHOR SCROLLING (native)
        ========================================== */
-    function initLenis() {
-        if (!FINE_POINTER || typeof window.Lenis === 'undefined') return;
-
-        // lerp mode tracks input much tighter than duration-based easing —
-        // duration mode reads as input lag on wheel/trackpad
-        lenis = new Lenis({ lerp: 0.15, smoothWheel: true });
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-    }
-
-    /* Scrubbed triggers get their own smoothing only when Lenis isn't already
-       smoothing the scroll itself — otherwise the two ease-outs stack into lag */
-    function scrubValue(fallback) {
-        return lenis ? true : fallback;
-    }
-
     function initSmoothAnchors() {
         const nav = document.querySelector('.nav');
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -276,12 +294,8 @@
                 if (!target) return;
                 e.preventDefault();
                 const offset = -(nav ? nav.offsetHeight : 0);
-                if (lenis) {
-                    lenis.scrollTo(target, { offset, duration: 1.2 });
-                } else {
-                    const top = target.getBoundingClientRect().top + window.scrollY + offset;
-                    window.scrollTo({ top, behavior: REDUCED ? 'auto' : 'smooth' });
-                }
+                const top = target.getBoundingClientRect().top + window.scrollY + offset;
+                window.scrollTo({ top, behavior: REDUCED ? 'auto' : 'smooth' });
             });
         });
     }
@@ -464,6 +478,7 @@
         let width = 0, height = 0;
         let nodes = [];
         let packets = [];
+        let waves = [];
         const pointer = { x: -9999, y: -9999, active: false };
 
         function resize() {
@@ -486,6 +501,13 @@
                 glow: 0
             }));
             packets = [];
+            waves = [];
+        }
+
+        /* A "broadcast": expanding ring that ignites nodes as it crosses them */
+        function spawnWave(x, y) {
+            if (waves.length >= 3) return;
+            waves.push({ x, y, r: 0, max: Math.hypot(width, height) * 0.55, speed: 5.5 });
         }
 
         function spawnPacket(a, b) {
@@ -507,6 +529,27 @@
 
         function step() {
             ctx.clearRect(0, 0, width, height);
+
+            for (let i = waves.length - 1; i >= 0; i--) {
+                const wv = waves[i];
+                wv.r += wv.speed;
+                if (wv.r > wv.max) {
+                    waves.splice(i, 1);
+                    continue;
+                }
+                const fade = 1 - wv.r / wv.max;
+                ctx.strokeStyle = `rgba(162, 155, 254, ${(fade * 0.3).toFixed(3)})`;
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                ctx.arc(wv.x, wv.y, wv.r, 0, Math.PI * 2);
+                ctx.stroke();
+
+                for (const n of nodes) {
+                    if (Math.abs(Math.hypot(n.x - wv.x, n.y - wv.y) - wv.r) < 26) {
+                        n.glow = Math.min(1, n.glow + 0.12);
+                    }
+                }
+            }
 
             for (const n of nodes) {
                 n.x += n.vx;
@@ -601,6 +644,7 @@
             }
             if (!origin) return;
             origin.glow = 1;
+            spawnWave(origin.x, origin.y);
             nodes
                 .filter((n) => n !== origin && (n.x - origin.x) ** 2 + (n.y - origin.y) ** 2 < LINK_DIST * LINK_DIST)
                 .slice(0, 5)
@@ -610,6 +654,7 @@
         let visible = true;
         let rafId = null;
         let lastAmbient = 0;
+        let lastWave = 0;
 
         function loop(now) {
             rafId = null;
@@ -617,6 +662,11 @@
             if (now - lastAmbient > 650) {
                 lastAmbient = now;
                 spawnAmbientPacket();
+            }
+            if (now - lastWave > 8000) {
+                lastWave = now;
+                const n = nodes[(Math.random() * nodes.length) | 0];
+                if (n) spawnWave(n.x, n.y);
             }
             step();
             rafId = requestAnimationFrame(loop);
@@ -670,7 +720,7 @@
             y: -70,
             autoAlpha: 0.25,
             ease: 'none',
-            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom 30%', scrub: scrubValue(0.6) }
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom 30%', scrub: 0.6 }
         });
 
         const cue = document.querySelector('.hero__scroll');
@@ -731,6 +781,81 @@
         document.addEventListener('pointerup', () => body.classList.remove('cursor--press'));
         document.documentElement.addEventListener('pointerleave', () => body.classList.add('cursor--hidden'));
         document.documentElement.addEventListener('pointerenter', () => body.classList.remove('cursor--hidden'));
+    }
+
+    /* ==========================================
+       CURSOR CONSTELLATION TRAIL (site-wide)
+       ========================================== */
+    function initCursorTrail() {
+        if (!FINE_POINTER) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.className = 'cursor-trail';
+        canvas.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const DPR = Math.min(window.devicePixelRatio || 1, 2);
+        const LIFE = 750;
+        const LINK_DIST = 130;
+        let w = 0, h = 0;
+
+        function resize() {
+            w = window.innerWidth;
+            h = window.innerHeight;
+            canvas.width = w * DPR;
+            canvas.height = h * DPR;
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const pts = [];
+        let lastX = -999, lastY = -999;
+        let rafId = null;
+
+        window.addEventListener('pointermove', (e) => {
+            const dx = e.clientX - lastX, dy = e.clientY - lastY;
+            if (dx * dx + dy * dy < 576) return; // spawn every ~24px of travel
+            lastX = e.clientX;
+            lastY = e.clientY;
+            pts.push({ x: e.clientX, y: e.clientY, born: performance.now() });
+            if (pts.length > 32) pts.shift();
+            if (rafId === null) rafId = requestAnimationFrame(frame);
+        }, { passive: true });
+
+        function frame(now) {
+            rafId = null;
+            ctx.clearRect(0, 0, w, h);
+
+            while (pts.length && now - pts[0].born > LIFE) pts.shift();
+
+            for (let i = 0; i < pts.length; i++) {
+                const p = pts[i];
+                const a = 1 - (now - p.born) / LIFE;
+
+                if (i > 0) {
+                    const q = pts[i - 1];
+                    const dx = p.x - q.x, dy = p.y - q.y;
+                    if (dx * dx + dy * dy < LINK_DIST * LINK_DIST) {
+                        ctx.strokeStyle = `rgba(108, 92, 231, ${(a * 0.4).toFixed(3)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(q.x, q.y);
+                        ctx.lineTo(p.x, p.y);
+                        ctx.stroke();
+                    }
+                }
+
+                ctx.fillStyle = `rgba(162, 155, 254, ${(a * 0.7).toFixed(3)})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 1.2 + a * 1.6, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            if (pts.length) rafId = requestAnimationFrame(frame);
+        }
     }
 
     /* ==========================================
@@ -867,7 +992,7 @@
                     opacity: 0.12,
                     ease: 'none',
                     stagger: 0.04,
-                    scrollTrigger: { trigger: p, start: 'top 82%', end: 'top 40%', scrub: scrubValue(0.5) }
+                    scrollTrigger: { trigger: p, start: 'top 82%', end: 'top 40%', scrub: 0.5 }
                 });
             });
         }
@@ -962,7 +1087,7 @@
             trigger: timeline,
             start: 'top 65%',
             end: 'bottom 75%',
-            scrub: scrubValue(0.4),
+            scrub: 0.4,
             onRefresh: measure,
             onUpdate: (self) => {
                 const y = travel * self.progress;
@@ -1065,6 +1190,118 @@
                 ease: 'power3.out',
                 stagger: 0.08
             })
+        });
+    }
+
+    /* ==========================================
+       ROLLING TEXT HOVER (nav links, hero buttons)
+       ========================================== */
+    function initRollingLinks() {
+        const targets = [
+            ...document.querySelectorAll('.nav__link'),
+            ...document.querySelectorAll('.hero__actions .btn > span:first-child')
+        ];
+
+        targets.forEach((el) => {
+            const text = el.textContent.trim();
+            if (!text) return;
+
+            const host = el.closest('a, button');
+            if (host) host.setAttribute('aria-label', text);
+
+            const roll = document.createElement('span');
+            roll.className = 'roll';
+            roll.setAttribute('aria-hidden', 'true');
+            for (let i = 0; i < 2; i++) {
+                const line = document.createElement('span');
+                line.className = 'roll__line';
+                line.textContent = text;
+                roll.appendChild(line);
+            }
+            el.textContent = '';
+            el.appendChild(roll);
+        });
+    }
+
+    /* ==========================================
+       COMPANY NAME SCRAMBLE ON HOVER
+       ========================================== */
+    function initCompanyScramble() {
+        if (!FINE_POINTER) return;
+
+        document.querySelectorAll('.experience__company-link').forEach((link) => {
+            const original = link.textContent;
+            link.addEventListener('pointerenter', () => {
+                gsap.to(link, {
+                    duration: 0.7,
+                    overwrite: true,
+                    scrambleText: { text: original, chars: '<>/{}[]01', speed: 0.9 }
+                });
+            });
+        });
+    }
+
+    /* ==========================================
+       ENERGY BORDER (featured portfolio cards)
+       ========================================== */
+    function initEnergyBorders() {
+        document.querySelectorAll('.portfolio__card--featured').forEach((card) => {
+            const border = document.createElement('span');
+            border.className = 'energy-border';
+            border.setAttribute('aria-hidden', 'true');
+            card.appendChild(border);
+        });
+    }
+
+    /* ==========================================
+       SCROLL-VELOCITY SKEW
+       ========================================== */
+    function initVelocitySkew() {
+        if (!FINE_POINTER) return;
+        // Skew section content (not the sections themselves, so full-bleed
+        // backgrounds stay rectangular) with scroll velocity, then settle
+        const targets = gsap.utils.toArray('.section > .container');
+        if (!targets.length) return;
+
+        gsap.set(targets, { transformOrigin: 'center center', force3D: true });
+        const setSkew = gsap.quickSetter(targets, 'skewY', 'deg');
+        const clamp = gsap.utils.clamp(-1.6, 1.6);
+        const proxy = { skew: 0 };
+
+        ScrollTrigger.create({
+            onUpdate: (self) => {
+                const skew = clamp(self.getVelocity() / -450);
+                if (Math.abs(skew) > Math.abs(proxy.skew)) {
+                    proxy.skew = skew;
+                    gsap.to(proxy, {
+                        skew: 0,
+                        duration: 0.7,
+                        ease: 'power3.out',
+                        overwrite: true,
+                        onUpdate: () => setSkew(proxy.skew)
+                    });
+                }
+            }
+        });
+    }
+
+    /* ==========================================
+       SECTION TITLE PARALLAX
+       ========================================== */
+    function initTitleParallax() {
+        document.querySelectorAll('.section__title').forEach((title) => {
+            gsap.fromTo(title,
+                { y: 28 },
+                {
+                    y: -28,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: title.closest('.section__header') || title,
+                        start: 'top 100%',
+                        end: 'bottom 0%',
+                        scrub: 0.6
+                    }
+                });
         });
     }
 

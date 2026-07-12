@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eric-anthony-v6';
+const CACHE_NAME = 'eric-anthony-v7';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
@@ -8,7 +8,6 @@ const STATIC_ASSETS = [
     '/vendor/ScrollTrigger.min.js',
     '/vendor/SplitText.min.js',
     '/vendor/ScrambleTextPlugin.min.js',
-    '/vendor/lenis.min.js',
     '/manifest.json',
     '/icons/icon-192x192.svg',
     '/icons/icon-512x512.svg',
