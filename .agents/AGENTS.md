@@ -108,8 +108,7 @@ The contact form uses **Web3Forms** (free tier). To activate:
 - **Cursor constellation trail** — site-wide canvas (`initCursorTrail`, screen-blended, z 1300); cursor movement leaves linked fading nodes
 - **Hero title ripple** — post-intro, hovering the h1 lifts characters in a gaussian wave (`enableTitleRipple`; char masks released after intro)
 - **Rolling-text hover** — hero buttons roll letters up on hover (`initRollingLinks` builds duplicate spans, aria-labels preserve a11y). Nav links excluded at Eric's request
-- **Company scramble** — experience company links scramble-restore on hover
-- **Energy border** — featured portfolio cards get a rotating conic-gradient ring on hover (CSS `@property --ea-angle`)
+- **Energy border** — featured portfolio cards get a rotating conic-gradient ring on hover (CSS `@property --ea-angle`). (A company-name scramble-on-hover was tried and removed at Eric's request — don't reintroduce hover scrambles on content text; the section-label scramble on scroll reveal stays)
 - **Section title parallax** — titles drift ±28px against scroll for depth (velocity-skew was tried and removed — Eric dislikes scroll-feel modifiers, same reason Lenis went)
 - **Odometer stats** — hero counters are rolling digit columns (`buildOdometer`), aria-labels carry the real values
 - **Hero title proximity glow** — the char ripple also casts a cursor-following text-shadow glow

@@ -85,7 +85,6 @@
         safeInit('counters', () => initCounters(gsap));
         safeInit('typed', initTypedEffect);
         safeInit('rollingLinks', initRollingLinks);
-        safeInit('companyScramble', initCompanyScramble);
         safeInit('energyBorders', initEnergyBorders);
         safeInit('gyro', initGyroParallax);
         safeInit('backToTop', initBackToTop);
@@ -1126,10 +1125,13 @@
 
         const packetY = gsap.quickSetter(packet, 'y', 'px');
 
+        // End when the timeline's bottom reaches the viewport bottom: with
+        // scroll-snap active the page can't rest any deeper into the section,
+        // so a later end point would snap away before the draw ever finished
         ScrollTrigger.create({
             trigger: timeline,
             start: 'top 65%',
-            end: 'bottom 75%',
+            end: 'bottom bottom',
             scrub: 0.4,
             onRefresh: measure,
             onUpdate: (self) => {
@@ -1266,24 +1268,6 @@
             }
             el.textContent = '';
             el.appendChild(roll);
-        });
-    }
-
-    /* ==========================================
-       COMPANY NAME SCRAMBLE ON HOVER
-       ========================================== */
-    function initCompanyScramble() {
-        if (!FINE_POINTER) return;
-
-        document.querySelectorAll('.experience__company-link').forEach((link) => {
-            const original = link.textContent;
-            link.addEventListener('pointerenter', () => {
-                gsap.to(link, {
-                    duration: 0.7,
-                    overwrite: true,
-                    scrambleText: { text: original, chars: '<>/{}[]01', speed: 0.9 }
-                });
-            });
         });
     }
 
