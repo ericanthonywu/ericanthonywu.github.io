@@ -868,9 +868,11 @@
         if (highlights) {
             highlights.dataset.revealed = '1';
             gsap.set(highlights, { autoAlpha: 1 });
-            gsap.from(highlights.querySelectorAll('.about__highlight-card'), {
-                autoAlpha: 0,
-                x: 48,
+            const cards = highlights.querySelectorAll('.about__highlight-card');
+            gsap.set(cards, { autoAlpha: 0, x: 48 });
+            gsap.to(cards, {
+                autoAlpha: 1,
+                x: 0,
                 duration: 0.8,
                 ease: 'power3.out',
                 stagger: 0.12,
@@ -899,7 +901,8 @@
                     y: 0,
                     duration: 0.5,
                     ease: 'back.out(2)',
-                    stagger: 0.045
+                    stagger: 0.045,
+                    clearProps: 'all' // restore the CSS :hover lift after the pop
                 }, 0.25);
         });
     }
@@ -911,9 +914,11 @@
         document.querySelectorAll('.experience__item').forEach((item) => {
             item.dataset.revealed = '1';
             gsap.set(item, { autoAlpha: 1 });
-            gsap.from(item.querySelector('.experience__card'), {
-                autoAlpha: 0,
-                x: -44,
+            const card = item.querySelector('.experience__card');
+            gsap.set(card, { autoAlpha: 0, x: -44 });
+            gsap.to(card, {
+                autoAlpha: 1,
+                x: 0,
                 duration: 0.8,
                 ease: 'power3.out',
                 scrollTrigger: { trigger: item, start: 'top 82%', once: true }

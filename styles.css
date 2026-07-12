@@ -1488,8 +1488,9 @@ html.cursor-enabled select {
     opacity: 0;
 }
 
-/* Let GSAP own transforms on magnetic targets (CSS transitions on
-   transform would fight the per-frame magnet updates on fine pointers) */
+/* Let GSAP own transform AND opacity on magnetic/tilt/reveal targets —
+   CSS transitions on those properties fight GSAP's per-frame updates
+   and corrupt from()-recorded values */
 @media (hover: hover) and (pointer: fine) {
     html.js .btn,
     html.js .nav__link,
@@ -1498,8 +1499,9 @@ html.cursor-enabled select {
     html.js .portfolio__card,
     html.js .about__highlight-card,
     html.js .education__card,
+    html.js .experience__card,
     html.js .skills__category {
-        transition-property: color, background-color, border-color, box-shadow, opacity;
+        transition-property: color, background-color, border-color, box-shadow;
     }
 }
 

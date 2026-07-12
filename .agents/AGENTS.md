@@ -24,7 +24,9 @@ This is a static personal portfolio/website for **Eric Anthony**, a Senior Softw
 - Content hiding is gated behind the `html.js` class (added by an inline head script with a 2.5s boot-guard that removes it if the bundle fails) — crawlers/no-JS always see everything
 - `prefers-reduced-motion` skips preloader, canvases, Lenis, and all GSAP motion (checked in JS + targeted CSS overrides)
 - Touch devices: no custom cursor/magnetic/tilt/Lenis; scroll reveals and canvases still run at reduced density
-- Magnetic/tilt elements need `transition-property` excluding `transform` (see styles.css) or CSS transitions fight GSAP's per-frame updates
+- Any element GSAP animates needs `transition-property` excluding `transform` AND `opacity` (see the override block in styles.css). A CSS transition on a GSAP-tweened property both drags the tween and can corrupt `gsap.from()` end-values (mid-transition computed styles get recorded on ScrollTrigger refresh — this once left the About highlight cards invisible)
+- Prefer `gsap.set(...) + gsap.to(...)` with explicit values over `gsap.from()` for reveals — explicit end values are immune to computed-style corruption
+- Use `clearProps` when a reveal's inline styles would permanently override a CSS `:hover` transform (e.g. skills tags)
 
 ## File Structure
 ```
