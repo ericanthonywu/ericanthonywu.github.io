@@ -189,16 +189,18 @@ lottie-player {
 /* ==========================================
    ANIMATIONS
    ========================================== */
-.animate-in {
+/* Reveal targets are hidden only when JS is running (html.js), so crawlers
+   and no-JS visitors always see full content. GSAP drives the reveal;
+   .visible is the no-GSAP fallback path. */
+html.js .animate-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.animate-in.visible {
+html.js .animate-in.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes float {
@@ -1324,6 +1326,391 @@ lottie-player {
 }
 
 /* ==========================================
+   PRELOADER
+   ========================================== */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Never block content when JS is off */
+html:not(.js) .preloader {
+    display: none;
+}
+
+.preloader__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.preloader__logo {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.preloader__bracket {
+    color: var(--accent-primary);
+}
+
+.preloader__bar {
+    width: 220px;
+    height: 2px;
+    background: var(--bg-tertiary);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.preloader__bar-fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.preloader__percent {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-tertiary);
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   SCROLL PROGRESS BAR
+   ========================================== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 1400;
+    pointer-events: none;
+}
+
+.scroll-progress span {
+    display: block;
+    height: 100%;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ==========================================
+   CUSTOM CURSOR
+   ========================================== */
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+}
+
+html.cursor-enabled .cursor-dot,
+html.cursor-enabled .cursor-ring {
+    display: block;
+}
+
+html.cursor-enabled,
+html.cursor-enabled body,
+html.cursor-enabled a,
+html.cursor-enabled button,
+html.cursor-enabled label,
+html.cursor-enabled .skills__tag {
+    cursor: none;
+}
+
+html.cursor-enabled input,
+html.cursor-enabled textarea {
+    cursor: text;
+}
+
+html.cursor-enabled select {
+    cursor: none;
+}
+
+.cursor-dot::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: var(--accent-secondary);
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s;
+}
+
+.cursor-ring::before {
+    content: '';
+    display: block;
+    width: 38px;
+    height: 38px;
+    margin: -19px 0 0 -19px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(162, 155, 254, 0.55);
+    background: rgba(108, 92, 231, 0);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.3s, background-color 0.3s, opacity 0.3s;
+}
+
+.cursor--hover .cursor-ring::before {
+    transform: scale(1.7);
+    border-color: rgba(162, 155, 254, 0.2);
+    background: rgba(108, 92, 231, 0.12);
+}
+
+.cursor--hover .cursor-dot::before {
+    transform: scale(0.5);
+}
+
+.cursor--press .cursor-ring::before {
+    transform: scale(1.25);
+    background: rgba(108, 92, 231, 0.2);
+}
+
+.cursor--hidden .cursor-dot::before,
+.cursor--hidden .cursor-ring::before {
+    opacity: 0;
+}
+
+/* Let GSAP own transforms on magnetic targets (CSS transitions on
+   transform would fight the per-frame magnet updates on fine pointers) */
+@media (hover: hover) and (pointer: fine) {
+    html.js .btn,
+    html.js .nav__link,
+    html.js .nav__logo,
+    html.js .contact__detail-item,
+    html.js .portfolio__card,
+    html.js .about__highlight-card,
+    html.js .education__card,
+    html.js .skills__category {
+        transition-property: color, background-color, border-color, box-shadow, opacity;
+    }
+}
+
+/* ==========================================
+   HERO CANVAS LAYERS (WebGL aurora + node mesh)
+   ========================================== */
+.hero__gl,
+.hero__mesh {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+.hero__gl {
+    opacity: 0;
+}
+
+.hero--gl .hero__gl {
+    opacity: 1;
+    transition: opacity 1.2s ease;
+}
+
+/* Aurora replaces most of the orbs' job — keep them as a faint echo */
+.hero--gl .hero__orb {
+    opacity: 0.4;
+}
+
+/* GSAP drives orb drift when JS is on; CSS float remains the fallback */
+html.js .hero__orb {
+    animation: none;
+}
+
+/* ==========================================
+   EXPERIENCE TIMELINE PROGRESS
+   ========================================== */
+.experience__timeline {
+    position: relative;
+}
+
+.experience__progress {
+    position: absolute;
+    left: 6px;
+    top: 0;
+    width: 2px;
+    height: 0;
+    pointer-events: none;
+}
+
+.experience__progress-line {
+    position: absolute;
+    inset: 0;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+    box-shadow: 0 0 10px var(--accent-glow);
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.experience__packet {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background: #74b9ff;
+    box-shadow: 0 0 14px rgba(116, 185, 255, 0.9), 0 0 36px rgba(108, 92, 231, 0.6);
+    opacity: 0;
+}
+
+.experience__dot--lit {
+    border-color: var(--accent-primary);
+    background: var(--accent-primary);
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ==========================================
+   NAV MAGIC LINE
+   ========================================== */
+.nav__links {
+    position: relative;
+}
+
+.nav__magic-line {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    border-radius: 1px;
+    background: var(--accent-primary);
+    box-shadow: 0 0 8px var(--accent-glow);
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (min-width: 769px) {
+    html.magic-nav .nav__link--active:not(.nav__link--cta)::after {
+        display: none;
+    }
+}
+
+/* ==========================================
+   SPOTLIGHT CARDS (pointer-tracked glow)
+   ========================================== */
+.spotlight {
+    position: relative;
+}
+
+.spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background:
+        radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%),
+            rgba(108, 92, 231, 0.12), transparent 65%);
+}
+
+.spotlight::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background:
+        radial-gradient(200px circle at var(--mx, 50%) var(--my, 50%),
+            rgba(162, 155, 254, 0.5), transparent 70%);
+    padding: 1px;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+.spotlight:hover::after,
+.spotlight:hover::before {
+    opacity: 1;
+}
+
+/* The portfolio card's gradient top bar uses ::before — move the
+   spotlight border under a different guard there to avoid clobbering */
+.portfolio__card.spotlight::before {
+    inset: 0;
+    padding: 0;
+    height: 3px;
+    background: var(--accent-gradient);
+    -webkit-mask: none;
+    mask: none;
+    border-radius: 0;
+    transition: opacity 0.3s;
+}
+
+/* ==========================================
+   BUTTON RIPPLE & PACKET BURST
+   ========================================== */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.burst-particle {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 9000;
+}
+
+/* ==========================================
+   FORM MICRO-INTERACTIONS
+   ========================================== */
+.form__group:focus-within .form__label {
+    color: var(--accent-secondary);
+}
+
+.form__label {
+    transition: color var(--transition-fast);
+}
+
+/* ==========================================
+   LENIS SMOOTH SCROLL
+   ========================================== */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* ==========================================
    RESPONSIVE — TABLET (≤1024px)
    ========================================== */
 @media (max-width: 1024px) {
@@ -1576,6 +1963,10 @@ lottie-player {
     }
 
     .experience__marker {
+        display: none;
+    }
+
+    .experience__progress {
         display: none;
     }
 
@@ -1867,22 +2258,40 @@ lottie-player {
 
 /* ==========================================
    REDUCED MOTION
-   ========================================== */
+   ==========================================
+   JS also checks this preference and skips every GSAP tween, canvas
+   loop, Lenis, and the preloader. These rules cover the CSS side. */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
     html {
         scroll-behavior: auto;
     }
 
-    .animate-in {
-        opacity: 1;
-        transform: none;
+    html.js .animate-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .preloader,
+    .scroll-progress,
+    .cursor-dot,
+    .cursor-ring,
+    .cursor-glow,
+    .hero__gl,
+    .experience__progress {
+        display: none !important;
+    }
+
+    .hero__orb,
+    .hero__scroll-line,
+    .hero__badge-dot,
+    .contact__availability-dot,
+    .spinner {
+        animation: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
     }
 }
