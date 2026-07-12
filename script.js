@@ -390,16 +390,8 @@ function registerServiceWorker() {
         // Start with all visible on desktop
         if (window.innerWidth >= 768) return;
 
-        // On mobile, collapse by default except first
-        const isFirst = card.closest('.experience__item') === 
-                       document.querySelector('.experience__item');
-
-        if (!isFirst) {
-            details.style.maxHeight = '0';
-            details.style.overflow = 'hidden';
-            details.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            card.classList.add('collapsed');
-        }
+        // On mobile, all experiences start expanded; header click toggles collapse
+        details.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
 
         header.style.cursor = 'pointer';
         header.addEventListener('click', () => {
