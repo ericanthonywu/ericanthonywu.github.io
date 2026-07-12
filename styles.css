@@ -291,6 +291,21 @@ lottie-player {
     background: var(--bg-glass);
 }
 
+.nav__link--active:not(.nav__link--cta) {
+    color: var(--text-primary);
+}
+
+.nav__link--active:not(.nav__link--cta)::after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--accent-primary);
+}
+
 .nav__link--cta {
     background: var(--accent-primary);
     color: white !important;
@@ -353,13 +368,19 @@ lottie-player {
 
 .hero__bg {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     overflow: hidden;
 }
 
 .hero__grid {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -1412,6 +1433,7 @@ lottie-player {
         top: 0;
         right: -100%;
         width: 280px;
+        height: 100vh;
         height: 100dvh;
         background: rgba(10, 10, 15, 0.98);
         backdrop-filter: blur(20px);
@@ -1436,6 +1458,17 @@ lottie-player {
         border-radius: var(--radius-sm);
     }
 
+    .nav__link--active:not(.nav__link--cta) {
+        background: var(--bg-glass);
+    }
+
+    .nav__link--active:not(.nav__link--cta)::after {
+        left: 20px;
+        right: auto;
+        width: 28px;
+        bottom: 8px;
+    }
+
     .nav__link--cta {
         margin-left: 0;
         margin-top: 16px;
@@ -1450,6 +1483,7 @@ lottie-player {
 
     /* Hero Mobile */
     .hero {
+        min-height: 100vh;
         min-height: 100dvh;
         padding-top: 72px;
         /* Scroll cue is hidden below this breakpoint, so no reserve needed. */

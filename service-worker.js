@@ -1,9 +1,9 @@
-const CACHE_NAME = 'eric-anthony-v4';
+const CACHE_NAME = 'eric-anthony-v5';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
     '/styles.css',
-    '/script.js',
+    '/script.min.js',
     '/manifest.json',
     '/icons/icon-192x192.svg',
     '/icons/icon-512x512.svg',

@@ -42,5 +42,5 @@
   <!-- Available badge -->
   <rect x="80" y="540" width="280" height="40" rx="20" fill="rgba(0,184,148,0.1)" stroke="rgba(0,184,148,0.2)" stroke-width="1"/>
   <circle cx="105" cy="560" r="5" fill="#00b894"/>
-  <text x="120" y="566" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#00b894">Available for new opportunities</text>
+  <text x="120" y="566" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#00b894">Based in Jakarta, Indonesia</text>
 </svg>
