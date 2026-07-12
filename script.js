@@ -1160,22 +1160,28 @@
 
         const packetY = gsap.quickSetter(packet, 'y', 'px');
 
+        function apply(self) {
+            const y = travel * self.progress;
+            line.style.transform = `scaleY(${self.progress})`;
+            packetY(y);
+            packet.style.opacity = self.progress > 0.005 && self.progress < 0.995 ? 1 : 0;
+            dots.forEach((dot, i) => dot.classList.toggle('experience__dot--lit', dotOffsets[i] <= y + 2));
+        }
+
         // End when the timeline's bottom reaches the viewport bottom: with
         // scroll-snap active the page can't rest any deeper into the section,
-        // so a later end point would snap away before the draw ever finished
+        // so a later end point would snap away before the draw ever finished.
+        // onRefresh also applies so mid-page loads render the drawn state.
         ScrollTrigger.create({
             trigger: timeline,
             start: 'top 65%',
             end: 'bottom bottom',
             scrub: 0.4,
-            onRefresh: measure,
-            onUpdate: (self) => {
-                const y = travel * self.progress;
-                line.style.transform = `scaleY(${self.progress})`;
-                packetY(y);
-                packet.style.opacity = self.progress > 0.005 && self.progress < 0.995 ? 1 : 0;
-                dots.forEach((dot, i) => dot.classList.toggle('experience__dot--lit', dotOffsets[i] <= y + 2));
-            }
+            onRefresh: (self) => {
+                measure();
+                apply(self);
+            },
+            onUpdate: apply
         });
     }
 
@@ -1357,6 +1363,8 @@
             onEnter: () => btn.classList.add('back-to-top--visible'),
             onLeaveBack: () => btn.classList.remove('back-to-top--visible')
         });
+        // mid-page loads land past the trigger without firing onEnter
+        if (window.scrollY > 600) btn.classList.add('back-to-top--visible');
 
         btn.addEventListener('click', () => {
             markProgrammaticScroll();
@@ -1666,19 +1674,27 @@
             counters.forEach((el) => {
                 const target = counterTarget(el);
                 const cols = buildOdometer(el, target);
-                ScrollTrigger.create({
-                    trigger: el,
-                    start: 'top 90%',
-                    once: true,
-                    onEnter: () => cols.forEach((col, i) => {
+                let played = false;
+                const play = () => {
+                    if (played) return;
+                    played = true;
+                    cols.forEach((col, i) => {
                         gsap.to(col.el, {
                             y: `${-col.steps}em`,
                             duration: 1.7,
                             delay: i * 0.12,
                             ease: 'power4.inOut'
                         });
-                    })
+                    });
+                };
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: 'top 90%',
+                    once: true,
+                    onEnter: play
                 });
+                // mid-page loads: trigger start may already be passed
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.9) play();
             });
             return;
         }
