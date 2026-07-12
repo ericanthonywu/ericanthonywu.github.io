@@ -58,7 +58,10 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    /* No CSS smooth scrolling: it turns load-time #hash/scroll-restoration
+       jumps into slow glides that ScrollTrigger's on-load refresh interrupts
+       mid-flight (page strands near the top). Anchor links and back-to-top
+       pass behavior:'smooth' explicitly in JS instead. */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* Sections lock into place as part of the scroll gesture itself.
