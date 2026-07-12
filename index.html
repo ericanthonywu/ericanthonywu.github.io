@@ -78,6 +78,11 @@
         (function () {
             var d = document.documentElement;
             d.classList.add('js');
+            // Refresh always restarts at the top: browser scroll restoration
+            // races the reveal/ScrollTrigger setup and leaves mid-page content
+            // blank. Deep links (#section) still navigate normally.
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+            if (!location.hash) window.scrollTo(0, 0);
             // Safety net: if the main bundle never boots (network/CDN failure),
             // drop the .js gate so all content becomes visible again.
             setTimeout(function () {
