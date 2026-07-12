@@ -103,8 +103,23 @@ The contact form uses **Web3Forms** (free tier). To activate:
 ## Key Features
 - **Preloader** — `<EA />` + progress bar, once per session, curtain-wipe into hero intro
 - **Hero intro timeline** — SplitText char-cascade title (per-char gradient preserved via `preserveNameGradient`), staggered badge/desc/buttons/stats
-- **WebGL aurora + node mesh** — cursor-reactive hero background; click/tap fires packets between nodes
+- **WebGL aurora + node mesh** — cursor-reactive hero background; click/tap fires packets between nodes plus an expanding "broadcast" wave that ignites nodes; ambient wave every ~8s
 - **Custom cursor** — dot + lagging ring, morphs over interactive elements (fine pointer only)
+- **Cursor constellation trail** — site-wide canvas (`initCursorTrail`, screen-blended, z 1300); cursor movement leaves linked fading nodes
+- **Hero title ripple** — post-intro, hovering the h1 lifts characters in a gaussian wave (`enableTitleRipple`; char masks released after intro)
+- **Rolling-text hover** — hero buttons roll letters up on hover (`initRollingLinks` builds duplicate spans, aria-labels preserve a11y). Nav links excluded at Eric's request
+- **Company scramble** — experience company links scramble-restore on hover
+- **Energy border** — featured portfolio cards get a rotating conic-gradient ring on hover (CSS `@property --ea-angle`)
+- **Section title parallax** — titles drift ±28px against scroll for depth (velocity-skew was tried and removed — Eric dislikes scroll-feel modifiers, same reason Lenis went)
+- **Odometer stats** — hero counters are rolling digit columns (`buildOdometer`), aria-labels carry the real values
+- **Hero title proximity glow** — the char ripple also casts a cursor-following text-shadow glow
+- **Hero Lottie tilt** — the terminal leans toward the cursor (desktop)
+- **Gyroscope parallax** — hero background shifts with device tilt on Android (iOS skipped: permission prompt not worth it)
+- **Smart nav** — header hides scrolling down past 400px, returns scrolling up; never hides with the drawer open
+- **Timeline dot ignite** — hovering an experience card lights its timeline dot (CSS only)
+- **Back-to-top** — injected node-styled button, appears after 600px
+- **Konami code** — ↑↑↓↓←→←→BA triggers a 4s mesh "system overload" (packet storm + waves + burst)
+- **Footer reveal** — via the catch-all batch; its start threshold must stay near 'top 98%' or bottom-hugging elements never trigger
 - **Magnetic elements** — buttons, nav links, contact rows attract toward cursor
 - **Tilt + spotlight cards** — portfolio/about/education/skills cards tilt in 3D with pointer-tracked glow
 - **Scroll choreography** — ScrollTrigger reveals per section: scramble-in labels, masked title lines, skills tag pops, education flip-ups, About paragraphs scrub word-by-word

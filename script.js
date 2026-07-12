@@ -80,7 +80,10 @@
         safeInit('rollingLinks', initRollingLinks);
         safeInit('companyScramble', initCompanyScramble);
         safeInit('energyBorders', initEnergyBorders);
-        safeInit('velocitySkew', initVelocitySkew);
+        safeInit('gyro', initGyroParallax);
+        safeInit('backToTop', initBackToTop);
+        safeInit('overloadEgg', initOverloadEasterEgg);
+        safeInit('sectionSnap', initSectionSnap);
 
         // Text splitting waits for webfonts (capped) so line/char metrics are final
         const fontsReady = Promise.race([
@@ -257,11 +260,19 @@
         titleLine.addEventListener('pointermove', (e) => {
             for (let i = 0; i < chars.length; i++) {
                 const d = e.clientX - centers[i];
-                lifts[i](-16 * Math.exp(-(d * d) / 9800)); // gaussian falloff, σ ≈ 70px
+                const f = Math.exp(-(d * d) / 9800); // gaussian falloff, σ ≈ 70px
+                lifts[i](-16 * f);
+                // proximity glow shows through the transparent clipped glyphs
+                chars[i].style.textShadow = f > 0.05
+                    ? `0 ${(4 * f).toFixed(1)}px ${(6 + f * 16).toFixed(1)}px rgba(162, 155, 254, ${(f * 0.6).toFixed(3)})`
+                    : '';
             }
         });
         titleLine.addEventListener('pointerleave', () => {
-            for (let i = 0; i < chars.length; i++) lifts[i](0);
+            for (let i = 0; i < chars.length; i++) {
+                lifts[i](0);
+                chars[i].style.textShadow = '';
+            }
         });
     }
 
@@ -511,7 +522,7 @@
         }
 
         function spawnPacket(a, b) {
-            if (packets.length >= 8) return;
+            if (packets.length >= (performance.now() < overloadUntil ? 40 : 8)) return;
             packets.push({ a, b, t: 0, speed: 0.014 + Math.random() * 0.012 });
         }
 
@@ -655,15 +666,27 @@
         let rafId = null;
         let lastAmbient = 0;
         let lastWave = 0;
+        let overloadUntil = 0;
+
+        // Konami code → 4s "system overload": packet storm + broadcast waves
+        window.addEventListener('ea:overload', () => {
+            overloadUntil = performance.now() + 4000;
+            nodes.forEach((n) => { n.glow = 1; });
+            for (let i = 0; i < 3; i++) {
+                spawnWave(Math.random() * width, Math.random() * height);
+            }
+            wake();
+        });
 
         function loop(now) {
             rafId = null;
             if (!visible || document.hidden) return;
-            if (now - lastAmbient > 650) {
+            const overloaded = now < overloadUntil;
+            if (now - lastAmbient > (overloaded ? 70 : 650)) {
                 lastAmbient = now;
                 spawnAmbientPacket();
             }
-            if (now - lastWave > 8000) {
+            if (now - lastWave > (overloaded ? 800 : 8000)) {
                 lastWave = now;
                 const n = nodes[(Math.random() * nodes.length) | 0];
                 if (n) spawnWave(n.x, n.y);
@@ -711,6 +734,18 @@
                 window.addEventListener('pointermove', (e) => {
                     xTo(((e.clientX / window.innerWidth) - 0.5) * 26);
                     yTo(((e.clientY / window.innerHeight) - 0.5) * 18);
+                }, { passive: true });
+            }
+
+            // The terminal Lottie leans gently toward the cursor
+            const lottie = document.querySelector('.hero__lottie');
+            if (lottie) {
+                gsap.set(lottie, { transformPerspective: 600 });
+                const rxTo = gsap.quickTo(lottie, 'rotationX', { duration: 0.9, ease: 'power2.out' });
+                const ryTo = gsap.quickTo(lottie, 'rotationY', { duration: 0.9, ease: 'power2.out' });
+                window.addEventListener('pointermove', (e) => {
+                    ryTo(((e.clientX / window.innerWidth) - 0.5) * 12);
+                    rxTo(-((e.clientY / window.innerHeight) - 0.5) * 9);
                 }, { passive: true });
             }
         }
@@ -904,7 +939,8 @@
 
         cards.forEach((card) => {
             const MAX_TILT = card.classList.contains('portfolio__card') ? 5 : 7;
-            gsap.set(card, { transformPerspective: 800 });
+            // preserve-3d lets children with translateZ pop out while tilting
+            gsap.set(card, { transformPerspective: 800, transformStyle: 'preserve-3d' });
             const rxTo = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power2.out' });
             const ryTo = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power2.out' });
 
@@ -1175,13 +1211,16 @@
         }
     }
 
-    /* Any .animate-in not claimed by a specialized reveal gets a default one */
+    /* Any .animate-in not claimed by a specialized reveal gets a default one.
+       Start threshold is nearly the viewport bottom: elements hugging the end
+       of the page (like the footer) can never cross a higher line even at
+       max scroll, and would otherwise stay invisible forever */
     function initCatchAllReveal() {
         const rest = [...document.querySelectorAll('.animate-in')].filter((el) => !el.dataset.revealed);
         if (!rest.length) return;
         gsap.set(rest, { y: 36 });
         ScrollTrigger.batch(rest, {
-            start: 'top 88%',
+            start: 'top 98%',
             once: true,
             onEnter: (batch) => gsap.to(batch, {
                 autoAlpha: 1,
@@ -1194,11 +1233,11 @@
     }
 
     /* ==========================================
-       ROLLING TEXT HOVER (nav links, hero buttons)
+       ROLLING TEXT HOVER (hero buttons)
+       Nav links deliberately excluded — Eric found the roll distracting there
        ========================================== */
     function initRollingLinks() {
         const targets = [
-            ...document.querySelectorAll('.nav__link'),
             ...document.querySelectorAll('.hero__actions .btn > span:first-child')
         ];
 
@@ -1254,35 +1293,133 @@
     }
 
     /* ==========================================
-       SCROLL-VELOCITY SKEW
+       GYROSCOPE PARALLAX (touch devices)
        ========================================== */
-    function initVelocitySkew() {
-        if (!FINE_POINTER) return;
-        // Skew section content (not the sections themselves, so full-bleed
-        // backgrounds stay rectangular) with scroll velocity, then settle
-        const targets = gsap.utils.toArray('.section > .container');
-        if (!targets.length) return;
+    function initGyroParallax() {
+        if (FINE_POINTER) return;
+        if (typeof DeviceOrientationEvent === 'undefined') return;
+        // iOS requires a permission prompt mid-gesture — not worth interrupting
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') return;
 
-        gsap.set(targets, { transformOrigin: 'center center', force3D: true });
-        const setSkew = gsap.quickSetter(targets, 'skewY', 'deg');
-        const clamp = gsap.utils.clamp(-1.6, 1.6);
-        const proxy = { skew: 0 };
+        const bg = document.getElementById('heroBg');
+        if (!bg) return;
+        const xTo = gsap.quickTo(bg, 'x', { duration: 0.9, ease: 'power2.out' });
+        const yTo = gsap.quickTo(bg, 'y', { duration: 0.9, ease: 'power2.out' });
+
+        window.addEventListener('deviceorientation', (e) => {
+            if (e.gamma == null || e.beta == null) return;
+            xTo(gsap.utils.clamp(-22, 22, e.gamma * 0.8));
+            yTo(gsap.utils.clamp(-16, 16, (e.beta - 40) * 0.5)); // ~40° natural holding angle
+        }, { passive: true });
+    }
+
+    /* ==========================================
+       BACK TO TOP
+       ========================================== */
+    function initBackToTop() {
+        const btn = document.createElement('button');
+        btn.className = 'back-to-top';
+        btn.setAttribute('aria-label', 'Back to top');
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"'
+            + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+            + '<line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>';
+        document.body.appendChild(btn);
 
         ScrollTrigger.create({
-            onUpdate: (self) => {
-                const skew = clamp(self.getVelocity() / -450);
-                if (Math.abs(skew) > Math.abs(proxy.skew)) {
-                    proxy.skew = skew;
-                    gsap.to(proxy, {
-                        skew: 0,
-                        duration: 0.7,
-                        ease: 'power3.out',
-                        overwrite: true,
-                        onUpdate: () => setSkew(proxy.skew)
-                    });
-                }
-            }
+            start: 600,
+            end: 'max',
+            onEnter: () => btn.classList.add('back-to-top--visible'),
+            onLeaveBack: () => btn.classList.remove('back-to-top--visible')
         });
+
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' });
+        });
+    }
+
+    /* ==========================================
+       KONAMI EASTER EGG (fires 'ea:overload')
+       ========================================== */
+    function initOverloadEasterEgg() {
+        const seq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let idx = 0;
+
+        window.addEventListener('keydown', (e) => {
+            idx = e.key === seq[idx] ? idx + 1 : (e.key === seq[0] ? 1 : 0);
+            if (idx !== seq.length) return;
+            idx = 0;
+            window.dispatchEvent(new CustomEvent('ea:overload'));
+            burstAt(window.innerWidth / 2, window.innerHeight * 0.35);
+        });
+    }
+
+    /* ==========================================
+       SECTION AUTO-SNAP
+       When scrolling down settles with a new section showing at least
+       SNAP_RATIO of the viewport, glide it into alignment. Debounced so it
+       never fights active wheel/touch momentum; upward scrolling stays free
+       (snapping up would jump past tall sections).
+       ========================================== */
+    function initSectionSnap() {
+        const SNAP_RATIO = 0.2;    // section must occupy ≥20% of the viewport
+        const SETTLE_MS = 140;     // quiet time before we consider snapping
+        const ALIGN_TOLERANCE = 8;
+
+        const sections = [...document.querySelectorAll('section[id]')];
+        const nav = document.getElementById('nav');
+        if (!sections.length) return;
+
+        let settleTimer = null;
+        let lastY = window.scrollY;
+        let goingDown = false;
+        let snapping = false;
+        let suppressUntil = 0;
+
+        // Real user input cancels the browser's smooth glide — drop our flag
+        // too, but briefly suppress re-snapping so we don't wrestle the user
+        ['wheel', 'touchstart'].forEach((evt) => {
+            window.addEventListener(evt, () => {
+                if (snapping) {
+                    snapping = false;
+                    suppressUntil = performance.now() + 1200;
+                }
+            }, { passive: true });
+        });
+
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            goingDown = y > lastY;
+            lastY = y;
+            if (snapping) return;
+            clearTimeout(settleTimer);
+            settleTimer = setTimeout(trySnap, SETTLE_MS);
+        }, { passive: true });
+
+        function trySnap() {
+            if (snapping || !goingDown) return;
+            if (performance.now() < suppressUntil) return;
+
+            const vh = window.innerHeight;
+            const navH = nav ? nav.offsetHeight : 0;
+            const atBottom = vh + window.scrollY >= document.documentElement.scrollHeight - 4;
+            if (atBottom) return;
+
+            for (const section of sections) {
+                const rect = section.getBoundingClientRect();
+                // top must be inside the viewport (i.e. a freshly appearing
+                // section, not one we're already scrolled into) …
+                if (rect.top <= navH + ALIGN_TOLERANCE || rect.top >= vh) continue;
+                // … showing at least SNAP_RATIO of the viewport
+                if ((Math.min(vh, rect.bottom) - rect.top) / vh < SNAP_RATIO) continue;
+
+                snapping = true;
+                suppressUntil = performance.now() + 1200;
+                window.scrollTo({ top: rect.top + window.scrollY - navH, behavior: 'smooth' });
+                setTimeout(() => { snapping = false; }, 900);
+                return;
+            }
+        }
     }
 
     /* ==========================================
@@ -1352,8 +1489,29 @@
         const toggle = document.getElementById('navToggle');
         const links = document.getElementById('navLinks');
 
+        // Nav tucks away scrolling down, returns scrolling up
+        let navHidden = false;
+        let lastY = window.scrollY;
+
         window.addEventListener('scroll', () => {
-            nav.classList.toggle('nav--scrolled', window.scrollY > 50);
+            const y = window.scrollY;
+            nav.classList.toggle('nav--scrolled', y > 50);
+
+            if (HAS_GSAP && !REDUCED) {
+                const drawerOpen = links && links.classList.contains('active');
+                const shouldHide = y > lastY && y > 400 && !drawerOpen;
+                if (shouldHide !== navHidden) {
+                    navHidden = shouldHide;
+                    gsap.to(nav, {
+                        yPercent: navHidden ? -100 : 0,
+                        duration: 0.35,
+                        ease: 'power2.out',
+                        overwrite: 'auto'
+                    });
+                }
+            }
+            lastY = y;
+
             updateActiveLink();
         }, { passive: true });
 
@@ -1452,12 +1610,22 @@
         const counters = document.querySelectorAll('[data-count], [data-start-year]');
 
         if (gsapRef) {
+            // Odometer treatment: each digit is a rolling column of 0-9
             counters.forEach((el) => {
+                const target = counterTarget(el);
+                const cols = buildOdometer(el, target);
                 ScrollTrigger.create({
                     trigger: el,
                     start: 'top 90%',
                     once: true,
-                    onEnter: () => animateCounter(el, 0, counterTarget(el), 1500)
+                    onEnter: () => cols.forEach((col, i) => {
+                        gsap.to(col.el, {
+                            y: `${-col.steps}em`,
+                            duration: 1.7,
+                            delay: i * 0.12,
+                            ease: 'power4.inOut'
+                        });
+                    })
                 });
             });
             return;
@@ -1472,6 +1640,35 @@
             });
         }, { threshold: 0.5 });
         counters.forEach((el) => observer.observe(el));
+    }
+
+    /* Builds rolling digit columns inside a stat number; returns the columns */
+    function buildOdometer(el, target) {
+        const digits = String(target).split('');
+        el.setAttribute('aria-label', String(target));
+        el.textContent = '';
+
+        return digits.map((digit) => {
+            const slot = document.createElement('span');
+            slot.className = 'odometer__slot';
+            slot.setAttribute('aria-hidden', 'true');
+            const col = document.createElement('span');
+            col.className = 'odometer__col';
+
+            // one full 0-9 spin, then land on the target digit
+            const seq = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            for (let i = 0; i <= +digit; i++) seq.push(i);
+            seq.forEach((n) => {
+                const d = document.createElement('span');
+                d.className = 'odometer__digit';
+                d.textContent = n;
+                col.appendChild(d);
+            });
+
+            slot.appendChild(col);
+            el.appendChild(slot);
+            return { el: col, steps: seq.length - 1 };
+        });
     }
 
     function animateCounter(element, start, end, duration) {
@@ -1628,10 +1825,12 @@
 
     /* Success celebration: packets scatter from the button, on theme */
     function packetBurst(fromEl) {
-        if (!HAS_GSAP || REDUCED) return;
         const rect = fromEl.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
+        burstAt(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    }
+
+    function burstAt(cx, cy) {
+        if (!HAS_GSAP || REDUCED) return;
         const colors = [ACCENT_PRIMARY, ACCENT_SECONDARY, ACCENT_BLUE, '#f0f0f5'];
 
         for (let i = 0; i < 18; i++) {

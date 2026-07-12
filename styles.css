@@ -1744,7 +1744,6 @@ html.js .hero__orb {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .nav__link:hover .roll__line,
     .btn:hover .roll__line {
         transform: translateY(-100%);
     }
@@ -1808,6 +1807,89 @@ html.js .hero__orb {
     0%, 100% { transform: rotate(0); }
     25% { transform: rotate(-10deg); }
     60% { transform: rotate(8deg); }
+}
+
+/* Depth pop inside tilting cards (parents get preserve-3d from JS) */
+@media (hover: hover) and (pointer: fine) {
+    html.js .about__highlight-icon {
+        transform: translateZ(26px);
+    }
+
+    html.js .education__card h3,
+    html.js .skills__category-title {
+        transform: translateZ(18px);
+    }
+}
+
+/* ==========================================
+   ODOMETER STAT DIGITS
+   ========================================== */
+.odometer__slot {
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.odometer__col {
+    display: block;
+    will-change: transform;
+}
+
+.odometer__digit {
+    display: block;
+    height: 1em;
+    line-height: 1;
+}
+
+/* ==========================================
+   BACK TO TOP
+   ========================================== */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(108, 92, 231, 0.35);
+    background: rgba(17, 17, 24, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--accent-secondary);
+    cursor: pointer;
+    z-index: 1200;
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease,
+                border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-to-top--visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* ==========================================
+   EXPERIENCE DOT IGNITES ON CARD HOVER
+   ========================================== */
+@media (hover: hover) and (pointer: fine) {
+    .experience__item:hover .experience__dot {
+        border-color: var(--accent-primary);
+        background: var(--accent-primary);
+        box-shadow: 0 0 14px var(--accent-glow);
+        transform: scale(1.3);
+    }
 }
 
 /* ==========================================
