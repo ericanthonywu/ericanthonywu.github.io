@@ -28,6 +28,13 @@
     const ACCENT_SECONDARY = '#a29bfe';
     const ACCENT_BLUE = '#74b9ff';
 
+    /* Anchor/back-to-top scrolls set this so the snap assist never hijacks
+       them; it auto-clears shortly after scrolling goes quiet */
+    let programmaticScroll = false;
+    function markProgrammaticScroll() {
+        programmaticScroll = true;
+    }
+
     /* Run an init system in isolation so one failure never blanks the page */
     function safeInit(name, fn) {
         try {
@@ -83,6 +90,7 @@
         safeInit('gyro', initGyroParallax);
         safeInit('backToTop', initBackToTop);
         safeInit('overloadEgg', initOverloadEasterEgg);
+        safeInit('snapAssist', initSnapAssist);
 
         // Text splitting waits for webfonts (capped) so line/char metrics are final
         const fontsReady = Promise.race([
@@ -304,6 +312,7 @@
                 const target = document.querySelector(anchor.getAttribute('href'));
                 if (!target) return;
                 e.preventDefault();
+                markProgrammaticScroll();
                 target.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
             });
         });
@@ -1331,6 +1340,7 @@
         });
 
         btn.addEventListener('click', () => {
+            markProgrammaticScroll();
             window.scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' });
         });
     }
@@ -1350,6 +1360,85 @@
             window.dispatchEvent(new CustomEvent('ea:overload'));
             burstAt(window.innerWidth / 2, window.innerHeight * 0.35);
         });
+    }
+
+    /* ==========================================
+       SNAP ASSIST
+       CSS scroll-snap keeps sections aligned, but its tipping point is
+       browser-controlled (~half a viewport). This layer commits earlier:
+       the moment a new section shows SNAP_RATIO of the viewport mid-scroll,
+       glide it in. Works both directions; tall sections scroll freely inside.
+       ========================================== */
+    function initSnapAssist() {
+        const SNAP_RATIO = 0.12;   // new section visible ≥12% of viewport → commit
+        const NAV_OFFSET = 60;     // matches scroll-margin-top in styles.css
+
+        const sections = [...document.querySelectorAll('section[id]')];
+        if (!sections.length) return;
+
+        let bounds = [];
+        function measure() {
+            bounds = sections.map((s) => ({ top: s.offsetTop, bottom: s.offsetTop + s.offsetHeight }));
+        }
+        measure();
+        window.addEventListener('resize', measure);
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.addEventListener('refresh', measure);
+
+        let lastY = window.scrollY;
+        let gliding = false;
+        let cooldownUntil = 0;
+        let programmaticTimer = null;
+
+        function glide(target, y) {
+            target = Math.max(0, Math.round(target));
+            if (Math.abs(target - y) < 8) return;
+            gliding = true;
+            cooldownUntil = performance.now() + 1000;
+            window.scrollTo({ top: target, behavior: 'smooth' });
+            setTimeout(() => { gliding = false; }, 1000);
+        }
+
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            const dir = y > lastY ? 1 : y < lastY ? -1 : 0;
+            lastY = y;
+            if (!dir) return;
+
+            // never take over anchor / back-to-top scrolls
+            if (programmaticScroll) {
+                clearTimeout(programmaticTimer);
+                programmaticTimer = setTimeout(() => { programmaticScroll = false; }, 180);
+                return;
+            }
+            if (gliding || performance.now() < cooldownUntil) return;
+
+            const vh = window.innerHeight;
+            const threshold = vh * SNAP_RATIO;
+
+            if (dir > 0) {
+                // downward: a section top is rising from the bottom edge
+                for (const s of bounds) {
+                    if (y >= s.top - NAV_OFFSET - 4) continue;      // reached/passed
+                    const visible = y + vh - s.top;
+                    if (visible < threshold || visible >= vh) continue;
+                    const target = s.top - NAV_OFFSET;
+                    if (target > y) glide(target, y);
+                    return;
+                }
+            } else {
+                // upward: a section bottom is dropping from the top edge
+                for (let i = bounds.length - 1; i >= 0; i--) {
+                    const s = bounds[i];
+                    if (s.top >= y) continue;                        // starts below viewport top
+                    const peek = s.bottom - y - NAV_OFFSET;          // visible above, under the nav
+                    if (peek < threshold || peek >= vh) continue;
+                    // short section → align its top; tall → show its last viewportful
+                    const target = Math.max(s.top - NAV_OFFSET, s.bottom - vh);
+                    if (target < y) glide(target, y);
+                    return;
+                }
+            }
+        }, { passive: true });
     }
 
     /* ==========================================
