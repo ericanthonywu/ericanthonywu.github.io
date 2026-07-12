@@ -120,6 +120,7 @@ The contact form uses **Web3Forms** (free tier). To activate:
 - **Back-to-top** — injected node-styled button, appears after 600px
 - **Konami code** — ↑↑↓↓←→←→BA triggers a 4s mesh "system overload" (packet storm + waves + burst)
 - **Footer reveal** — via the catch-all batch; its start threshold must stay near 'top 98%' or bottom-hugging elements never trigger
+- **Section snap** — native CSS `scroll-snap-type: y mandatory` on `html` with `scroll-snap-align: start; scroll-margin-top: 60px` per `section[id]` and `scroll-snap-align: end` on `.footer` (without it the footer is unreachable). Bidirectional, gesture-integrated, works mid-scroll. Explicitly requested by Eric ("less scrolling to move between sections") after a JS debounced version felt wrong — a JS re-implementation was written and then replaced by this; don't bring the JS one back. Anchor links use `scrollIntoView` so they land on the same snap geometry. Tall sections still scroll freely inside (per spec). If mandatory ever feels too aggressive, the one-word fallback is `proximity`
 - **Magnetic elements** — buttons, nav links, contact rows attract toward cursor
 - **Tilt + spotlight cards** — portfolio/about/education/skills cards tilt in 3D with pointer-tracked glow
 - **Scroll choreography** — ScrollTrigger reveals per section: scramble-in labels, masked title lines, skills tag pops, education flip-ups, About paragraphs scrub word-by-word

@@ -83,7 +83,6 @@
         safeInit('gyro', initGyroParallax);
         safeInit('backToTop', initBackToTop);
         safeInit('overloadEgg', initOverloadEasterEgg);
-        safeInit('sectionSnap', initSectionSnap);
 
         // Text splitting waits for webfonts (capped) so line/char metrics are final
         const fontsReady = Promise.race([
@@ -296,17 +295,16 @@
 
     /* ==========================================
        SMOOTH ANCHOR SCROLLING (native)
+       scrollIntoView honors each section's scroll-margin-top, so anchor
+       jumps land exactly on the CSS scroll-snap positions
        ========================================== */
     function initSmoothAnchors() {
-        const nav = document.querySelector('.nav');
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
             anchor.addEventListener('click', (e) => {
                 const target = document.querySelector(anchor.getAttribute('href'));
                 if (!target) return;
                 e.preventDefault();
-                const offset = -(nav ? nav.offsetHeight : 0);
-                const top = target.getBoundingClientRect().top + window.scrollY + offset;
-                window.scrollTo({ top, behavior: REDUCED ? 'auto' : 'smooth' });
+                target.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
             });
         });
     }
@@ -1352,74 +1350,6 @@
             window.dispatchEvent(new CustomEvent('ea:overload'));
             burstAt(window.innerWidth / 2, window.innerHeight * 0.35);
         });
-    }
-
-    /* ==========================================
-       SECTION AUTO-SNAP
-       When scrolling down settles with a new section showing at least
-       SNAP_RATIO of the viewport, glide it into alignment. Debounced so it
-       never fights active wheel/touch momentum; upward scrolling stays free
-       (snapping up would jump past tall sections).
-       ========================================== */
-    function initSectionSnap() {
-        const SNAP_RATIO = 0.2;    // section must occupy ≥20% of the viewport
-        const SETTLE_MS = 140;     // quiet time before we consider snapping
-        const ALIGN_TOLERANCE = 8;
-
-        const sections = [...document.querySelectorAll('section[id]')];
-        const nav = document.getElementById('nav');
-        if (!sections.length) return;
-
-        let settleTimer = null;
-        let lastY = window.scrollY;
-        let goingDown = false;
-        let snapping = false;
-        let suppressUntil = 0;
-
-        // Real user input cancels the browser's smooth glide — drop our flag
-        // too, but briefly suppress re-snapping so we don't wrestle the user
-        ['wheel', 'touchstart'].forEach((evt) => {
-            window.addEventListener(evt, () => {
-                if (snapping) {
-                    snapping = false;
-                    suppressUntil = performance.now() + 1200;
-                }
-            }, { passive: true });
-        });
-
-        window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            goingDown = y > lastY;
-            lastY = y;
-            if (snapping) return;
-            clearTimeout(settleTimer);
-            settleTimer = setTimeout(trySnap, SETTLE_MS);
-        }, { passive: true });
-
-        function trySnap() {
-            if (snapping || !goingDown) return;
-            if (performance.now() < suppressUntil) return;
-
-            const vh = window.innerHeight;
-            const navH = nav ? nav.offsetHeight : 0;
-            const atBottom = vh + window.scrollY >= document.documentElement.scrollHeight - 4;
-            if (atBottom) return;
-
-            for (const section of sections) {
-                const rect = section.getBoundingClientRect();
-                // top must be inside the viewport (i.e. a freshly appearing
-                // section, not one we're already scrolled into) …
-                if (rect.top <= navH + ALIGN_TOLERANCE || rect.top >= vh) continue;
-                // … showing at least SNAP_RATIO of the viewport
-                if ((Math.min(vh, rect.bottom) - rect.top) / vh < SNAP_RATIO) continue;
-
-                snapping = true;
-                suppressUntil = performance.now() + 1200;
-                window.scrollTo({ top: rect.top + window.scrollY - navH, behavior: 'smooth' });
-                setTimeout(() => { snapping = false; }, 900);
-                return;
-            }
-        }
     }
 
     /* ==========================================
