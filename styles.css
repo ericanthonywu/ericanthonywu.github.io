@@ -64,20 +64,10 @@ html {
        pass behavior:'smooth' explicitly in JS instead. */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Sections lock into place as part of the scroll gesture itself.
-       Areas taller than the viewport still scroll freely inside. */
-    scroll-snap-type: y mandatory;
 }
 
 section[id] {
-    scroll-snap-align: start;
     scroll-margin-top: 60px; /* clear the fixed nav */
-}
-
-/* The footer sits after the last snap area — give it its own snap
-   position or it becomes unreachable under mandatory snapping */
-.footer {
-    scroll-snap-align: end;
 }
 
 body {
