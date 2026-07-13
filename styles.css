@@ -397,8 +397,18 @@ html.js .animate-in.visible {
     /* Fade the aurora/mesh/orb visuals out before the section edge so they
        dissolve into the next section's flat background instead of cutting
        off abruptly. */
-    mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom,
+        black 0%,
+        black 45%,
+        rgba(0, 0, 0, 0.55) 62%,
+        rgba(0, 0, 0, 0.18) 80%,
+        transparent 92%);
+    -webkit-mask-image: linear-gradient(to bottom,
+        black 0%,
+        black 45%,
+        rgba(0, 0, 0, 0.55) 62%,
+        rgba(0, 0, 0, 0.18) 80%,
+        transparent 92%);
 }
 
 .hero__grid {
