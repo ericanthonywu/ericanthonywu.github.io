@@ -6,6 +6,8 @@
     --bg-primary: #0a0a0f;
     --bg-secondary: #111118;
     --bg-tertiary: #1a1a24;
+    --bg-mid: #0e0e14;
+    --section-blend: 120px;
     --bg-card: rgba(255, 255, 255, 0.03);
     --bg-card-hover: rgba(255, 255, 255, 0.06);
     --bg-glass: rgba(255, 255, 255, 0.05);
@@ -660,6 +662,13 @@ html.js .animate-in.visible {
 /* ==========================================
    ABOUT
    ========================================== */
+.about {
+    background: linear-gradient(to bottom,
+        var(--bg-primary) 0%,
+        var(--bg-primary) calc(100% - var(--section-blend)),
+        var(--bg-mid) 100%);
+}
+
 .about__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -738,7 +747,11 @@ html.js .animate-in.visible {
    SKILLS
    ========================================== */
 .skills {
-    background: var(--bg-secondary);
+    background: linear-gradient(to bottom,
+        var(--bg-mid) 0%,
+        var(--bg-secondary) var(--section-blend),
+        var(--bg-secondary) calc(100% - var(--section-blend)),
+        var(--bg-mid) 100%);
 }
 
 .skills__grid {
@@ -798,6 +811,14 @@ html.js .animate-in.visible {
 /* ==========================================
    EXPERIENCE
    ========================================== */
+.experience {
+    background: linear-gradient(to bottom,
+        var(--bg-mid) 0%,
+        var(--bg-primary) var(--section-blend),
+        var(--bg-primary) calc(100% - var(--section-blend)),
+        var(--bg-mid) 100%);
+}
+
 .experience__timeline {
     max-width: 900px;
     margin: 0 auto;
@@ -959,7 +980,11 @@ html.js .animate-in.visible {
    PORTFOLIO
    ========================================== */
 .portfolio {
-    background: var(--bg-secondary);
+    background: linear-gradient(to bottom,
+        var(--bg-mid) 0%,
+        var(--bg-secondary) var(--section-blend),
+        var(--bg-secondary) calc(100% - var(--section-blend)),
+        var(--bg-mid) 100%);
 }
 
 .portfolio__grid {
@@ -1080,6 +1105,14 @@ html.js .animate-in.visible {
 /* ==========================================
    EDUCATION
    ========================================== */
+.education {
+    background: linear-gradient(to bottom,
+        var(--bg-mid) 0%,
+        var(--bg-primary) var(--section-blend),
+        var(--bg-primary) calc(100% - var(--section-blend)),
+        var(--bg-mid) 100%);
+}
+
 .education__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1132,7 +1165,11 @@ html.js .animate-in.visible {
    CONTACT
    ========================================== */
 .contact {
-    background: var(--bg-secondary);
+    background: linear-gradient(to bottom,
+        var(--bg-mid) 0%,
+        var(--bg-secondary) var(--section-blend),
+        var(--bg-secondary) calc(100% - var(--section-blend)),
+        var(--bg-mid) 100%);
 }
 
 .contact__wrapper {
@@ -1321,6 +1358,7 @@ html.js .animate-in.visible {
 .footer {
     padding: 32px 0;
     border-top: 1px solid var(--border);
+    background: linear-gradient(to bottom, var(--bg-mid) 0%, var(--bg-primary) var(--section-blend));
 }
 
 .footer__content {
