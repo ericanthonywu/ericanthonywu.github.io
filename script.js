@@ -245,6 +245,7 @@
         }
 
         // Pre-set every start state so nothing flashes before its tween begins
+        gsap.set([heroEls.badge, heroEls.desc, heroEls.actions, heroEls.stats, heroEls.lottie], { autoAlpha: 0 });
         if (chars && chars.length) gsap.set(chars, { yPercent: 120 });
         gsap.set(subLine, { autoAlpha: 0, y: 28 });
         gsap.set('.hero__stat', { autoAlpha: 0, y: 14 });
@@ -1860,15 +1861,26 @@
        ========================================== */
     function registerServiceWorker() {
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then((registration) => {
-                        console.log('SW registered:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('SW registration failed:', error);
-                    });
-            });
+            // On localhost: unregister SW so local dev never encounters stale caching or ERR_EMPTY_RESPONSE
+            if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+                navigator.serviceWorker.getRegistrations().then((registrations) => {
+                    for (const reg of registrations) reg.unregister();
+                });
+                return;
+            }
+
+            // In HTTPS production environment: register PWA service worker
+            if (location.protocol === 'https:') {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js')
+                        .then((registration) => {
+                            console.log('SW registered:', registration.scope);
+                        })
+                        .catch((error) => {
+                            console.log('SW registration failed:', error);
+                        });
+                });
+            }
         }
     }
 })();

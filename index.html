@@ -83,6 +83,17 @@
             // blank. Deep links (#section) still navigate normally.
             if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
             if (!location.hash) window.scrollTo(0, 0);
+
+            // On localhost dev server: unregister any leftover Service Worker
+            // so local dev never hangs on stale SW interception or ERR_EMPTY_RESPONSE
+            if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(function (regs) {
+                        for (var i = 0; i < regs.length; i++) regs[i].unregister();
+                    });
+                }
+            }
+
             // Safety net: if the main bundle never boots (network/CDN failure),
             // drop the .js gate so all content becomes visible again.
             setTimeout(function () {
@@ -94,6 +105,9 @@
 </head>
 
 <body>
+
+    <!-- Skip link for keyboard/screen-reader users (UI/UX Pro Max: skip-links rule) -->
+    <a href="#about" class="skip-link">Skip to main content</a>
 
     <div class="preloader" id="preloader" aria-hidden="true">
         <div class="preloader__content">
@@ -189,7 +203,7 @@
             </div>
             </div>
             <div class="hero__lottie animate-in">
-                <lottie-player src="/animations/hero-coding.json"
+                <lottie-player src="animations/hero-coding.json"
                     background="transparent" speed="0.8" style="width: 260px; height: 260px; max-width: 100%;" loop
                     autoplay></lottie-player>
             </div>
@@ -303,16 +317,16 @@
                     <h2 class="section__title">Tech Stack &<br>Expertise</h2>
                 </div>
                 <div class="section__header-lottie">
-                    <lottie-player src="/animations/skills-network.json"
+                    <lottie-player src="animations/skills-network.json"
                         background="transparent" speed="0.6" style="width: 120px; height: 120px;" loop
                         autoplay></lottie-player>
                 </div>
             </div>
             <div class="skills__grid">
-                <div class="skills__category animate-in">
+                <div class="skills__category skills__category--languages animate-in">
                     <h3 class="skills__category-title">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="16 18 22 12 16 6" />
                             <polyline points="8 6 2 12 8 18" />
                         </svg>
@@ -325,7 +339,7 @@
                         <span class="skills__tag">Java</span>
                     </div>
                 </div>
-                <div class="skills__category animate-in">
+                <div class="skills__category skills__category--frameworks animate-in">
                     <h3 class="skills__category-title">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -335,7 +349,7 @@
                             <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                             <line x1="12" y1="22.08" x2="12" y2="12"></line>
                         </svg>
-                        Frameworks & Runtime
+                        Frameworks &amp; Runtime
                     </h3>
                     <div class="skills__tags">
                         <span class="skills__tag">Node.js</span>
@@ -347,7 +361,7 @@
                         <span class="skills__tag">React Native</span>
                     </div>
                 </div>
-                <div class="skills__category animate-in">
+                <div class="skills__category skills__category--databases animate-in">
                     <h3 class="skills__category-title">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -355,7 +369,7 @@
                             <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
                             <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
                         </svg>
-                        Databases & Message Brokers
+                        Databases &amp; Message Brokers
                     </h3>
                     <div class="skills__tags">
                         <span class="skills__tag">PostgreSQL</span>
@@ -365,13 +379,13 @@
                         <span class="skills__tag">Kafka / RabbitMQ</span>
                     </div>
                 </div>
-                <div class="skills__category animate-in">
+                <div class="skills__category skills__category--cloud animate-in">
                     <h3 class="skills__category-title">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                         </svg>
-                        Cloud & DevOps
+                        Cloud &amp; DevOps
                     </h3>
                     <div class="skills__tags">
                         <span class="skills__tag">AWS</span>
@@ -382,7 +396,7 @@
                         <span class="skills__tag">Observability</span>
                     </div>
                 </div>
-                <div class="skills__category animate-in">
+                <div class="skills__category skills__category--specializations animate-in">
                     <h3 class="skills__category-title">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -395,7 +409,7 @@
                         <span class="skills__tag">Event-Driven Architecture</span>
                         <span class="skills__tag">High Concurrency</span>
                         <span class="skills__tag">Clean Architecture</span>
-                        <span class="skills__tag">WebRTC & WebSockets</span>
+                        <span class="skills__tag">WebRTC &amp; WebSockets</span>
                     </div>
                 </div>
             </div>
@@ -411,7 +425,7 @@
                     <h2 class="section__title">Professional<br>Journey</h2>
                 </div>
                 <div class="section__header-lottie">
-                    <lottie-player src="/animations/experience-rocket.json"
+                    <lottie-player src="animations/experience-rocket.json"
                         background="transparent" speed="0.7" style="width: 110px; height: 110px;" loop
                         autoplay></lottie-player>
                 </div>
@@ -973,19 +987,38 @@
             </div>
             <div class="education__grid">
                 <div class="education__card animate-in">
-                    <div class="education__icon">🎓</div>
+                    <div class="education__icon" aria-hidden="true">
+                        <!-- Graduation cap icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
                     <h3>Universitas Tarumanagara</h3>
                     <p class="education__degree">Bachelor of Information Systems</p>
                     <span class="education__year">2020 — 2024</span>
                 </div>
                 <div class="education__card animate-in">
-                    <div class="education__icon">💻</div>
-                    <h3>Purwadhika Startup & Coding School</h3>
+                    <div class="education__icon" aria-hidden="true">
+                        <!-- Laptop / coding school icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Purwadhika Startup &amp; Coding School</h3>
                     <p class="education__degree">Graduate Certificate - Fullstack Web Development (MERN)</p>
                     <span class="education__year">Jun 2019 — Dec 2019</span>
                 </div>
                 <div class="education__card animate-in">
-                    <div class="education__icon">📚</div>
+                    <div class="education__icon" aria-hidden="true">
+                        <!-- Book / school icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
                     <h3>SMK Immanuel</h3>
                     <p class="education__degree">Vocational High School</p>
                     <span class="education__year">2016 — 2019</span>
@@ -1003,7 +1036,7 @@
                     <h2 class="section__title">Let's Build<br>Something Great</h2>
                 </div>
                 <div class="section__header-lottie contact__header-lottie">
-                    <lottie-player src="/animations/contact-envelope.json"
+                    <lottie-player src="animations/contact-envelope.json"
                         background="transparent" speed="0.6" style="width: 120px; height: 120px;" loop
                         autoplay></lottie-player>
                 </div>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eric-anthony-v8';
+const CACHE_NAME = 'eric-anthony-v12';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
@@ -9,7 +9,13 @@ const STATIC_ASSETS = [
     '/vendor/SplitText.min.js',
     '/vendor/ScrambleTextPlugin.min.js',
     '/manifest.json',
+    '/icons/icon-72x72.svg',
+    '/icons/icon-96x96.svg',
+    '/icons/icon-128x128.svg',
+    '/icons/icon-144x144.svg',
+    '/icons/icon-152x152.svg',
     '/icons/icon-192x192.svg',
+    '/icons/icon-384x384.svg',
     '/icons/icon-512x512.svg',
     '/animations/hero-coding.json',
     '/animations/skills-network.json',
@@ -17,17 +23,19 @@ const STATIC_ASSETS = [
     '/animations/contact-envelope.json'
 ];
 
-// Install — cache static assets
+// Install — pre-cache all static assets
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(STATIC_ASSETS);
+            return Promise.allSettled(
+                STATIC_ASSETS.map((asset) => cache.add(asset))
+            );
         })
     );
     self.skipWaiting();
 });
 
-// Activate — clean old caches
+// Activate — purge older caches immediately
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
@@ -41,44 +49,37 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-// Fetch — network-first with cache fallback
+// Fetch — Cache First, falling back to Network (never throws TypeError)
 self.addEventListener('fetch', (event) => {
-    // Skip non-GET requests and external URLs
     if (event.request.method !== 'GET') return;
 
     const url = new URL(event.request.url);
+    if (!url.protocol.startsWith('http')) return;
 
-    // For same-origin requests: network first, fallback to cache
-    if (url.origin === location.origin) {
-        event.respondWith(
-            fetch(event.request)
-                .then((response) => {
-                    // Clone and cache the response
-                    const responseClone = response.clone();
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseClone);
-                    });
-                    return response;
-                })
-                .catch(() => {
-                    return caches.match(event.request);
-                })
-        );
-    }
-    // For external resources (fonts, CDN): cache first
-    else {
-        event.respondWith(
-            caches.match(event.request).then((cached) => {
-                if (cached) return cached;
+    // Do not intercept on localhost / dev server
+    if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') return;
 
-                return fetch(event.request).then((response) => {
-                    const responseClone = response.clone();
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+
+            return fetch(event.request).then((networkResponse) => {
+                if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+                    const responseToCache = networkResponse.clone();
                     caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseClone);
+                        cache.put(event.request, responseToCache).catch(() => {});
                     });
-                    return response;
-                });
-            })
-        );
-    }
+                }
+                return networkResponse;
+            }).catch(async () => {
+                if (event.request.mode === 'navigate') {
+                    const indexCached = await caches.match('/index.html') || await caches.match('/');
+                    if (indexCached) return indexCached;
+                }
+                return new Response('Network error', { status: 503, statusText: 'Service Unavailable' });
+            });
+        })
+    );
 });

@@ -8,9 +8,10 @@
     --bg-tertiary: #1a1a24;
     --bg-mid: #0e0e14;
     --section-blend: 120px;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-hover: rgba(255, 255, 255, 0.06);
-    --bg-glass: rgba(255, 255, 255, 0.05);
+    /* Increased from 0.03 → 0.04 so glass layering is perceptible on OLED */
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --bg-card-hover: rgba(255, 255, 255, 0.07);
+    --bg-glass: rgba(255, 255, 255, 0.06);
 
     --text-primary: #f0f0f5;
     --text-secondary: #8888a0;
@@ -21,11 +22,22 @@
     --accent-gradient: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 50%, #74b9ff 100%);
     --accent-glow: rgba(108, 92, 231, 0.3);
 
+    /* Tiered glow tokens for consistent accent emission */
+    --accent-glow-subtle: rgba(108, 92, 231, 0.12);
+    --accent-glow-medium: rgba(108, 92, 231, 0.25);
+    --accent-glow-strong: rgba(108, 92, 231, 0.45);
+
+    /* Glass depth tokens (UI/UX Pro Max: Modern Dark Cinema spec) */
+    --glass-blur: 16px;
+    --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
+    --glass-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(108, 92, 231, 0.18);
+
     --success: #00b894;
     --error: #e17055;
 
     --border: rgba(255, 255, 255, 0.06);
-    --border-hover: rgba(255, 255, 255, 0.12);
+    --border-hover: rgba(108, 92, 231, 0.28);
 
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -46,6 +58,30 @@
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
+}
+
+/* ==========================================
+   SKIP LINK (keyboard accessibility)
+   ========================================== */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 10001;
+    padding: 12px 24px;
+    background: var(--accent-primary);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    text-decoration: none;
+    transition: top 0.2s ease;
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.skip-link:focus-visible {
+    top: 16px;
 }
 
 /* ==========================================
@@ -83,6 +119,18 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+/* Global focus-visible ring — WCAG 2.4.7, visible for keyboard users */
+:focus-visible {
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Form inputs have their own focus box-shadow — don't double-ring */
+.form__input:focus-visible {
+    outline: none;
 }
 
 ul, ol {
@@ -490,6 +538,31 @@ html.js .animate-in.visible {
     margin-bottom: 32px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--glass-highlight), 0 2px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle shimmer sweep on the badge */
+.hero__badge::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(162, 155, 254, 0.08) 40%,
+        rgba(162, 155, 254, 0.14) 50%,
+        rgba(162, 155, 254, 0.08) 60%,
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: badge-shimmer 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes badge-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
 }
 
 .hero__badge-dot {
@@ -570,6 +643,7 @@ html.js .animate-in.visible {
     color: var(--text-primary);
     letter-spacing: -0.02em;
     line-height: 1;
+    text-shadow: 0 0 24px rgba(108, 92, 231, 0.3);
 }
 
 .hero__stat-plus {
@@ -589,7 +663,13 @@ html.js .animate-in.visible {
 .hero__stat-divider {
     width: 1px;
     height: 48px;
-    background: var(--border);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 25%,
+        rgba(255, 255, 255, 0.1) 75%,
+        transparent 100%
+    );
 }
 
 .hero__scroll {
@@ -660,6 +740,12 @@ html.js .animate-in.visible {
     transform: translateY(-2px);
 }
 
+/* Press / active state — UI/UX Pro Max: `press-feedback` rule */
+.btn:active {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 0.1s;
+}
+
 .btn--large {
     padding: 16px 32px;
     font-size: 16px;
@@ -725,12 +811,16 @@ html.js .animate-in.visible {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     transition: var(--transition-base);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .about__highlight-card:hover {
     background: var(--bg-card-hover);
     border-color: var(--border-hover);
-    transform: translateX(8px);
+    transform: translateY(-4px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
 }
 
 .about__highlight-icon {
@@ -761,18 +851,29 @@ html.js .animate-in.visible {
 /* ==========================================
    SKILLS
    ========================================== */
+/* ==========================================
+   SKILLS — IDE Syntax 5-Color Palette & Ambient Lighting
+   ========================================== */
 .skills {
-    background: linear-gradient(to bottom,
-        var(--bg-mid) 0%,
-        var(--bg-secondary) var(--section-blend),
-        var(--bg-secondary) calc(100% - var(--section-blend)),
-        var(--bg-mid) 100%);
+    position: relative;
+    background: radial-gradient(circle at 18% 25%, rgba(0, 206, 201, 0.07) 0%, transparent 45%),
+                radial-gradient(circle at 82% 40%, rgba(108, 92, 231, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 25% 75%, rgba(0, 184, 148, 0.07) 0%, transparent 45%),
+                radial-gradient(circle at 75% 85%, rgba(253, 203, 110, 0.06) 0%, transparent 45%),
+                linear-gradient(to bottom,
+                    var(--bg-mid) 0%,
+                    var(--bg-secondary) var(--section-blend),
+                    var(--bg-secondary) calc(100% - var(--section-blend)),
+                    var(--bg-mid) 100%);
+    overflow: hidden;
 }
 
 .skills__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
+    position: relative;
+    z-index: 1;
 }
 
 .skills__category {
@@ -781,11 +882,139 @@ html.js .animate-in.visible {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     transition: var(--transition-base);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
-.skills__category:hover {
-    background: var(--bg-card-hover);
-    border-color: var(--border-hover);
+/* Category 1: Languages (Code Teal) */
+.skills__category--languages {
+    background-image: linear-gradient(to bottom, rgba(0, 206, 201, 0.07) 0%, transparent 50px);
+}
+.skills__category--languages .skills__category-title {
+    color: #00cec9;
+}
+.skills__category--languages .skills__category-title svg {
+    color: #00cec9;
+}
+.skills__category--languages .skills__tag {
+    background: rgba(0, 206, 201, 0.08);
+    border-color: rgba(0, 206, 201, 0.2);
+}
+.skills__category--languages .skills__tag:hover {
+    background: rgba(0, 206, 201, 0.18);
+    border-color: #00cec9;
+    color: #e0ffff;
+    box-shadow: 0 0 14px rgba(0, 206, 201, 0.3);
+}
+.skills__category--languages:hover {
+    border-color: rgba(0, 206, 201, 0.35);
+    box-shadow: var(--glass-highlight), 0 8px 40px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(0, 206, 201, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Category 2: Frameworks & Runtime (Electric Violet) */
+.skills__category--frameworks {
+    background-image: linear-gradient(to bottom, rgba(162, 155, 254, 0.07) 0%, transparent 50px);
+}
+.skills__category--frameworks .skills__category-title {
+    color: #a29bfe;
+}
+.skills__category--frameworks .skills__category-title svg {
+    color: #a29bfe;
+}
+.skills__category--frameworks .skills__tag {
+    background: rgba(108, 92, 231, 0.08);
+    border-color: rgba(108, 92, 231, 0.2);
+}
+.skills__category--frameworks .skills__tag:hover {
+    background: rgba(108, 92, 231, 0.18);
+    border-color: #a29bfe;
+    color: #f0f0f5;
+    box-shadow: 0 0 14px rgba(108, 92, 231, 0.3);
+}
+.skills__category--frameworks:hover {
+    border-color: rgba(108, 92, 231, 0.35);
+    box-shadow: var(--glass-highlight), 0 8px 40px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(108, 92, 231, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Category 3: Databases & Message Brokers (Emerald Green) */
+.skills__category--databases {
+    background-image: linear-gradient(to bottom, rgba(0, 184, 148, 0.07) 0%, transparent 50px);
+}
+.skills__category--databases .skills__category-title {
+    color: #00b894;
+}
+.skills__category--databases .skills__category-title svg {
+    color: #00b894;
+}
+.skills__category--databases .skills__tag {
+    background: rgba(0, 184, 148, 0.08);
+    border-color: rgba(0, 184, 148, 0.2);
+}
+.skills__category--databases .skills__tag:hover {
+    background: rgba(0, 184, 148, 0.18);
+    border-color: #00b894;
+    color: #e6fffb;
+    box-shadow: 0 0 14px rgba(0, 184, 148, 0.3);
+}
+.skills__category--databases:hover {
+    border-color: rgba(0, 184, 148, 0.35);
+    box-shadow: var(--glass-highlight), 0 8px 40px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(0, 184, 148, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Category 4: Cloud & DevOps (Amber Gold) */
+.skills__category--cloud {
+    background-image: linear-gradient(to bottom, rgba(253, 203, 110, 0.07) 0%, transparent 50px);
+}
+.skills__category--cloud .skills__category-title {
+    color: #fdcb6e;
+}
+.skills__category--cloud .skills__category-title svg {
+    color: #fdcb6e;
+}
+.skills__category--cloud .skills__tag {
+    background: rgba(253, 203, 110, 0.08);
+    border-color: rgba(253, 203, 110, 0.2);
+}
+.skills__category--cloud .skills__tag:hover {
+    background: rgba(253, 203, 110, 0.18);
+    border-color: #fdcb6e;
+    color: #fffdf0;
+    box-shadow: 0 0 14px rgba(253, 203, 110, 0.3);
+}
+.skills__category--cloud:hover {
+    border-color: rgba(253, 203, 110, 0.35);
+    box-shadow: var(--glass-highlight), 0 8px 40px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(253, 203, 110, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Category 5: Specializations (Sapphire Blue) */
+.skills__category--specializations {
+    background-image: linear-gradient(to bottom, rgba(116, 185, 255, 0.07) 0%, transparent 50px);
+}
+.skills__category--specializations .skills__category-title {
+    color: #74b9ff;
+}
+.skills__category--specializations .skills__category-title svg {
+    color: #74b9ff;
+}
+.skills__category--specializations .skills__tag {
+    background: rgba(116, 185, 255, 0.08);
+    border-color: rgba(116, 185, 255, 0.2);
+}
+.skills__category--specializations .skills__tag:hover {
+    background: rgba(116, 185, 255, 0.18);
+    border-color: #74b9ff;
+    color: #f0f8ff;
+    box-shadow: 0 0 14px rgba(116, 185, 255, 0.3);
+}
+.skills__category--specializations:hover {
+    border-color: rgba(116, 185, 255, 0.35);
+    box-shadow: var(--glass-highlight), 0 8px 40px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(116, 185, 255, 0.2);
+    transform: translateY(-4px);
 }
 
 .skills__category-title {
@@ -794,7 +1023,6 @@ html.js .animate-in.visible {
     gap: 12px;
     font-size: 14px;
     font-weight: 600;
-    color: var(--accent-secondary);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 20px;
@@ -808,19 +1036,11 @@ html.js .animate-in.visible {
 
 .skills__tag {
     padding: 8px 16px;
-    background: rgba(108, 92, 231, 0.08);
-    border: 1px solid rgba(108, 92, 231, 0.15);
     border-radius: 100px;
     font-size: 14px;
     font-weight: 500;
     color: var(--text-primary);
     transition: var(--transition-fast);
-}
-
-.skills__tag:hover {
-    background: rgba(108, 92, 231, 0.15);
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
 }
 
 /* ==========================================
@@ -861,7 +1081,7 @@ html.js .animate-in.visible {
     background: var(--bg-primary);
     flex-shrink: 0;
     position: relative;
-    z-index: 1;
+    z-index: 3;
     transition: var(--transition-base);
 }
 
@@ -886,11 +1106,16 @@ html.js .animate-in.visible {
     border-radius: var(--radius-lg);
     margin-bottom: 24px;
     transition: var(--transition-base);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .experience__card:hover {
     background: var(--bg-card-hover);
     border-color: var(--border-hover);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
+    transform: translateY(-2px);
 }
 
 .experience__header {
@@ -1015,6 +1240,9 @@ html.js .animate-in.visible {
     overflow: hidden;
     transition: var(--transition-base);
     position: relative;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .portfolio__card::before {
@@ -1023,16 +1251,19 @@ html.js .animate-in.visible {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 4px;
     background: var(--accent-gradient);
     opacity: 0;
     transition: var(--transition-base);
+    /* Glow layer underneath the bar */
+    box-shadow: 0 0 12px 1px rgba(108, 92, 231, 0.4);
+    filter: blur(0px);
 }
 
 .portfolio__card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: var(--border-hover);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--glass-highlight), 0 20px 56px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(108, 92, 231, 0.15);
 }
 
 .portfolio__card:hover::before {
@@ -1095,6 +1326,13 @@ html.js .animate-in.visible {
     background: var(--bg-glass);
     border: 1px solid var(--border);
     border-radius: 100px;
+    transition: var(--transition-fast);
+}
+
+.portfolio__card:hover .portfolio__card-tags span {
+    background: rgba(108, 92, 231, 0.07);
+    border-color: rgba(108, 92, 231, 0.18);
+    color: var(--text-primary);
 }
 
 .portfolio__card-link {
@@ -1140,17 +1378,30 @@ html.js .animate-in.visible {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     transition: var(--transition-base);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .education__card:hover {
     background: var(--bg-card-hover);
     border-color: var(--border-hover);
     transform: translateY(-4px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
 }
 
+/* Education icon — SVG-based to match site icon language (no-emoji-icons rule) */
 .education__icon {
-    font-size: 32px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(108, 92, 231, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--accent-secondary);
     margin-bottom: 16px;
+    flex-shrink: 0;
 }
 
 .education__card h3 {
@@ -1223,12 +1474,21 @@ html.js .animate-in.visible {
     border-radius: var(--radius-md);
     transition: var(--transition-base);
     cursor: pointer;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .contact__detail-item:hover {
     background: var(--bg-card-hover);
-    border-color: var(--accent-primary);
+    border-color: var(--border-hover);
     transform: translateX(4px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
+}
+
+.contact__detail-item:hover .contact__detail-icon {
+    background: rgba(108, 92, 231, 0.18);
+    box-shadow: 0 0 16px var(--accent-glow-subtle);
 }
 
 .contact__detail-icon {
@@ -1271,6 +1531,9 @@ html.js .animate-in.visible {
     font-size: 14px;
     font-weight: 500;
     color: var(--success);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(0, 184, 148, 0.08);
 }
 
 .contact__availability-dot {
@@ -1287,6 +1550,9 @@ html.js .animate-in.visible {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .form__group {
@@ -1623,6 +1889,7 @@ html.js .hero__orb {
     width: 2px;
     height: 0;
     pointer-events: none;
+    z-index: 2;
 }
 
 .experience__progress-line {
@@ -1647,6 +1914,7 @@ html.js .hero__orb {
     background: #74b9ff;
     box-shadow: 0 0 14px rgba(116, 185, 255, 0.9), 0 0 36px rgba(108, 92, 231, 0.6);
     opacity: 0;
+    z-index: 4;
 }
 
 .experience__dot--lit {
@@ -1855,7 +2123,7 @@ html.js .hero__orb {
    ICON WIGGLE ON CARD HOVER
    ========================================== */
 @media (hover: hover) and (pointer: fine) {
-    .education__card:hover .education__icon,
+    .education__card:hover .education__icon svg,
     .contact__detail-item:hover .contact__detail-icon svg,
     .about__highlight-card:hover .about__highlight-icon svg,
     .skills__category:hover .skills__category-title svg {
@@ -2281,7 +2549,8 @@ html.js .hero__orb {
 
     .contact__details {
         flex-direction: row;
-        gap: 8px;
+        /* touch-spacing rule: min 8px gap, use 10px for breathing room */
+        gap: 10px;
     }
 
     .contact__detail-icon {
@@ -2499,6 +2768,25 @@ html.js .hero__orb {
 }
 
 /* ==========================================
+   SECTION NOISE TEXTURE (perceived depth on OLED)
+   ==========================================
+   A near-invisible SVG grain (opacity 0.015) prevents flat #0a0a0f
+   backgrounds reading as dead voids on OLED displays. Inline SVG data URI
+   = zero network request, no layout impact. Skipped under reduced motion.
+   ========================================== */
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* 64×64 fractal noise tile */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='64' height='64' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0.014;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ==========================================
    REDUCED MOTION
    ==========================================
    JS also checks this preference and skips every GSAP tween, canvas
@@ -2521,16 +2809,18 @@ html.js .hero__orb {
     .cursor-trail,
     .energy-border,
     .hero__gl,
-    .experience__progress {
+    .experience__progress,
+    .section::before {
         display: none !important;
     }
 
     .hero__orb,
     .hero__scroll-line,
     .hero__badge-dot,
+    .hero__badge::after,
     .contact__availability-dot,
     .spinner,
-    .education__icon,
+    .education__icon svg,
     .contact__detail-icon svg,
     .about__highlight-icon svg,
     .skills__category-title svg {
