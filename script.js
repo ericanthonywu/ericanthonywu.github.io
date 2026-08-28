@@ -525,7 +525,7 @@
 
       cform_eyebrow: "MARI BANGUN PRODUK DIGITAL ANDA",
       cform_title: "Siap meluncurkan atau mengembangkan platform digital Anda?",
-      cform_desc: "Baik perusahaan Anda membutuhkan mitra teknis full-stack untuk inisiatif produk baru maupun modernisasi sistem skala enterprise, mari jadwalkan diskusi awal untuk merumuskan arsitektur terbaik.",
+      cform_desc: "Baik untuk pengembangan produk baru dari awal maupun modernisasi sistem yang sudah berjalan, mari jadwalkan konsultasi untuk mendiskusikan kebutuhan dan solusi teknis paling efisien bagi bisnis Anda.",
       trust_timezone: "Zona Waktu Fleksibel: Siap Kolaborasi Klien Indonesia & Global",
       trust_flexible: "Skala Fleksibel: Dari Modul MVP Terarah hingga Arsitektur Enterprise",
       direct_email_label: "EMAIL LANGSUNG (KLIK UNTUK SALIN)",
