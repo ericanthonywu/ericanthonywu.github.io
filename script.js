@@ -295,7 +295,7 @@
 
       hero_badge: "ERIC ANTHONY · SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       hero_title: 'Mentransformasi kompleksitas teknis menjadi <span class="text-highlight">produk digital berpendapatan tinggi</span> yang siap scale ke jutaan pengguna.',
-      hero_subtitle: 'Saya Eric Anthony, seorang Senior Product Engineer dan Technical Partner dengan 7+ tahun pengalaman merilis sistem software berskala besar di berbagai unicorn dan brand global. Saya merekayasa dan meluncurkan platform web berkinerja tinggi, sistem otomasi AI pintar, serta arsitektur scalable yang <strong>mempercepat akuisisi pelanggan, memangkas biaya server hingga 80%, dan rilis tanpa downtime</strong>.',
+      hero_subtitle: 'Saya Eric Anthony, seorang Senior Product Engineer dan Technical Partner dengan 7+ tahun pengalaman merilis sistem software berskala besar di berbagai unicorn dan brand global. Saya membangun dan meluncurkan platform web berkinerja tinggi, sistem otomasi AI pintar, serta arsitektur scalable yang <strong>mempercepat akuisisi pelanggan, memangkas biaya server hingga 80%, dan rilis tanpa downtime</strong>.',
       hero_cta_primary: "Jadwalkan Konsultasi Proyek",
       hero_cta_secondary: "Jelajahi Studi Kasus",
 
@@ -312,7 +312,7 @@
       metric3_desc: "Merilis berbagai platform finansial dan e-commerce berskala enterprise secara mulus dengan zero internal downtime (di luar gangguan tak terduga dari penyedia layanan pihak ketiga / third-party upstream).",
 
       s1_eyebrow: "NILAI STRATEGIS UNTUK BISNIS",
-      s1_heading: "Keunggulan rekayasa teknis adalah standar. Fokus utama saya: pertumbuhan bisnis dan efisiensi operasional perusahaan Anda.",
+      s1_heading: "Keahlian teknis dan arsitektur andal adalah standar. Fokus utama saya: pertumbuhan bisnis dan efisiensi operasional perusahaan Anda.",
       s1_subtext: "Teknologi terbaik adalah teknologi yang memberikan dampak langsung pada profitabilitas dan efisiensi operasional. Setiap keputusan arsitektur dirancang untuk memaksimalkan rasio konversi, menekan biaya infrastruktur, dan menjamin uptime sistem secara konsisten.",
 
       val1_title: "Kinerja Cepat, Konversi Maksimal",
@@ -455,7 +455,7 @@
       acad_title: "Sarjana Sistem Informasi, Universitas Tarumanagara",
       acad_desc: "Berkarier profesional di bidang software engineering sejak 2018 beriringan dengan studi universitas (lulus 2024 dari Universitas Tarumanagara dengan publikasi ilmiah di jurnal JIKSI), setelah menyelesaikan pelatihan engineering intensif di Purwadhika Startup & Coding School.",
 
-      tech_cv_tag: "REKAM JEJAK TEKNIS & PORTOFOLIO REKAYASA",
+      tech_cv_tag: "REKAM JEJAK TEKNIS & PORTOFOLIO ENGINEERING",
       tech_cv_title: "Mencari Demo Teknis Koding & CV Software Engineer?",
       tech_cv_desc: "Jelajahi portofolio engineering saya yang lengkap dengan terminal interaktif, visualisasi WebGL, dan arsitektur backend microservices.",
       tech_cv_btn: "Buka Portofolio Engineer →",
