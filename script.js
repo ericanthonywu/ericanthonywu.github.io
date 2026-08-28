@@ -39,7 +39,7 @@
 
       metric3_tag: "Launch Reliability",
       metric3_title: "Zero-Downtime Product Releases",
-      metric3_desc: "Shipped multiple mission-critical financial and e-commerce platforms from scratch with zero critical launch bugs or outages.",
+      metric3_desc: "Shipped multiple mission-critical financial and e-commerce platforms from scratch with zero internal deployment downtime (excluding external upstream third-party provider outages).",
 
       s1_eyebrow: "THE EXECUTIVE ADVANTAGE",
       s1_heading: "Why business leaders partner with me to build their flagship platforms.",
@@ -309,7 +309,7 @@
 
       metric3_tag: "Reliabilitas Sistem",
       metric3_title: "Peluncuran Produksi Zero-Downtime",
-      metric3_desc: "Merilis berbagai platform finansial dan e-commerce berskala enterprise ke jutaan pengguna secara mulus tanpa kegagalan sistem atau bug kritis.",
+      metric3_desc: "Merilis berbagai platform finansial dan e-commerce berskala enterprise secara mulus dengan zero internal downtime (di luar gangguan tak terduga dari penyedia layanan pihak ketiga / third-party upstream).",
 
       s1_eyebrow: "NILAI STRATEGIS UNTUK BISNIS",
       s1_heading: "Keunggulan rekayasa teknis adalah standar. Fokus utama saya: pertumbuhan bisnis dan efisiensi operasional perusahaan Anda.",
