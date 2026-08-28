@@ -25,7 +25,7 @@
 
       hero_badge: "ERIC ANTHONY · SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       hero_title: 'Transforming complex ideas into <span class="text-highlight">high-revenue digital products</span> that scale to millions.',
-      hero_subtitle: 'I am Eric Anthony, a Senior Product Engineer and Technical Partner with 7+ years of experience across Southeast Asia\'s leading unicorns and global brands. I partner with founders, executives, and growing engineering teams to build fast, reliable web platforms, automated AI workflows, and scalable systems that <strong>accelerate customer acquisition, slash cloud bills by 80%, and operate with zero downtime</strong>.',
+      hero_subtitle: 'I am Eric Anthony, a Senior Product Engineer and Technical Partner with 7+ years of experience delivering high-impact software across Southeast Asia\'s leading unicorns and global brands. I build and deliver ultra-fast web platforms, automated AI workflows, and scalable systems that <strong>accelerate customer acquisition, slash cloud bills by 80%, and operate with zero downtime</strong>.',
       hero_cta_primary: "Schedule Project Consultation",
       hero_cta_secondary: "Explore Client Case Studies",
 
@@ -42,7 +42,7 @@
       metric3_desc: "Shipped multiple mission-critical financial and e-commerce platforms from scratch with zero internal deployment downtime (excluding external upstream third-party provider outages).",
 
       s1_eyebrow: "THE EXECUTIVE ADVANTAGE",
-      s1_heading: "Why business leaders partner with me to build their flagship platforms.",
+      s1_heading: "Engineering high-impact digital platforms built for revenue, speed, and scale.",
       s1_subtext: "Technical brilliance means nothing if it doesn't move the business needle. Every architectural decision I make is directly tied to revenue growth, operational efficiency, and customer satisfaction.",
 
       val1_title: "Revenue-First Performance",
@@ -295,7 +295,7 @@
 
       hero_badge: "ERIC ANTHONY · SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       hero_title: 'Mentransformasi kompleksitas teknis menjadi <span class="text-highlight">produk digital berpendapatan tinggi</span> yang siap scale ke jutaan pengguna.',
-      hero_subtitle: 'Saya Eric Anthony, seorang Senior Product Engineer dan Technical Partner dengan 7+ tahun pengalaman di berbagai unicorn dan brand global. Saya bermitra dengan para founder, eksekutif bisnis, dan tim produk untuk merekayasa platform web berkinerja tinggi, sistem otomasi AI pintar, serta arsitektur scalable yang berfokus pada <strong>akuisisi pelanggan lebih cepat, efisiensi biaya server hingga 80%, dan reliabilitas peluncuran tanpa downtime</strong>.',
+      hero_subtitle: 'Saya Eric Anthony, seorang Senior Product Engineer dan Technical Partner dengan 7+ tahun pengalaman merilis sistem software berskala besar di berbagai unicorn dan brand global. Saya merekayasa dan meluncurkan platform web berkinerja tinggi, sistem otomasi AI pintar, serta arsitektur scalable yang <strong>mempercepat akuisisi pelanggan, memangkas biaya server hingga 80%, dan rilis tanpa downtime</strong>.',
       hero_cta_primary: "Jadwalkan Konsultasi Proyek",
       hero_cta_secondary: "Jelajahi Studi Kasus",
 
