@@ -181,21 +181,33 @@
       s4_heading: "Trusted by Industry Leaders & Fast-Growing Companies",
       s4_subtext: "Over 7 years of senior engineering experience delivering business outcomes across Southeast Asia's leading unicorns, conglomerates, and global brands.",
 
-      acad_tag: "ACADEMIC FOUNDATION",
+      acad_tag: "ACADEMIC FOUNDATION & CAREER TIMELINE",
       acad_title: "Bachelor of Information Systems — Universitas Tarumanagara",
-      acad_desc: "Graduated 2024 with published research on academic management systems in the peer-reviewed JIKSI journal, following intensive graduate web engineering training at Purwadhika Startup & Coding School.",
+      acad_desc: "Engineering professionally since 2018 alongside university studies (graduated 2024 with published research on academic management systems in the peer-reviewed JIKSI journal), following intensive graduate web engineering training at Purwadhika Startup & Coding School.",
 
       tech_cv_tag: "TECHNICAL ARCHITECTURE & DEEP-DIVE",
       tech_cv_title: "Looking for Technical Code Demos & Full-Time Engineer CV?",
       tech_cv_desc: "Explore my dedicated software engineering portfolio featuring interactive terminal interfaces, WebGL animations, and distributed backend architecture matrix.",
       tech_cv_btn: "Explore Developer Portfolio →",
 
+      testi_quote: "Eric didn't just build our web platform — he completely re-engineered our multi-currency checkout flow and launched our 24/7 AI concierge without a minute of downtime. His speed, technical ownership, and post-launch responsiveness made our international launch seamless.",
+      ent_eyebrow: "ENTERPRISE SCALE & CAREER FOUNDATION",
+      ent_heading: "Scalable Architectures Powering Millions of Daily Users",
+
+      price_eyebrow: "ENGAGEMENT MODELS",
+      price_heading: "Transparent Engagements Tailored to Your Growth Stage",
+      price_subtext: "Clear milestone scopes, direct technical ownership, and zero agency overhead.",
+
+      faq_eyebrow: "COMMON QUESTIONS",
+      faq_heading: "Everything You Need to Know Before Working Together",
+      faq_subtext: "Clear answers on code ownership, warranties, NDAs, and payment methods.",
+
       cform_eyebrow: "LET'S BUILD SOMETHING PROFITABLE",
       cform_title: "Ready to launch or scale your digital product?",
       cform_desc: "Whether you are an international startup needing a full-stack technical partner or an Indonesian business scaling operations, let's connect for an initial consultation.",
       trust_timezone: "Global Collaboration: Overlapping with US, Europe & APAC",
       trust_flexible: "Flexible Engagements: Sprints, Full Builds & Fractional Lead",
-      direct_email_label: "DIRECT EMAIL",
+      direct_email_label: "DIRECT EMAIL (CLICK TO COPY)",
       direct_li_label: "LINKEDIN PROFILE",
 
       form_lbl_name: "Your Name",
@@ -206,7 +218,6 @@
       opt_2: "AI Automation or Chatbot Assistant",
       opt_3: "Mobile App Backend & APIs",
       opt_4: "Speed Optimization & Server Cost Slashes",
-      opt_5: "Senior Full-Time Engineering Lead",
       form_lbl_details: "Project Details & Timeline",
       btn_submit: "Send Project Inquiry",
       btn_submitting: "Sending Inquiry...",
@@ -389,21 +400,33 @@
       s4_heading: "Pernah Dipercaya Unicorn & Perusahaan Ternama",
       s4_subtext: "7+ tahun pengalaman senior engineering yang udah terbukti ngasilin impact nyata buat unicorn, konglomerasi, dan brand global di Asia Tenggara.",
 
-      acad_tag: "BACKGROUND AKADEMIK",
+      acad_tag: "BACKGROUND AKADEMIK & PERJALANAN KARIER",
       acad_title: "Sarjana Sistem Informasi — Universitas Tarumanagara",
-      acad_desc: "Lulus tahun 2024 dengan publikasi riset ilmiah jurnal terakreditasi JIKSI, setelah lulus pelatihan engineering intensif di Purwadhika Startup & Coding School.",
+      acad_desc: "Mulai berkarier profesional di bidang software engineering sejak 2018 sembari menempuh perkuliahan (lulus 2024 dari Universitas Tarumanagara dengan publikasi ilmiah di jurnal JIKSI), setelah menyelesaikan pelatihan engineering intensif di Purwadhika Startup & Coding School.",
 
       tech_cv_tag: "REKAM JEJAK TEKNIS & KODING",
       tech_cv_title: "Mencari Demo Teknis Kodingan & CV Engineer Full-Time?",
       tech_cv_desc: "Jelajahi portofolio engineering saya yang lengkap dengan terminal interaktif, animasi WebGL, dan arsitektur backend microservices.",
       tech_cv_btn: "Buka Portofolio Engineer →",
 
+      testi_quote: "Eric bukan cuma bangun web platform kami — dia merombak total alur pembayaran multi-currency dan meluncurkan AI sales concierge 24/7 kami tanpa downtime semenit pun. Kecepatan koding dan tanggung jawab after-sales-nya luar biasa.",
+      ent_eyebrow: "PENGALAMAN ENTERPRISE & SKALA JUTAAN USER",
+      ent_heading: "Sistem Andal yang Melayani Jutaan Transaksi Harian",
+
+      price_eyebrow: "PILIHAN KERJA SAMA",
+      price_heading: "Paket Kerja Sama Fleksibel Sesuai Tahap Bisnis Kamu",
+      price_subtext: "Target jelas per milestone, kepemilikan kode 100% milik kamu, tanpa birokrasi berbelit.",
+
+      faq_eyebrow: "PERTANYAAN UMUM",
+      faq_heading: "Semua yang Perlu Kamu Tahu Sebelum Mulai Proyek",
+      faq_subtext: "Transparansi penuh soal hak cipta kode, garansi paska-launch, NDA, hingga opsi pembayaran.",
+
       cform_eyebrow: "YUK, MULAI PROYEK KAMU",
       cform_title: "Punya ide produk baru atau mau upgrade sistem yang ada?",
       cform_desc: "Baik kamu butuh automasi chatbot untuk bisnis toko/retail maupun platform web skala besar, mari ngobrol santai buat diskusikan solusi paling efisien.",
       trust_timezone: "Waktu Kerja Fleksibel: Siap Kolaborasi Klien Indonesia & Global",
       trust_flexible: "Skala Fleksibel: Dari Projek UMKM Berkembang Sampai Sistem Enterprise",
-      direct_email_label: "EMAIL LANGSUNG",
+      direct_email_label: "EMAIL LANGSUNG (KLIK UNTUK COPY)",
       direct_li_label: "PROFIL LINKEDIN",
 
       form_lbl_name: "Nama Lengkap Kamu",
@@ -414,7 +437,6 @@
       opt_2: "Mau Bikin Automasi AI / Chatbot Pintar",
       opt_3: "Backend Aplikasi Mobile & API",
       opt_4: "Mau Bikin Web Makin Kencang & Hemat Server",
-      opt_5: "Butuh Senior Tech Lead Full-Time",
       form_lbl_details: "Ceritain Singkat Rencana Proyek Kamu",
       btn_submit: "Kirim Pesan & Konsultasi",
       btn_submitting: "Mengirimkan Pesan...",
@@ -633,7 +655,44 @@
   }
 
   /* ==========================================================================
-     5. SMOOTH NAVIGATION HEADER SHADOW ON SCROLL
+     5. COPY EMAIL FUNCTIONALITY
+     ========================================================================== */
+  function initCopyEmail() {
+    const copyBlock = document.getElementById('copyEmailBlock');
+    const copyBtn = document.getElementById('copyEmailBtn');
+    const emailVal = document.getElementById('emailVal');
+
+    if (!copyBlock || !copyBtn || !emailVal) return;
+
+    const copyAction = (e) => {
+      e.preventDefault();
+      const email = 'ericanthonywu89@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        copyBtn.textContent = 'Copied! ✓';
+        copyBtn.style.background = '#059669';
+        copyBtn.style.color = '#ffffff';
+        copyBtn.style.borderColor = '#059669';
+
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy';
+          copyBtn.style.background = '';
+          copyBtn.style.color = '';
+          copyBtn.style.borderColor = '';
+        }, 2500);
+      }).catch(() => {
+        window.location.href = `mailto:${email}`;
+      });
+    };
+
+    copyBlock.addEventListener('click', copyAction);
+    copyBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      copyAction(e);
+    });
+  }
+
+  /* ==========================================================================
+     6. SMOOTH NAVIGATION HEADER SHADOW ON SCROLL
      ========================================================================== */
   function initHeaderScroll() {
     const header = document.getElementById('header');
@@ -655,6 +714,7 @@
     initLanguageSwitcher();
     initMobileMenu();
     initContactForm();
+    initCopyEmail();
     initHeaderScroll();
   });
 

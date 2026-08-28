@@ -1,49 +1,49 @@
 {
-  "name": "Eric Anthony — Senior Backend & Systems Engineer",
+  "name": "Eric Anthony — Senior Product Engineer & Technical Partner",
   "short_name": "Eric Anthony",
-  "description": "Portfolio of Eric Anthony, Senior Backend & Systems Engineer specializing in distributed architectures, Go, Node.js, and Java.",
+  "description": "Transforming complex ideas into high-revenue digital products, scalable SaaS platforms, and automated AI systems that cut operating costs and scale to millions.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#08090b",
-  "theme_color": "#00f0ff",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/icons/icon-72x72.svg",
+      "src": "./icons/icon-72x72.svg",
       "sizes": "72x72",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-96x96.svg",
+      "src": "./icons/icon-96x96.svg",
       "sizes": "96x96",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-128x128.svg",
+      "src": "./icons/icon-128x128.svg",
       "sizes": "128x128",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-144x144.svg",
+      "src": "./icons/icon-144x144.svg",
       "sizes": "144x144",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-152x152.svg",
+      "src": "./icons/icon-152x152.svg",
       "sizes": "152x152",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-192x192.svg",
+      "src": "./icons/icon-192x192.svg",
       "sizes": "192x192",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-384x384.svg",
+      "src": "./icons/icon-384x384.svg",
       "sizes": "384x384",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-512x512.svg",
+      "src": "./icons/icon-512x512.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }
