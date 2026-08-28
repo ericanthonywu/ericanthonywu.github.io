@@ -12,7 +12,7 @@
   const translations = {
     en: {
       skip_link: "Skip to main content",
-      brand_role: "PRODUCT & SYSTEMS PARTNER",
+      brand_role: "AI-NATIVE PRODUCT ENGINEER & TECHNICAL PARTNER",
       nav_results: "Results",
       nav_cases: "Case Studies",
       nav_capabilities: "Services",
@@ -23,9 +23,9 @@
       status_text: "Accepting Select Projects",
       drawer_footer: "Available for consulting, contract builds, and full-time technical leadership.",
 
-      hero_badge: "ERIC ANTHONY · SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
+      hero_badge: "ERIC ANTHONY · AI-NATIVE SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       hero_title: 'Transforming complex ideas into <span class="text-highlight">high-revenue digital products</span> that scale to millions.',
-      hero_subtitle: 'I am Eric Anthony, a Senior Product Engineer and Technical Partner with 7+ years of experience delivering high-impact software across Southeast Asia\'s leading unicorns and global brands. I build and deliver ultra-fast web platforms, automated AI workflows, and scalable systems that <strong>accelerate customer acquisition, slash cloud bills by 80%, and operate with zero downtime</strong>.',
+      hero_subtitle: 'I am Eric Anthony, an AI-Native Senior Product Engineer and Technical Partner with 7+ years of experience delivering high-impact software across Southeast Asia\'s leading unicorns and global brands. I build and deliver ultra-fast web platforms, autonomous AI agent workflows, and scalable systems that <strong>accelerate customer acquisition, slash cloud bills by 80%, and operate with zero downtime</strong>.',
       hero_cta_primary: "Schedule Project Consultation",
       hero_cta_secondary: "Explore Client Case Studies",
 
@@ -147,8 +147,8 @@
       srv1_i2: "Global & Local Payments (Stripe, QRIS, Virtual Accounts)",
       srv1_i3: "Automated User Onboarding & Dashboards",
 
-      srv2_title: "AI Automation & Intelligent Assistants",
-      srv2_text: "Transform customer support and internal workflows with tailored AI assistants that qualify leads, query inventories, and sync data directly with your CRM.",
+      srv2_title: "AI-Native Engineering & Intelligent Agent Workflows",
+      srv2_text: "Transform customer support and operational velocity with bespoke autonomous AI agents (Python, LLM orchestration, RAG) that qualify leads, query inventories, and sync data directly with your CRM.",
       srv2_i1: "24/7 AI Customer Sales & Support Agents",
       srv2_i2: "Natural Language Inventory & Database Search",
       srv2_i3: "CRM & Workflow Automation (CloseCRM, Meta APIs)",
@@ -266,7 +266,7 @@
       form_lbl_scope: "Project Scope / Engagement Type",
       opt_placeholder: "Select Your Project Goal",
       opt_1: "Build New SaaS or Web Application",
-      opt_2: "AI Automation or Chatbot Assistant",
+      opt_2: "AI-Native Automation & Intelligent Agents",
       opt_3: "Mobile App Backend & APIs",
       opt_4: "Speed Optimization & Server Cost Slashes",
       form_lbl_details: "Project Details & Timeline",
@@ -274,7 +274,7 @@
       btn_submitting: "Sending Inquiry...",
       btn_success: "Inquiry Sent Successfully!",
 
-      footer_desc: "Senior Product Engineer & Technical Partner building high-ROI digital platforms.",
+      footer_desc: "AI-Native Senior Product Engineer & Technical Partner building high-ROI digital platforms.",
       footer_copy: "© 2026 Eric Anthony. All rights reserved.",
       footer_sub: "Based in Jakarta, Indonesia · Serving Global Clients",
       footer_recruiter_link: "Looking for technical CV & engineering portfolio? View Engineer CV →"
@@ -282,7 +282,7 @@
 
     id: {
       skip_link: "Lewati ke konten utama",
-      brand_role: "SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
+      brand_role: "AI-NATIVE PRODUCT ENGINEER & TECHNICAL PARTNER",
       nav_results: "Hasil",
       nav_cases: "Studi Kasus",
       nav_capabilities: "Layanan",
@@ -293,9 +293,9 @@
       status_text: "Terbuka untuk Proyek Terpilih",
       drawer_footer: "Membantu perusahaan dan startup berkembang membangun platform digital skala enterprise, optimasi arsitektur cloud, hingga Fractional Tech Lead.",
 
-      hero_badge: "ERIC ANTHONY · SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
+      hero_badge: "ERIC ANTHONY · AI-NATIVE SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       hero_title: 'Mentransformasi kompleksitas teknis menjadi <span class="text-highlight">produk digital berpendapatan tinggi</span> yang siap scale ke jutaan pengguna.',
-      hero_subtitle: 'Saya Eric Anthony, seorang Senior Product Engineer dan Technical Partner dengan 7+ tahun pengalaman merilis sistem software berskala besar di berbagai unicorn dan brand global. Saya membangun dan meluncurkan platform web berkinerja tinggi, sistem otomasi AI pintar, serta arsitektur scalable yang <strong>mempercepat akuisisi pelanggan, memangkas biaya server hingga 80%, dan rilis tanpa downtime</strong>.',
+      hero_subtitle: 'Saya Eric Anthony, seorang AI-Native Senior Product Engineer dan Technical Partner dengan 7+ tahun pengalaman merilis sistem software berskala besar di berbagai unicorn dan brand global. Saya membangun dan meluncurkan platform web berkinerja tinggi, alur kerja agen AI pintar, serta arsitektur scalable yang <strong>mempercepat akuisisi pelanggan, memangkas biaya server hingga 80%, dan rilis tanpa downtime</strong>.',
       hero_cta_primary: "Jadwalkan Konsultasi Proyek",
       hero_cta_secondary: "Jelajahi Studi Kasus",
 
@@ -417,8 +417,8 @@
       srv1_i2: "Integrasi Pembayaran Global & Lokal (Stripe, QRIS, Virtual Account)",
       srv1_i3: "Onboarding Pengguna & Dashboard Admin Lengkap",
 
-      srv2_title: "Otomasi AI & Intelligent Assistant",
-      srv2_text: "Transformasi alur kerja operasional dan customer service dengan asisten AI kustom yang melayani 24/7, query database cerdas, dan sinkronisasi otomatis ke CRM Anda.",
+      srv2_title: "AI-Native Engineering & Otomasi Agen Cerdas",
+      srv2_text: "Transformasi kecepatan operasional dan customer service dengan agen AI otonom kustom (Python, orkestrasi LLM, RAG) yang melayani 24/7, query database cerdas, dan sinkronisasi otomatis ke CRM perusahaan Anda.",
       srv2_i1: "AI Assistant Penjualan & Customer Support 24/7",
       srv2_i2: "Pencarian Inventaris & Data Berbasis Bahasa Alami",
       srv2_i3: "Otomasi Alur Kerja CRM (CloseCRM, Meta API)",
@@ -536,7 +536,7 @@
       form_lbl_scope: "Kebutuhan Proyek Anda",
       opt_placeholder: "Pilih Kebutuhan Proyek Anda",
       opt_1: "Pengembangan Web App / SaaS Baru",
-      opt_2: "Otomasi AI / Intelligent Assistant",
+      opt_2: "AI-Native Automation & Intelligent Agents",
       opt_3: "Backend Aplikasi Mobile & API",
       opt_4: "Optimasi Performa & Efisiensi Biaya Server",
       form_lbl_details: "Ceritakan Rencana & Kebutuhan Proyek Anda",
@@ -544,7 +544,7 @@
       btn_submitting: "Mengirimkan Pesan...",
       btn_success: "Pesan Berhasil Terkirim!",
 
-      footer_desc: "Senior Product Engineer & Technical Partner yang membangun produk digital berkinerja dan berpendapatan tinggi.",
+      footer_desc: "AI-Native Senior Product Engineer & Technical Partner yang membangun produk digital berkinerja dan berpendapatan tinggi.",
       footer_copy: "© 2026 Eric Anthony. All rights reserved.",
       footer_sub: "Berbasis di Jakarta, Indonesia · Melayani Klien Global",
       footer_recruiter_link: "Mencari CV teknis koding & rekam jejak engineer? Lihat Portofolio Developer →"
@@ -625,24 +625,24 @@
     const twitterDesc = document.querySelector('meta[name="twitter:description"]');
 
     if (lang === 'id') {
-      document.title = 'Eric Anthony | Partner Produk & Teknologi Bisnis | Web App & AI Systems';
+      document.title = 'Eric Anthony | AI-Native Senior Product Engineer & Technical Partner';
       if (canonicalLink) canonicalLink.setAttribute('href', 'https://ericanthonywu.github.io/?lang=id');
-      if (metaDesc) metaDesc.setAttribute('content', 'Ubah ide kompleks kamu jadi produk digital beromzet tinggi, automasi AI pintar, dan aplikasi web/mobile yang hemat server hingga 80% dan scale ke jutaan user.');
-      if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, Partner Teknologi Bisnis, Jasa Pembuatan Website, Jasa Bikin Web App, Developer Chatbot WhatsApp, Konsultan IT Jakarta, Jasa Coding Aplikasi, Fullstack Developer Indonesia, GoPay, 1Engage, Startup Indonesia');
-      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony | Partner Produk & Teknologi Bisnis');
-      if (ogDesc) ogDesc.setAttribute('content', 'Bantu founder dan pebisnis bangun web app cepat, automasi chatbot AI, dan aplikasi mobile yang siap melayani jutaan transaksi.');
+      if (metaDesc) metaDesc.setAttribute('content', 'Membangun produk digital berpendapatan tinggi, alur kerja agen AI pintar, dan platform web/mobile skala enterprise yang hemat biaya server hingga 80%.');
+      if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, AI-Native Engineer, Senior Product Engineer, Technical Partner, Agen AI Otonom, Konsultan IT Jakarta, Jasa Coding Aplikasi, Fullstack Developer Indonesia, GoPay, 1Engage, Startup Indonesia');
+      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony | AI-Native Senior Product Engineer & Technical Partner');
+      if (ogDesc) ogDesc.setAttribute('content', 'Membangun produk digital berpendapatan tinggi, alur kerja agen AI pintar, dan platform web/mobile skala enterprise yang siap melayani jutaan pengguna.');
       if (ogLocale) ogLocale.setAttribute('content', 'id_ID');
-      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony | Partner Produk & Teknologi Bisnis');
-      if (twitterDesc) twitterDesc.setAttribute('content', 'Bantu founder dan pebisnis bangun web app cepat, automasi chatbot AI, dan aplikasi mobile yang siap melayani jutaan transaksi.');
+      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony | AI-Native Senior Product Engineer & Technical Partner');
+      if (twitterDesc) twitterDesc.setAttribute('content', 'Membangun produk digital berpendapatan tinggi, alur kerja agen AI pintar, dan platform web/mobile skala enterprise yang siap melayani jutaan pengguna.');
     } else {
-      document.title = 'Eric Anthony | Senior Product Engineer & Technical Partner';
+      document.title = 'Eric Anthony | AI-Native Senior Product Engineer & Technical Partner';
       if (canonicalLink) canonicalLink.setAttribute('href', 'https://ericanthonywu.github.io/?lang=en');
       if (metaDesc) metaDesc.setAttribute('content', 'I turn complex ideas into high-revenue digital products, scalable SaaS platforms, and automated AI systems that cut operating costs by 80% and scale to millions of users.');
-      if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, Senior Product Engineer, Technical Partner, Software Consultant, Hire Fullstack Developer, SaaS Development, AI Chatbot Automation, Cloud Cost Optimization, Web Application Engineer, GoPay, 1Engage, Jakarta, Remote');
-      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony | Senior Product Engineer & Technical Partner');
+      if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, AI-Native Engineer, Senior Product Engineer, Technical Partner, Software Consultant, Hire Fullstack Developer, SaaS Development, AI Agent Automation, LLM Orchestration, Cloud Cost Optimization, Web Application Engineer, GoPay, 1Engage, Jakarta, Remote');
+      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony | AI-Native Senior Product Engineer & Technical Partner');
       if (ogDesc) ogDesc.setAttribute('content', 'Turn complex ideas into high-revenue digital products, automated AI workflows, and scalable apps that accelerate customer acquisition.');
       if (ogLocale) ogLocale.setAttribute('content', 'en_US');
-      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony | Senior Product Engineer & Technical Partner');
+      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony | AI-Native Senior Product Engineer & Technical Partner');
       if (twitterDesc) twitterDesc.setAttribute('content', 'Turn complex ideas into high-revenue digital products, automated AI workflows, and scalable apps that cut operating costs and scale to millions.');
     }
   }
