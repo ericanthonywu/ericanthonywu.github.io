@@ -95,6 +95,7 @@
           <li><a href="#capabilities" class="nav__link" data-i18n="nav_capabilities">Deliverables</a></li>
           <li><a href="#process" class="nav__link" data-i18n="nav_process">How We Work</a></li>
           <li><a href="#track-record" class="nav__link" data-i18n="nav_track">Track Record</a></li>
+          <li><a href="https://ericanthonywu.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="nav__link nav__link--tech" data-i18n="nav_tech_cv">Engineer CV ↗</a></li>
           <li><a href="#contact" class="btn btn--header" data-i18n="nav_cta">Schedule Consultation</a></li>
         </ul>
       </nav>
@@ -137,6 +138,7 @@
         <li><a href="#capabilities" class="mobile-drawer__link" data-i18n="nav_capabilities">Deliverables &amp; Services</a></li>
         <li><a href="#process" class="mobile-drawer__link" data-i18n="nav_process">How We Work</a></li>
         <li><a href="#track-record" class="mobile-drawer__link" data-i18n="nav_track">Track Record</a></li>
+        <li><a href="https://ericanthonywu.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="mobile-drawer__link mobile-drawer__link--tech" data-i18n="nav_tech_cv">Engineer CV ↗</a></li>
         <li><a href="#contact" class="mobile-drawer__link mobile-drawer__link--cta" data-i18n="nav_cta">Schedule Consultation</a></li>
       </ul>
       <div class="mobile-drawer__footer">
@@ -666,6 +668,18 @@
           </div>
         </div>
 
+        <!-- Technical Deep-Dive & Engineer CV Callout Banner -->
+        <div class="academic-banner" style="margin-top: 16px; border-left: 4px solid var(--accent-blue);">
+          <div class="academic-content">
+            <span class="academic-tag" data-i18n="tech_cv_tag">TECHNICAL ARCHITECTURE &amp; DEEP-DIVE</span>
+            <h3 data-i18n="tech_cv_title">Looking for Technical Code Demos &amp; Full-Time Engineer CV?</h3>
+            <p data-i18n="tech_cv_desc">Explore my dedicated software engineering portfolio featuring interactive terminal interfaces, WebGL animations, and distributed backend architecture matrix.</p>
+            <a href="https://ericanthonywu.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--small" style="margin-top: 14px; display: inline-flex;" data-i18n="tech_cv_btn">
+              Explore Developer Portfolio &rarr;
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -723,12 +737,14 @@
             </div>
           </div>
 
-          <div class="contact-card__form-wrap">
-            <form class="client-form" id="contactForm">
+          <!-- Interactive Client Inquiry Form -->
+          <div class="contact-card__form">
+            <form id="contactForm" class="client-form">
+              <!-- Web3Forms Integration -->
               <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
-              <input type="hidden" name="subject" value="New Client Project Inquiry">
-              <input type="checkbox" name="botcheck" style="display: none;">
-
+              <input type="hidden" name="subject" value="New Client Inquiry from Portfolio Website">
+              <input type="hidden" name="from_name" value="Eric Anthony Portfolio Lead">
+              
               <div class="form-row">
                 <div class="form-group">
                   <label for="clientName" class="form-label" data-i18n="form_lbl_name">Your Name</label>
@@ -788,7 +804,7 @@
         <p data-i18n="footer_copy">&copy; 2026 Eric Anthony. All rights reserved.</p>
         <p class="footer__sub" data-i18n="footer_sub">Based in Jakarta, Indonesia · Serving Global Clients</p>
         <div class="footer__recruiter">
-          <a href="https://github.com/ericanthonywu/ericanthonywu-portfolio.github.io" target="_blank" rel="noopener noreferrer" class="footer__recruiter-link" data-i18n="footer_recruiter_link">
+          <a href="https://ericanthonywu.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="footer__recruiter-link" data-i18n="footer_recruiter_link">
             <span>Looking for technical CV &amp; engineering portfolio? View Engineer CV &rarr;</span>
           </a>
         </div>

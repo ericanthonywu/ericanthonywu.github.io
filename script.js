@@ -18,6 +18,7 @@
       nav_capabilities: "Deliverables",
       nav_process: "How We Work",
       nav_track: "Track Record",
+      nav_tech_cv: "Engineer CV ↗",
       nav_cta: "Schedule Consultation",
       status_text: "Accepting Select Projects",
       drawer_footer: "Available for consulting, contract builds, and full-time technical leadership.",
@@ -184,6 +185,11 @@
       acad_title: "Bachelor of Information Systems — Universitas Tarumanagara",
       acad_desc: "Graduated 2024 with published research on academic management systems in the peer-reviewed JIKSI journal, following intensive graduate web engineering training at Purwadhika Startup & Coding School.",
 
+      tech_cv_tag: "TECHNICAL ARCHITECTURE & DEEP-DIVE",
+      tech_cv_title: "Looking for Technical Code Demos & Full-Time Engineer CV?",
+      tech_cv_desc: "Explore my dedicated software engineering portfolio featuring interactive terminal interfaces, WebGL animations, and distributed backend architecture matrix.",
+      tech_cv_btn: "Explore Developer Portfolio →",
+
       cform_eyebrow: "LET'S BUILD SOMETHING PROFITABLE",
       cform_title: "Ready to launch or scale your digital product?",
       cform_desc: "Whether you are an international startup needing a full-stack technical partner or an Indonesian business scaling operations, let's connect for an initial consultation.",
@@ -220,6 +226,7 @@
       nav_capabilities: "Layanan",
       nav_process: "Alur Kerja",
       nav_track: "Pengalaman",
+      nav_tech_cv: "CV Engineer ↗",
       nav_cta: "Yuk Konsultasi",
       status_text: "Available untuk Proyek Terpilih",
       drawer_footer: "Siap bantu untuk konsultasi proyek, build dari nol, hingga technical lead full-time.",
@@ -385,6 +392,11 @@
       acad_tag: "BACKGROUND AKADEMIK",
       acad_title: "Sarjana Sistem Informasi — Universitas Tarumanagara",
       acad_desc: "Lulus tahun 2024 dengan publikasi riset ilmiah jurnal terakreditasi JIKSI, setelah lulus pelatihan engineering intensif di Purwadhika Startup & Coding School.",
+
+      tech_cv_tag: "REKAM JEJAK TEKNIS & KODING",
+      tech_cv_title: "Mencari Demo Teknis Kodingan & CV Engineer Full-Time?",
+      tech_cv_desc: "Jelajahi portofolio engineering saya yang lengkap dengan terminal interaktif, animasi WebGL, dan arsitektur backend microservices.",
+      tech_cv_btn: "Buka Portofolio Engineer →",
 
       cform_eyebrow: "YUK, MULAI PROYEK KAMU",
       cform_title: "Punya ide produk baru atau mau upgrade sistem yang ada?",
