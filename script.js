@@ -175,7 +175,7 @@
       proc3_title: "3. Real-World Testing & Staff Training",
       proc3_text: "Rigorous payment flow testing, stress testing, and complete admin walkthroughs so your internal team can operate the system effortlessly.",
       proc4_title: "4. Flawless Launch & Post-Release Support",
-      proc4_text: "Zero-downtime deployment to production with post-launch technical warranty and ongoing performance monitoring for total peace of mind.",
+      proc4_text: "Zero-downtime deployment to production with complete technical handover and ongoing performance monitoring for total peace of mind.",
 
       s4_eyebrow: "ENTERPRISE TRACK RECORD",
       s4_heading: "Trusted by Industry Leaders & Fast-Growing Companies",
@@ -199,7 +199,7 @@
 
       faq_eyebrow: "COMMON QUESTIONS",
       faq_heading: "Everything You Need to Know Before Working Together",
-      faq_subtext: "Clear answers on code ownership, warranties, NDAs, and payment methods.",
+      faq_subtext: "Clear answers on code ownership, confidentiality, and project delivery.",
 
       cform_eyebrow: "LET'S BUILD SOMETHING PROFITABLE",
       cform_title: "Ready to launch or scale your digital product?",
@@ -392,8 +392,8 @@
       proc2_text: "Pengerjaan sistem secara transparan dan terukur dalam 2–6 minggu sesuai skala proyek. Kamu bisa pantau langsung progress-nya tiap minggu.",
       proc3_title: "3. Uji Coba Transaksi & Training Tim",
       proc3_text: "Simulasi transaksi nyata dan panduan penggunaan sistem yang gampang dipahami, biar tim admin/kasir kamu langsung lancar pakainya.",
-      proc4_title: "4. Peluncuran Live & Garansi Pendampingan",
-      proc4_text: "Sistem rilis live ke pasar tanpa downtime, lengkap dengan garansi maintenance dan pendampingan teknis biar operasional tenang.",
+      proc4_title: "4. Peluncuran Live & Serah Terima Sistem",
+      proc4_text: "Sistem rilis live ke pasar tanpa downtime, lengkap dengan serah terima teknis dan dokumentasi biar operasional tenang.",
 
       s4_eyebrow: "REKAM JEJAK TERPERCAYA",
       s4_heading: "Pernah Dipercaya Unicorn & Perusahaan Ternama",
@@ -417,7 +417,7 @@
 
       faq_eyebrow: "PERTANYAAN UMUM",
       faq_heading: "Semua yang Perlu Kamu Tahu Sebelum Mulai Proyek",
-      faq_subtext: "Transparansi penuh soal hak cipta kode, garansi paska-launch, NDA, hingga opsi pembayaran.",
+      faq_subtext: "Transparansi penuh soal hak cipta kode, kerahasiaan NDA, hingga alur pengerjaan.",
 
       cform_eyebrow: "YUK, MULAI PROYEK KAMU",
       cform_title: "Punya ide produk baru atau mau upgrade sistem yang ada?",
