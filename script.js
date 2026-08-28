@@ -454,11 +454,25 @@
   /* ==========================================================================
      2. LANGUAGE SWITCHER FUNCTIONALITY
      ========================================================================== */
-  function applyLanguage(lang) {
+  function updateUrlParam(lang) {
+    try {
+      const url = new URL(window.location.href);
+      if (url.searchParams.get('lang') !== lang) {
+        url.searchParams.set('lang', lang);
+        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+      }
+    } catch (e) {}
+  }
+
+  function applyLanguage(lang, updateUrl = true) {
     if (!translations[lang]) return;
     currentLang = lang;
     localStorage.setItem('ea_lang', lang);
     document.documentElement.lang = lang;
+
+    if (updateUrl) {
+      updateUrlParam(lang);
+    }
 
     // Update active class on desktop switchers
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -525,7 +539,7 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
-        applyLanguage(lang);
+        applyLanguage(lang, true);
       });
     });
 
@@ -533,14 +547,12 @@
     document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
-        applyLanguage(lang);
+        applyLanguage(lang, true);
       });
     });
 
-    // Initial language check
-    if (currentLang !== 'en') {
-      applyLanguage(currentLang);
-    }
+    // Initial language application & URL synchronization
+    applyLanguage(currentLang, true);
   }
 
   /* ==========================================================================
