@@ -23,9 +23,9 @@
       status_text: "Accepting Select Projects",
       drawer_footer: "Available for consulting, contract builds, and full-time technical leadership.",
 
-      hero_badge: "7+ YEARS DELIVERING HIGH-ROI DIGITAL PLATFORMS",
+      hero_badge: "ERIC ANTHONY · SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       hero_title: 'Transforming complex ideas into <span class="text-highlight">high-revenue digital products</span> that scale to millions.',
-      hero_subtitle: 'I partner with founders, executives, and growing businesses to build fast, reliable web platforms, automated AI workflows, and scalable apps that <strong>accelerate customer acquisition, slash cloud bills by 80%, and operate with zero downtime</strong>.',
+      hero_subtitle: 'I am Eric Anthony, a Senior Product Engineer and Technical Partner with 7+ years of experience across Southeast Asia\'s leading unicorns and global brands. I partner with founders, executives, and growing engineering teams to build fast, reliable web platforms, automated AI workflows, and scalable systems that <strong>accelerate customer acquisition, slash cloud bills by 80%, and operate with zero downtime</strong>.',
       hero_cta_primary: "Schedule Project Consultation",
       hero_cta_secondary: "Explore Client Case Studies",
 
@@ -293,9 +293,9 @@
       status_text: "Terbuka untuk Proyek Terpilih",
       drawer_footer: "Membantu perusahaan dan startup berkembang membangun platform digital skala enterprise, optimasi arsitektur cloud, hingga Fractional Tech Lead.",
 
-      hero_badge: "7+ TAHUN MEMBANGUN PLATFORM DIGITAL SKALA ENTERPRISE & HIGH-ROI",
+      hero_badge: "ERIC ANTHONY · SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       hero_title: 'Mentransformasi kompleksitas teknis menjadi <span class="text-highlight">produk digital berpendapatan tinggi</span> yang siap scale ke jutaan pengguna.',
-      hero_subtitle: 'Bermitra dengan founder, eksekutif bisnis, dan tim produk untuk merekayasa platform web berkinerja tinggi, sistem otomasi AI pintar, dan arsitektur scalable. Berfokus pada <strong>akuisisi pelanggan lebih cepat, efisiensi biaya server hingga 80%, dan reliabilitas peluncuran tanpa downtime</strong>.',
+      hero_subtitle: 'Saya Eric Anthony, seorang Senior Product Engineer dan Technical Partner dengan 7+ tahun pengalaman di berbagai unicorn dan brand global. Saya bermitra dengan para founder, eksekutif bisnis, dan tim produk untuk merekayasa platform web berkinerja tinggi, sistem otomasi AI pintar, serta arsitektur scalable yang berfokus pada <strong>akuisisi pelanggan lebih cepat, efisiensi biaya server hingga 80%, dan reliabilitas peluncuran tanpa downtime</strong>.',
       hero_cta_primary: "Jadwalkan Konsultasi Proyek",
       hero_cta_secondary: "Jelajahi Studi Kasus",
 
