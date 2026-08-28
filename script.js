@@ -190,7 +190,6 @@
       tech_cv_desc: "Explore my dedicated software engineering portfolio featuring interactive terminal interfaces, WebGL animations, and distributed backend architecture matrix.",
       tech_cv_btn: "Explore Developer Portfolio →",
 
-      testi_quote: "Eric didn't just build our web platform — he completely re-engineered our multi-currency checkout flow and launched our 24/7 AI concierge without a minute of downtime. His speed, technical ownership, and post-launch responsiveness made our international launch seamless.",
       ent_eyebrow: "ENTERPRISE SCALE & CAREER FOUNDATION",
       ent_heading: "Scalable Architectures Powering Millions of Daily Users",
 
@@ -409,7 +408,6 @@
       tech_cv_desc: "Jelajahi portofolio engineering saya yang lengkap dengan terminal interaktif, animasi WebGL, dan arsitektur backend microservices.",
       tech_cv_btn: "Buka Portofolio Engineer →",
 
-      testi_quote: "Eric bukan cuma bangun web platform kami — dia merombak total alur pembayaran multi-currency dan meluncurkan AI sales concierge 24/7 kami tanpa downtime semenit pun. Kecepatan koding dan tanggung jawab after-sales-nya luar biasa.",
       ent_eyebrow: "PENGALAMAN ENTERPRISE & SKALA JUTAAN USER",
       ent_heading: "Sistem Andal yang Melayani Jutaan Transaksi Harian",
 
