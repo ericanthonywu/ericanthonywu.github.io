@@ -1743,6 +1743,8 @@ ul {
   }
 }
 
+.form-status.is-error { color: #ef4444; }
+
 @media (max-width: 768px) {
   :root {
     --header-height: 68px;
@@ -1772,6 +1774,24 @@ ul {
 
   .hero__cta-group .btn {
     width: 100%;
+  }
+
+  .preview-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tz-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tz-hours {
+    text-align: left;
   }
 
   .form-row {
