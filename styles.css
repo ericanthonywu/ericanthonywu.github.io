@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ERIC ANTHONY — SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER
-   Executive Client Portfolio Design System (Pristine Swiss & Stripe Modern)
+   ERIC ANTHONY | SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER
+   Executive Minimalist & High-Conversion Stylesheet
    ========================================================================== */
 
 :root {
@@ -668,6 +668,7 @@ ul {
   background: #ffffff;
   border-color: var(--border-strong);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .value-card__icon {
@@ -819,6 +820,13 @@ ul {
   border-radius: var(--radius-lg);
   padding: 28px;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+.mini-case-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
 }
 
 .mini-case-tag {
@@ -862,6 +870,7 @@ ul {
   background: #ffffff;
   box-shadow: var(--shadow-md);
   border-color: var(--border-strong);
+  transform: translateY(-2px);
 }
 
 .service-box__num {
@@ -968,14 +977,47 @@ ul {
 }
 
 .company-pill {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--ink-primary);
   background: #ffffff;
-  padding: 12px 20px;
-  border-radius: var(--radius-lg);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.company-pill svg {
+  color: var(--ink-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.company-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+  background: #ffffff;
+}
+
+.company-pill:hover svg {
+  color: var(--accent-blue);
+  transform: translate(2px, -2px);
+}
+
+.company-pill__store-badges {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: var(--accent-blue-subtle);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
 }
 
 .academic-banner {
@@ -984,6 +1026,13 @@ ul {
   border-radius: var(--radius-lg);
   padding: 28px;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+.academic-banner:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .academic-tag {
@@ -1073,12 +1122,16 @@ ul {
   background: var(--bg-page);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .direct-row:hover {
   background: var(--accent-blue-subtle);
-  border-color: rgba(37, 99, 235, 0.3);
+  border-color: rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .direct-icon {
@@ -1270,12 +1323,46 @@ ul {
   color: var(--ink-secondary);
 }
 
-/* Pricing Grid */
+/* Spotlight Card Mouse Hover Glow */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(37, 99, 235, 0.05), transparent 40%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Pricing & Engagement Tiers Block */
+.pricing-tiers-block {
+  margin-top: 72px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pricing-tiers-block .section-header {
+  margin-bottom: 32px;
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 24px;
+  margin-top: 0;
 }
 
 .pricing-card {
@@ -1358,12 +1445,17 @@ ul {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 16px 20px;
-  transition: all var(--transition-fast);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
 }
 
 .faq-item[open] {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
 }
 
 .faq-question {
@@ -1401,13 +1493,22 @@ ul {
   margin-top: 12px;
 }
 
-/* Timezone Overlap Box */
+/* Timezone Overlap Box & Live World Clock */
 .timezone-box {
   background: var(--bg-surface-subtle);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 18px;
+  border-radius: var(--radius-lg);
+  padding: 20px;
   margin-bottom: 24px;
+}
+
+.timezone-box__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
 }
 
 .timezone-title {
@@ -1415,28 +1516,82 @@ ul {
   font-weight: 800;
   letter-spacing: 0.06em;
   color: var(--ink-primary);
-  display: block;
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tz-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.tz-live-badge.is-async {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #cbd5e1;
+}
+
+.tz-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #059669;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3);
+  animation: pulseLive 2s infinite ease-in-out;
+}
+
+.tz-live-badge.is-async .tz-live-dot {
+  background: #94a3b8;
+  box-shadow: none;
+  animation: none;
+}
+
+@keyframes pulseLive {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
 }
 
 .timezone-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .tz-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 12.5px;
   gap: 12px;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+  padding: 4px 6px 6px;
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tz-item:hover {
+  background-color: var(--accent-blue-subtle);
+  transform: translateX(3px);
 }
 
 .tz-item:last-child {
   border-bottom: none;
-  padding-bottom: 0;
+  padding-bottom: 4px;
+}
+
+.tz-region-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .tz-region {
@@ -1445,9 +1600,21 @@ ul {
   white-space: nowrap;
 }
 
+.tz-digital-clock {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-blue);
+  background: var(--accent-blue-subtle);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.02em;
+}
+
 .tz-hours {
   color: var(--ink-secondary);
   text-align: right;
+  font-size: 12px;
 }
 
 .btn--tiny {
@@ -1465,6 +1632,32 @@ ul {
 .btn--tiny:hover {
   background: var(--accent-blue);
   color: #ffffff;
+}
+
+/* ==========================================================================
+   AMBIENT INTERACTIVE HERO CANVAS & MAGNETIC BUTTONS
+   ========================================================================== */
+.hero-canvas-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.6;
+}
+
+#ambientCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.btn-magnetic {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.2s ease;
+  will-change: transform;
 }
 
 /* Footer */
@@ -1629,5 +1822,11 @@ ul {
 
   .footer__right {
     text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 0 50px;
   }
 }

@@ -1,5 +1,5 @@
 /**
- * ERIC ANTHONY — SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER
+ * ERIC ANTHONY | SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER
  * Bilingual Executive & Casual Experience Runtime (EN & ID)
  */
 
@@ -35,7 +35,7 @@
 
       metric2_tag: "Conversion Boost",
       metric2_title: "Checkout Speed & Revenue Growth",
-      metric2_desc: "Streamlined mobile purchase and policy issuance flows at GoPay, cutting API latency by 30% and lifting customer conversion rates by 15–20%.",
+      metric2_desc: "Streamlined mobile purchase and policy issuance flows at GoPay, cutting API latency by 30% and lifting customer conversion rates by 15-20%.",
 
       metric3_tag: "Launch Reliability",
       metric3_title: "Zero-Downtime Product Releases",
@@ -82,7 +82,7 @@
       c2_title: "GoPay Insurance: Scalable Digital Policy Issuance & 30% Latency Reduction",
       c2_challenge: "GoPay required robust, instant policy underwriting and automated monthly recurring billing for multiple digital insurance products serving millions of active app users.",
       c2_solution: "Built core backend transaction services, personalized product recommendation algorithms, automated payment reconciliation, and optimized mobile screen rendering logic.",
-      c2_outcome: "Achieved a ~30% reduction in screen loading latency, lifted customer insurance purchase conversion by 15–20%, and delivered all launches with zero critical production incidents.",
+      c2_outcome: "Achieved a ~30% reduction in screen loading latency, lifted customer insurance purchase conversion by 15-20%, and delivered all launches with zero critical production incidents.",
       c2_tag1: "Fintech Core Engine",
       c2_tag2: "Automated Recurring Billing",
       c2_tag3: "30% Faster Response",
@@ -102,7 +102,7 @@
       c4_client: "RETAIL & CLINICAL ERP",
       c4_badge: "System Rescue + Dedicated After-Sales & AI",
       c4_title: "Optics POS: Rescuing an Abandoned Retail System with Reliable After-Sales & AI Search",
-      c4_challenge: "The client had previously bought a POS app from another developer who disappeared after delivery — leaving behind critical bugs, zero after-sales support, and painful response delays. Frustrated store staff were forced back to slow manual paper filing for lens prescriptions.",
+      c4_challenge: "The client previously purchased a POS system from another developer who disappeared after delivery, leaving behind critical bugs, zero after-sales support, and painful delays. Frustrated store staff were forced back to manual paper filing for lens prescriptions.",
       c4_solution: "Took full ownership of the project: eliminated legacy bugs, streamlined checkout operations, provided dedicated after-sales support with hands-on staff training, and embedded a conversational AI assistant for instant natural-language stock and prescription queries.",
       c4_outcome: "Cut transaction and prescription lookup times by over 50%. The client gained total peace of mind through responsive after-sales support, remarking: \"I wish we had partnered with Eric from day one.\"",
       c4_tag1: "System Rescue & Fixes",
@@ -167,11 +167,11 @@
 
       proc_eyebrow: "HOW WE WORK TOGETHER",
       proc_heading: "A Transparent, High-Speed 4-Step Product Blueprint",
-      proc_subtext: "From initial business discovery to live launch and post-release support — no guesswork, no technical confusion, and no endless meetings.",
+      proc_subtext: "From initial business discovery to live launch and post-release support: zero guesswork, clear technical architecture, and no bloated meetings.",
       proc1_title: "1. Discovery & Strategic Alignment",
       proc1_text: "We deep-dive into your revenue goals, customer journey, and essential feature scope. We eliminate bloat and define a clear, high-ROI MVP roadmap.",
       proc2_title: "2. Rapid Milestone Execution",
-      proc2_text: "Clean, modular builds delivered in focused 2–6 week milestones with continuous staging previews. You see real progress every single week.",
+      proc2_text: "Clean, modular builds delivered in focused 2-6 week milestones with continuous staging previews. You see real progress every single week.",
       proc3_title: "3. Real-World Testing & Staff Training",
       proc3_text: "Rigorous payment flow testing, stress testing, and complete admin walkthroughs so your internal team can operate the system effortlessly.",
       proc4_title: "4. Flawless Launch & Post-Release Support",
@@ -182,7 +182,7 @@
       s4_subtext: "Over 7 years of senior engineering experience delivering business outcomes across Southeast Asia's leading unicorns, conglomerates, and global brands.",
 
       acad_tag: "ACADEMIC FOUNDATION & CAREER TIMELINE",
-      acad_title: "Bachelor of Information Systems — Universitas Tarumanagara",
+      acad_title: "Bachelor of Information Systems, Universitas Tarumanagara",
       acad_desc: "Engineering professionally since 2018 alongside university studies (graduated 2024 with published research on academic management systems in the peer-reviewed JIKSI journal), following intensive graduate web engineering training at Purwadhika Startup & Coding School.",
 
       tech_cv_tag: "TECHNICAL ARCHITECTURE & DEEP-DIVE",
@@ -200,20 +200,20 @@
       ent_eyebrow: "ENTERPRISE SCALE & CAREER FOUNDATION",
       ent_heading: "Scalable Architectures Powering Millions of Daily Users",
       ent_c1_title: "Digital Insurance & Microservices",
-      ent_c1_desc: "Built core backend policy underwriting engines, cutting screen latency by 30% and lifting purchase conversion by 15–20% across millions of active app users.",
+      ent_c1_desc: "Built core backend policy underwriting engines, cutting screen latency by 30% and lifting purchase conversion by 15-20% across millions of active app users.",
       ent_c2_title: "Cloud Architecture & Caching (80% Cost Slashes)",
       ent_c2_desc: "Optimized data storage and caching architecture for Indonesia's premier audio streaming platform, slashing monthly cloud hosting bills by ~80%.",
       ent_c3_title: "B2B Healthcare Portals",
       ent_c3_desc: "Modernized enterprise healthcare administration systems, creating high-speed portals for corporate healthcare clients.",
-      ent_c4_title: "Mobile Shopping & Creator Platforms",
-      ent_c4_desc: "Built scalable mobile backends and creator marketplace systems active on the Google Play Store and Apple App Store.",
+      ent_c4_title: "Creator Economy & Mobile Shopping",
+      ent_c4_desc: "Built scalable influencer marketplace systems for Socialbread and mobile retail backend APIs for Splitoff active on the Google Play Store and Apple App Store.",
 
       price_eyebrow: "ENGAGEMENT MODELS",
       price_heading: "Transparent Engagements Tailored to Your Growth Stage",
       price_subtext: "Clear milestone scopes, direct technical ownership, and zero agency overhead.",
       price1_badge: "MVP / FOCUSED BUILD",
       price1_title: "Sprint Milestone",
-      price1_floor: "2–4 Weeks",
+      price1_floor: "2-4 Weeks",
       price1_desc: "Best for launching rapid MVP products, integrating AI sales chatbots, Stripe payment overhauls, or performance rescues.",
       price1_f1: "✓ Defined feature milestone scope",
       price1_f2: "✓ Weekly staging live previews",
@@ -221,7 +221,7 @@
 
       price2_badge: "MOST POPULAR",
       price2_title: "0-to-1 Product Build",
-      price2_floor: "4–8 Weeks",
+      price2_floor: "4-8 Weeks",
       price2_desc: "Complete end-to-end web SaaS or mobile platform architecture from user interfaces to database & payment checkouts.",
       price2_f1: "✓ Full stack web & mobile architecture",
       price2_f2: "✓ Global & local payment checkouts",
@@ -249,11 +249,13 @@
       faq2_q: "Do you sign a Non-Disclosure Agreement (NDA)?",
       faq2_a: "Yes. I routinely sign mutual NDAs before reviewing proprietary data, trade secrets, or detailed technical specifications with international founders and corporate clients.",
 
-      tz_title: "🌍 GUARANTEED DAILY WORKING OVERLAP",
-      tz1_hours: "3–4 hrs overlap (5 PM – 9 PM PT / 7 AM – 11 AM WIB)",
-      tz2_hours: "3–4 hrs overlap (8 PM – 12 AM ET / 7 AM – 11 AM WIB)",
-      tz3_hours: "4–5 hrs overlap (8 AM – 1 PM GMT / 3 PM – 8 PM WIB)",
-      tz4_hours: "Full 8-hour workday alignment (9 AM – 6 PM SGT)",
+      tz_title: "🌍 LIVE GLOBAL WORKING OVERLAP",
+      tz_status_live: "Live Overlap Active",
+      tz_base_location: "Base Location (UTC+7)",
+      tz1_hours: "3-4 hrs overlap (5 PM - 9 PM PT / 7 AM - 11 AM WIB)",
+      tz2_hours: "3-4 hrs overlap (8 PM - 12 AM ET / 7 AM - 11 AM WIB)",
+      tz3_hours: "4-5 hrs overlap (8 AM - 1 PM GMT / 3 PM - 8 PM WIB)",
+      tz4_hours: "Full 8-hour workday alignment (9 AM - 6 PM SGT)",
 
       cform_eyebrow: "LET'S BUILD SOMETHING PROFITABLE",
       cform_title: "Ready to launch or scale your digital product?",
@@ -307,7 +309,7 @@
 
       metric2_tag: "Konversi Naik",
       metric2_title: "Checkout Makin Ngebut, Omzet Naik",
-      metric2_desc: "Bikin proses beli asuransi di GoPay jadi 30% lebih kencang, sukses ningkatin konversi penjualan sampai 15–20%.",
+      metric2_desc: "Bikin proses beli asuransi di GoPay jadi 30% lebih kencang, sukses ningkatin konversi penjualan sampai 15-20%.",
 
       metric3_tag: "Anti-Crash",
       metric3_title: "Launching Mulus, Zero-Downtime",
@@ -354,7 +356,7 @@
       c2_title: "GoPay Insurance: Bikin Pembelian Asuransi Digital 30% Lebih Kencang & Konversi Naik",
       c2_challenge: "GoPay butuh sistem underwriting dan tagihan langganan otomatis yang instan buat jutaan user aktif harian tanpa boleh ada error.",
       c2_solution: "Rancang backend transaksi inti, algoritma rekomendasi pintar, sistem auto-debet bulanan, dan optimasi tampilan layar aplikasi.",
-      c2_outcome: "Waktu loading layar 30% lebih gesit, konversi beli asuransi naik 15–20%, dan seluruh produk live mulus tanpa insiden.",
+      c2_outcome: "Waktu loading layar 30% lebih gesit, konversi beli asuransi naik 15-20%, dan seluruh produk live mulus tanpa insiden.",
       c2_tag1: "Core Engine Fintech",
       c2_tag2: "Langganan Otomatis",
       c2_tag3: "Respon 30% Lebih Cepat",
@@ -374,7 +376,7 @@
       c4_client: "RETAIL & KLINIK OPTIK",
       c4_badge: "Penyelamatan Sistem + Garansi After-Sales & AI",
       c4_title: "Optics POS: Penyelamatan Sistem Kasir Toko Kacamata + Asisten AI & Garansi After-Sales",
-      c4_challenge: "Klien sebelumnya sempat beli aplikasi kasir dari developer lain, tapi malah ditinggal kabur (ghosting). Aplikasinya penuh bug fatal, respon developernya lambat banget dan susah dihubungi, serta nggak ada after-sales sama sekali. Karyawan toko pun terpaksa balik cari resep kacamata manual di laci arsip.",
+      c4_challenge: "Klien sebelumnya sempat beli aplikasi kasir dari developer lain, tapi malah ditinggal kabur (ghosting). Aplikasinya penuh bug fatal, respon developernya lambat dan susah dihubungi, serta tanpa after-sales sama sekali. Karyawan toko pun terpaksa balik cari resep kacamata manual di laci arsip.",
       c4_solution: "Saya ambil alih penuh sistemnya: beresin semua bug yang ada, rapikan alur transaksi kasir, berikan pendampingan after-sales intensif dan training staf, serta pasang chatbot AI pintar yang bisa ditanya stok dan riwayat resep kacamata pakai bahasa sehari-hari.",
       c4_outcome: "Waktu layani pelanggan dan transaksi checkout kepangkas lebih dari 50%. Klien merasa jauh lebih tenang dan puas dengan tanggung jawab serta after-sales yang gercep, bahkan bilang: \"Coba dari awal ketemunya sama Eric!\"",
       c4_tag1: "Penyelamatan Sistem (Rescue)",
@@ -439,11 +441,11 @@
 
       proc_eyebrow: "ALUR KOLABORASI",
       proc_heading: "Alur Kerja 4 Langkah: Transparan, Cepat, dan Jelas",
-      proc_subtext: "Dari diskusi target omzet awal hingga peluncuran live dan pendampingan paska-rilis — tanpa tebak-tebakan, tanpa istilah bikin pusing, dan tanpa meeting bertele-tele.",
+      proc_subtext: "Dari diskusi target omzet awal hingga peluncuran live dan pendampingan paska-rilis: tanpa tebak-tebakan, tanpa istilah bikin pusing, dan tanpa meeting bertele-tele.",
       proc1_title: "1. Diskusi Kebutuhan & Target Omzet",
       proc1_text: "Kita bedah target bisnis, alur transaksi pelanggan, dan fitur wajib yang benar-benar ngasilin cuan. Nggak ada fitur mubazir yang bikin buang budget.",
-      proc2_title: "2. Eksekusi Cepat Bertahap (2–6 Minggu)",
-      proc2_text: "Pengerjaan sistem secara transparan dan terukur dalam 2–6 minggu sesuai skala proyek. Kamu bisa pantau langsung progress-nya tiap minggu.",
+      proc2_title: "2. Eksekusi Cepat Bertahap (2-6 Minggu)",
+      proc2_text: "Pengerjaan sistem secara transparan dan terukur dalam 2-6 minggu sesuai skala proyek. Kamu bisa pantau langsung progress-nya tiap minggu.",
       proc3_title: "3. Uji Coba Transaksi & Training Tim",
       proc3_text: "Simulasi transaksi nyata dan panduan penggunaan sistem yang gampang dipahami, biar tim admin/kasir kamu langsung lancar pakainya.",
       proc4_title: "4. Peluncuran Live & Serah Terima Sistem",
@@ -454,7 +456,7 @@
       s4_subtext: "7+ tahun pengalaman senior engineering yang udah terbukti ngasilin impact nyata buat unicorn, konglomerasi, dan brand global di Asia Tenggara.",
 
       acad_tag: "BACKGROUND AKADEMIK & PERJALANAN KARIER",
-      acad_title: "Sarjana Sistem Informasi — Universitas Tarumanagara",
+      acad_title: "Sarjana Sistem Informasi, Universitas Tarumanagara",
       acad_desc: "Mulai berkarier profesional di bidang software engineering sejak 2018 sembari menempuh perkuliahan (lulus 2024 dari Universitas Tarumanagara dengan publikasi ilmiah di jurnal JIKSI), setelah menyelesaikan pelatihan engineering intensif di Purwadhika Startup & Coding School.",
 
       tech_cv_tag: "REKAM JEJAK TEKNIS & KODING",
@@ -472,20 +474,20 @@
       ent_eyebrow: "PENGALAMAN ENTERPRISE & SKALA JUTAAN USER",
       ent_heading: "Sistem Andal yang Melayani Jutaan Transaksi Harian",
       ent_c1_title: "Asuransi Digital & Microservices",
-      ent_c1_desc: "Bangun sistem inti penerbitan polis backend GoPay, pangkas loading 30% dan dongkrak konversi pembelian 15–20% buat jutaan pengguna aktif.",
+      ent_c1_desc: "Bangun sistem inti penerbitan polis backend GoPay, pangkas loading 30% dan dongkrak konversi pembelian 15-20% buat jutaan pengguna aktif.",
       ent_c2_title: "Arsitektur Cloud & Cache (Hemat Server 80%)",
       ent_c2_desc: "Optimasi penyimpanan data dan caching platform streaming audio Noice, sukses pangkas tagihan server cloud bulanan hingga ~80%.",
       ent_c3_title: "Portal Kesehatan B2B Korporat",
       ent_c3_desc: "Modernisasi portal administrasi kesehatan korporat, ciptakan dashboard super cepat untuk klien enterprise Halodoc.",
-      ent_c4_title: "Aplikasi Belanja & Marketplace Kreator",
-      ent_c4_desc: "Bangun backend mobile berkapasitas besar dan sistem marketplace kreator yang aktif di Google Play Store dan Apple App Store.",
+      ent_c4_title: "Platform Kreator & Belanja Mobile",
+      ent_c4_desc: "Bangun platform marketplace influencer untuk Socialbread serta sistem backend retail mobile Splitoff yang aktif di Play Store & App Store.",
 
       price_eyebrow: "PILIHAN KERJA SAMA",
       price_heading: "Paket Kerja Sama Fleksibel Sesuai Tahap Bisnis Kamu",
       price_subtext: "Target jelas per milestone, kepemilikan kode 100% milik kamu, tanpa birokrasi berbelit.",
       price1_badge: "MVP / PROJEK FOKUS",
       price1_title: "Sprint Milestone",
-      price1_floor: "2–4 Minggu",
+      price1_floor: "2-4 Minggu",
       price1_desc: "Cocok untuk rilis produk MVP cepat, pasang chatbot AI sales, integrasi payment gateway, atau perbaikan performa website.",
       price1_f1: "✓ Ruang lingkup target fitur yang jelas",
       price1_f2: "✓ Preview staging live berkala tiap minggu",
@@ -493,7 +495,7 @@
 
       price2_badge: "PALING DIMINATI",
       price2_title: "0-to-1 Product Build",
-      price2_floor: "4–8 Minggu",
+      price2_floor: "4-8 Minggu",
       price2_desc: "Pembangunan menyeluruh platform web SaaS atau mobile app dari desain UI, database, hingga alur pembayaran live.",
       price2_f1: "✓ Arsitektur full-stack web & mobile app",
       price2_f2: "✓ Integrasi payment gateway lokal & global",
@@ -521,11 +523,13 @@
       faq2_q: "Apakah bersedia menandatangani perjanjian kerahasiaan (NDA)?",
       faq2_a: "Ya. Saya terbiasa menandatangani mutual NDA sebelum mendiskusikan rahasia dagang, data internal, atau spesifikasi teknis mendalam bersama founder dan perusahaan.",
 
-      tz_title: "🌍 GARANSI OVERLAP JAM KERJA FLEKSIBEL",
-      tz1_hours: "Overlap 3–4 jam (07.00 – 11.00 WIB / 17.00 – 21.00 PT)",
-      tz2_hours: "Overlap 3–4 jam (07.00 – 11.00 WIB / 20.00 – 00.00 ET)",
-      tz3_hours: "Overlap 4–5 jam (15.00 – 20.00 WIB / 08.00 – 13.00 GMT)",
-      tz4_hours: "Penyelarasan penuh hari kerja (09.00 – 18.00 WIB / SGT)",
+      tz_title: "🌍 LIVE GLOBAL WORKING OVERLAP",
+      tz_status_live: "Sesi Overlap Aktif Sekarang",
+      tz_base_location: "Lokasi Basis (UTC+7)",
+      tz1_hours: "Overlap 3-4 jam (07.00 - 11.00 WIB / 17.00 - 21.00 PT)",
+      tz2_hours: "Overlap 3-4 jam (07.00 - 11.00 WIB / 20.00 - 00.00 ET)",
+      tz3_hours: "Overlap 4-5 jam (15.00 - 20.00 WIB / 08.00 - 13.00 GMT)",
+      tz4_hours: "Penyelarasan penuh hari kerja (09.00 - 18.00 WIB / SGT)",
 
       cform_eyebrow: "YUK, MULAI PROYEK KAMU",
       cform_title: "Punya ide produk baru atau mau upgrade sistem yang ada?",
@@ -629,24 +633,24 @@
     const twitterDesc = document.querySelector('meta[name="twitter:description"]');
 
     if (lang === 'id') {
-      document.title = 'Eric Anthony — Partner Produk & Teknologi Bisnis | Web App & AI Systems';
+      document.title = 'Eric Anthony | Partner Produk & Teknologi Bisnis | Web App & AI Systems';
       if (canonicalLink) canonicalLink.setAttribute('href', 'https://ericanthonywu.github.io/?lang=id');
       if (metaDesc) metaDesc.setAttribute('content', 'Ubah ide kompleks kamu jadi produk digital beromzet tinggi, automasi AI pintar, dan aplikasi web/mobile yang hemat server hingga 80% dan scale ke jutaan user.');
       if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, Partner Teknologi Bisnis, Jasa Pembuatan Website, Jasa Bikin Web App, Developer Chatbot WhatsApp, Konsultan IT Jakarta, Jasa Coding Aplikasi, Fullstack Developer Indonesia, GoPay, 1Engage, Startup Indonesia');
-      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony — Partner Produk & Teknologi Bisnis');
+      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony | Partner Produk & Teknologi Bisnis');
       if (ogDesc) ogDesc.setAttribute('content', 'Bantu founder dan pebisnis bangun web app cepat, automasi chatbot AI, dan aplikasi mobile yang siap melayani jutaan transaksi.');
       if (ogLocale) ogLocale.setAttribute('content', 'id_ID');
-      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony — Partner Produk & Teknologi Bisnis');
+      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony | Partner Produk & Teknologi Bisnis');
       if (twitterDesc) twitterDesc.setAttribute('content', 'Bantu founder dan pebisnis bangun web app cepat, automasi chatbot AI, dan aplikasi mobile yang siap melayani jutaan transaksi.');
     } else {
-      document.title = 'Eric Anthony — Senior Product Engineer & Technical Partner';
+      document.title = 'Eric Anthony | Senior Product Engineer & Technical Partner';
       if (canonicalLink) canonicalLink.setAttribute('href', 'https://ericanthonywu.github.io/?lang=en');
       if (metaDesc) metaDesc.setAttribute('content', 'I turn complex ideas into high-revenue digital products, scalable SaaS platforms, and automated AI systems that cut operating costs by 80% and scale to millions of users.');
       if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, Senior Product Engineer, Technical Partner, Software Consultant, Hire Fullstack Developer, SaaS Development, AI Chatbot Automation, Cloud Cost Optimization, Web Application Engineer, GoPay, 1Engage, Jakarta, Remote');
-      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony — Senior Product Engineer & Technical Partner');
+      if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony | Senior Product Engineer & Technical Partner');
       if (ogDesc) ogDesc.setAttribute('content', 'Turn complex ideas into high-revenue digital products, automated AI workflows, and scalable apps that accelerate customer acquisition.');
       if (ogLocale) ogLocale.setAttribute('content', 'en_US');
-      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony — Senior Product Engineer & Technical Partner');
+      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony | Senior Product Engineer & Technical Partner');
       if (twitterDesc) twitterDesc.setAttribute('content', 'Turn complex ideas into high-revenue digital products, automated AI workflows, and scalable apps that cut operating costs and scale to millions.');
     }
   }
@@ -920,6 +924,190 @@
   }
 
   /* ==========================================================================
+     8. AMBIENT INTERACTIVE HERO CANVAS & CONSTELLATION NODES
+     ========================================================================== */
+  function initAmbientCanvas() {
+    const canvas = document.getElementById('ambientCanvas');
+    if (!canvas || !canvas.parentElement) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = (canvas.width = canvas.parentElement.offsetWidth);
+    let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+    window.addEventListener('resize', () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+
+    const particles = [];
+    const count = Math.min(32, Math.floor(width / 35));
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        radius: Math.random() * 2 + 1.2
+      });
+    }
+
+    let mouse = { x: -999, y: -999 };
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        mouse.x = -999;
+        mouse.y = -999;
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          const force = (120 - dist) / 120;
+          p.x += (dx / dist) * force * 1.5;
+          p.y += (dy / dist) * force * 1.5;
+        }
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(37, 99, 235, 0.45)';
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const cdx = p.x - p2.x;
+          const cdy = p.y - p2.y;
+          const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
+
+          if (cdist < 130) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(37, 99, 235, ${0.18 * (1 - cdist / 130)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  /* ==========================================================================
+     9. MAGNETIC BUTTON PHYSICS
+     ========================================================================== */
+  function initMagneticButtons() {
+    const magneticBtns = document.querySelectorAll('.btn-magnetic');
+    magneticBtns.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0px, 0px)';
+      });
+    });
+  }
+
+  /* ==========================================================================
+     10. LIVE GLOBAL TIMEZONE SYNCHRONIZER & DIGITAL CLOCK
+     ========================================================================== */
+  function initLiveTimezoneClock() {
+    const clockWIB = document.getElementById('clockWIB');
+    const clockPST = document.getElementById('clockPST');
+    const clockEST = document.getElementById('clockEST');
+    const clockGMT = document.getElementById('clockGMT');
+    const clockSGT = document.getElementById('clockSGT');
+    const statusBadge = document.getElementById('tzStatusBadge');
+    const statusText = document.getElementById('tzStatusText');
+
+    function updateClocks() {
+      const now = new Date();
+
+      const timeFormat = (tz) => {
+        try {
+          return now.toLocaleTimeString('en-US', {
+            timeZone: tz,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+          });
+        } catch (e) {
+          return '--:--';
+        }
+      };
+
+      if (clockWIB) clockWIB.textContent = `${timeFormat('Asia/Jakarta')} WIB`;
+      if (clockPST) clockPST.textContent = `${timeFormat('America/Los_Angeles')} PT`;
+      if (clockEST) clockEST.textContent = `${timeFormat('America/New_York')} ET`;
+      if (clockGMT) clockGMT.textContent = `${timeFormat('Europe/London')} GMT`;
+      if (clockSGT) clockSGT.textContent = `${timeFormat('Asia/Singapore')} SGT`;
+
+      const jktHourStr = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Jakarta', hour: '2-digit', hour12: false });
+      const jktHour = parseInt(jktHourStr, 10);
+      const isLiveOverlap = jktHour >= 7 && jktHour < 23;
+
+      if (statusBadge && statusText) {
+        if (isLiveOverlap) {
+          statusBadge.classList.remove('is-async');
+          statusText.textContent = currentLang === 'id' ? 'Sesi Overlap Aktif Sekarang' : 'Live Overlap Active';
+        } else {
+          statusBadge.classList.add('is-async');
+          statusText.textContent = currentLang === 'id' ? 'Jeda Malam (Respon <6 Jam)' : 'Async Window (<6h Response)';
+        }
+      }
+    }
+
+    updateClocks();
+    setInterval(updateClocks, 1000);
+  }
+
+  /* ==========================================================================
+     11. LINEAR-GRADE TACTILE SPOTLIGHT GLOW EFFECT
+     ========================================================================== */
+  function initCardSpotlights() {
+    const cards = document.querySelectorAll('.spotlight-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  /* ==========================================================================
      INITIALIZATION ON DOM READY
      ========================================================================== */
   document.addEventListener('DOMContentLoaded', () => {
@@ -929,6 +1117,10 @@
     initCopyEmail();
     initHeaderScroll();
     initSmoothScroll();
+    initAmbientCanvas();
+    initMagneticButtons();
+    initLiveTimezoneClock();
+    initCardSpotlights();
   });
 
 })();

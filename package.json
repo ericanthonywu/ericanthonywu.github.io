@@ -1,7 +1,7 @@
 {
   "name": "ericanthony-portfolio-v2",
   "version": "2.0.0",
-  "description": "Eric Anthony — Senior Backend & Distributed Systems Engineer Portfolio",
+  "description": "Eric Anthony | Senior Backend & Distributed Systems Engineer Portfolio",
   "scripts": {
     "dev": "python3 -m http.server 8081",
     "test": "npx playwright test"
