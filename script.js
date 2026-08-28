@@ -453,7 +453,7 @@
 
       acad_tag: "BACKGROUND AKADEMIK & PERJALANAN KARIER",
       acad_title: "Sarjana Sistem Informasi, Universitas Tarumanagara",
-      acad_desc: "Mulai berkarier profesional di bidang software engineering sejak 2018 sembari menempuh perkuliahan (lulus 2024 dari Universitas Tarumanagara dengan publikasi ilmiah di jurnal JIKSI), setelah menyelesaikan pelatihan engineering intensif di Purwadhika Startup & Coding School.",
+      acad_desc: "Mulai berkarier profesional di bidang software engineering sejak 2018 sembari kuliah (lulus 2024 dari Universitas Tarumanagara dengan publikasi ilmiah di jurnal JIKSI), setelah menyelesaikan pelatihan engineering intensif di Purwadhika Startup & Coding School.",
 
       tech_cv_tag: "REKAM JEJAK TEKNIS & KODING",
       tech_cv_title: "Mencari Demo Teknis Kodingan & CV Engineer Full-Time?",
@@ -474,9 +474,9 @@
       ent_c2_title: "Arsitektur Cloud & Cache (Hemat Server 80%)",
       ent_c2_desc: "Optimasi penyimpanan data dan caching platform streaming audio Noice, sukses pangkas tagihan server cloud bulanan hingga ~80%.",
       ent_c3_title: "Portal Kesehatan B2B Korporat",
-      ent_c3_desc: "Modernisasi portal administrasi kesehatan korporat, ciptakan dashboard super cepat untuk klien enterprise Halodoc.",
+      ent_c3_desc: "Modernisasi portal kesehatan korporat, bikin dashboard super kencang buat klien enterprise Halodoc.",
       ent_c4_title: "Platform Kreator & Belanja Mobile",
-      ent_c4_desc: "Bangun platform marketplace influencer untuk Socialbread serta sistem backend retail mobile Splitoff yang aktif di Play Store & App Store.",
+      ent_c4_desc: "Bangun marketplace influencer buat Socialbread dan sistem backend belanja mobile Splitoff yang aktif di Play Store & App Store.",
 
       price_eyebrow: "PILIHAN KERJA SAMA",
       price_heading: "Paket Kerja Sama Fleksibel Sesuai Tahap Bisnis Kamu",
@@ -521,7 +521,7 @@
 
       tz_title: "ZONA WAKTU KERJA: JAKARTA (WIB / UTC+7)",
       tz_status_live: "Jam Kerja Aktif",
-      tz_overlap_note: "Berbasis di Jakarta (WIB / UTC+7). Fleksibel dan terbuka untuk penyesuaian jadwal meeting atau koordinasi lintas zona waktu internasional (US, Eropa, APAC) sesuai kesepakatan.",
+      tz_overlap_note: "Berbasis di Jakarta (WIB / UTC+7). Fleksibel dan terbuka untuk penyesuaian jadwal meeting atau koordinasi lintas zona waktu internasional (US, Eropa, APAC) sesuai kesepakatan bareng.",
 
       cform_eyebrow: "YUK, MULAI PROYEK KAMU",
       cform_title: "Punya ide produk baru atau mau upgrade sistem yang ada?",
