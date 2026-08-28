@@ -282,7 +282,7 @@
 
     id: {
       skip_link: "Lewati ke konten utama",
-      brand_role: "PARTNER PRODUK & TEKNIS BISNIS",
+      brand_role: "SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
       nav_results: "Hasil",
       nav_cases: "Studi Kasus",
       nav_capabilities: "Layanan",
@@ -291,11 +291,11 @@
       nav_tech_cv: "CV Engineer ↗",
       nav_cta: "Jadwalkan Konsultasi",
       status_text: "Terbuka untuk Proyek Terpilih",
-      drawer_footer: "Siap membantu konsultasi arsitektur, pengembangan produk dari awal, hingga peran Technical Lead.",
+      drawer_footer: "Membantu perusahaan dan startup berkembang membangun platform digital skala enterprise, optimasi arsitektur cloud, hingga Fractional Tech Lead.",
 
-      hero_badge: "7+ TAHUN MEMBANGUN PLATFORM DIGITAL BERORIENTASI ROI TINGGI",
-      hero_title: 'Mentransformasi ide kompleks menjadi <span class="text-highlight">produk digital berpendapatan tinggi</span> yang siap berkembang ke jutaan pengguna.',
-      hero_subtitle: 'Membantu founder, eksekutif bisnis, dan tim produk membangun aplikasi web berkinerja tinggi, alur kerja otomasi AI pintar, serta sistem scalable. Fokus utama: <strong>akuisisi pelanggan lebih cepat, efisiensi biaya server hingga 80%, dan reliabilitas peluncuran tanpa downtime</strong>.',
+      hero_badge: "7+ TAHUN MEMBANGUN PLATFORM DIGITAL SKALA ENTERPRISE & HIGH-ROI",
+      hero_title: 'Mentransformasi kompleksitas teknis menjadi <span class="text-highlight">produk digital berpendapatan tinggi</span> yang siap scale ke jutaan pengguna.',
+      hero_subtitle: 'Bermitra dengan founder, eksekutif bisnis, dan tim produk untuk merekayasa platform web berkinerja tinggi, sistem otomasi AI pintar, dan arsitektur scalable. Berfokus pada <strong>akuisisi pelanggan lebih cepat, efisiensi biaya server hingga 80%, dan reliabilitas peluncuran tanpa downtime</strong>.',
       hero_cta_primary: "Jadwalkan Konsultasi Proyek",
       hero_cta_secondary: "Jelajahi Studi Kasus",
 
@@ -305,15 +305,15 @@
 
       metric2_tag: "Peningkatan Konversi",
       metric2_title: "Kecepatan Checkout & Pertumbuhan Pendapatan",
-      metric2_desc: "Mengoptimalkan alur pembelian asuransi di GoPay dengan pemangkasan latensi 30%, mendorong kenaikan konversi transaksi sebesar 15-20%.",
+      metric2_desc: "Mengoptimalkan alur pembelian asuransi di GoPay dengan pemangkasan latensi 30%, mendorong kenaikan konversi transaksi sebesar 15-20% pada jutaan pengguna aktif.",
 
       metric3_tag: "Reliabilitas Sistem",
-      metric3_title: "Peluncuran Produk Zero-Downtime",
-      metric3_desc: "Merilis berbagai platform finansial dan e-commerce berskala jutaan pengguna secara mulus tanpa kegagalan sistem atau bug kritis.",
+      metric3_title: "Peluncuran Produksi Zero-Downtime",
+      metric3_desc: "Merilis berbagai platform finansial dan e-commerce berskala enterprise ke jutaan pengguna secara mulus tanpa kegagalan sistem atau bug kritis.",
 
       s1_eyebrow: "NILAI STRATEGIS UNTUK BISNIS",
-      s1_heading: "Keunggulan teknis adalah standar. Fokus utama saya adalah pertumbuhan bisnis dan efisiensi operasional Anda.",
-      s1_subtext: "Teknologi terbaik adalah teknologi yang memberikan dampak langsung pada profitabilitas. Setiap arsitektur dan baris kode dirancang untuk memaksimalkan konversi, menekan biaya operasional, dan meningkatkan retensi pengguna.",
+      s1_heading: "Keunggulan rekayasa teknis adalah standar. Fokus utama saya: pertumbuhan bisnis dan efisiensi operasional perusahaan Anda.",
+      s1_subtext: "Teknologi terbaik adalah teknologi yang memberikan dampak langsung pada profitabilitas dan efisiensi operasional. Setiap keputusan arsitektur dirancang untuk memaksimalkan rasio konversi, menekan biaya infrastruktur, dan menjamin uptime sistem secara konsisten.",
 
       val1_title: "Kinerja Cepat, Konversi Maksimal",
       val1_text: "Aplikasi yang lambat menurunkan tingkat konversi. Saya membangun platform berkinerja tinggi dengan alur pembayaran instan (Stripe, QRIS, Virtual Account, Apple Pay) yang menghilangkan friksi transaksi bagi pembeli.",
@@ -524,10 +524,10 @@
       tz_overlap_note: "Berbasis di Jakarta (WIB / UTC+7). Fleksibel dan terbuka untuk penyesuaian jadwal rapat koordinasi lintas zona waktu internasional (US, Eropa, APAC) sesuai kesepakatan bersama.",
 
       cform_eyebrow: "MARI BANGUN PRODUK DIGITAL ANDA",
-      cform_title: "Siap meluncurkan atau mengembangkan produk digital Anda?",
-      cform_desc: "Baik Anda membutuhkan mitra teknis full-stack untuk produk baru maupun optimalisasi sistem yang sedang berjalan, mari berdiskusi untuk menemukan solusi yang paling efisien.",
+      cform_title: "Siap meluncurkan atau mengembangkan platform digital Anda?",
+      cform_desc: "Baik perusahaan Anda membutuhkan mitra teknis full-stack untuk inisiatif produk baru maupun modernisasi sistem skala enterprise, mari jadwalkan diskusi awal untuk merumuskan arsitektur terbaik.",
       trust_timezone: "Zona Waktu Fleksibel: Siap Kolaborasi Klien Indonesia & Global",
-      trust_flexible: "Skala Fleksibel: Dari Produk MVP hingga Sistem Enterprise",
+      trust_flexible: "Skala Fleksibel: Dari Modul MVP Terarah hingga Arsitektur Enterprise",
       direct_email_label: "EMAIL LANGSUNG (KLIK UNTUK SALIN)",
       direct_li_label: "PROFIL LINKEDIN",
 
