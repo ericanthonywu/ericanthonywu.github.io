@@ -1219,6 +1219,16 @@ ul {
   color: var(--accent-blue-hover);
 }
 
+@media (max-width: 1140px) {
+  .header__availability {
+    display: none;
+  }
+
+  .nav__list {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero__metrics-grid {
     grid-template-columns: 1fr;
@@ -1242,6 +1252,20 @@ ul {
     grid-template-columns: 1fr;
     padding: 32px;
     gap: 40px;
+  }
+}
+
+@media (max-width: 960px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .nav__list {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
   }
 }
 
