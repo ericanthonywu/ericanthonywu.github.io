@@ -1201,6 +1201,23 @@ ul {
   margin-top: 4px;
 }
 
+.footer__recruiter {
+  margin-top: 8px;
+}
+
+.footer__recruiter-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.footer__recruiter-link:hover {
+  color: var(--accent-blue-hover);
+}
+
 @media (max-width: 1024px) {
   .hero__metrics-grid {
     grid-template-columns: 1fr;

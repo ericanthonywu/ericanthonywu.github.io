@@ -208,7 +208,8 @@
 
       footer_desc: "Senior Product Engineer & Technical Partner building high-ROI digital platforms.",
       footer_copy: "© 2026 Eric Anthony. All rights reserved.",
-      footer_sub: "Based in Jakarta, Indonesia · Serving Global Clients"
+      footer_sub: "Based in Jakarta, Indonesia · Serving Global Clients",
+      footer_recruiter_link: "Looking for technical CV & engineering portfolio? View Engineer CV →"
     },
 
     id: {
@@ -409,7 +410,8 @@
 
       footer_desc: "Senior Product Engineer & Technical Partner yang bangun produk digital beromzet tinggi.",
       footer_copy: "© 2026 Eric Anthony. All rights reserved.",
-      footer_sub: "Berbasis di Jakarta, Indonesia · Melayani Klien Global"
+      footer_sub: "Berbasis di Jakarta, Indonesia · Melayani Klien Global",
+      footer_recruiter_link: "Mencari CV teknis kodingan & rekam jejak engineer? Lihat Portofolio Developer →"
     }
   };
 
