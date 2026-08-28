@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Host & Sitemap
+Host: https://ericanthonywu.github.io
+Sitemap: https://ericanthonywu.github.io/sitemap.xml
