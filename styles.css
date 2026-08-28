@@ -1493,32 +1493,56 @@ ul {
   margin-top: 12px;
 }
 
-/* Timezone Overlap Box & Live World Clock */
+/* Timezone & Availability Card */
 .timezone-box {
   background: var(--bg-surface-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 20px;
-  margin-bottom: 24px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  transition: all var(--transition-fast);
+}
+
+.timezone-box:hover {
+  background: #ffffff;
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-sm);
 }
 
 .timezone-box__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
+}
+
+.tz-base-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tz-flag {
+  font-size: 24px;
+  line-height: 1;
 }
 
 .timezone-title {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: var(--ink-primary);
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.tz-digital-clock {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  letter-spacing: -0.02em;
 }
 
 .tz-live-badge {
@@ -1527,7 +1551,7 @@ ul {
   gap: 6px;
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-full);
   background: #ecfdf5;
   color: #059669;
@@ -1560,61 +1584,13 @@ ul {
   50% { opacity: 0.4; transform: scale(1.3); }
 }
 
-.timezone-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.tz-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.tz-overlap-note {
   font-size: 12.5px;
-  gap: 12px;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
-  padding: 4px 6px 6px;
-  border-radius: var(--radius-sm);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.tz-item:hover {
-  background-color: var(--accent-blue-subtle);
-  transform: translateX(3px);
-}
-
-.tz-item:last-child {
-  border-bottom: none;
-  padding-bottom: 4px;
-}
-
-.tz-region-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.tz-region {
-  font-weight: 700;
-  color: var(--ink-primary);
-  white-space: nowrap;
-}
-
-.tz-digital-clock {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--accent-blue);
-  background: var(--accent-blue-subtle);
-  padding: 1px 6px;
-  border-radius: var(--radius-sm);
-  letter-spacing: 0.02em;
-}
-
-.tz-hours {
+  line-height: 1.5;
   color: var(--ink-secondary);
-  text-align: right;
-  font-size: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .btn--tiny {
@@ -2087,45 +2063,40 @@ ul {
   }
 
   .timezone-box {
-    padding: 12px 10px;
+    padding: 14px 12px;
     margin-bottom: 14px;
     border-radius: var(--radius-md);
   }
 
   .timezone-box__header {
-    margin-bottom: 8px;
+    gap: 8px;
+  }
+
+  .tz-base-info {
+    gap: 8px;
+  }
+
+  .tz-flag {
+    font-size: 20px;
   }
 
   .timezone-title {
-    font-size: 10px;
+    font-size: 9.5px;
+  }
+
+  .tz-digital-clock {
+    font-size: 13px;
   }
 
   .tz-live-badge {
     font-size: 10px;
-    padding: 2px 6px;
+    padding: 3px 8px;
   }
 
-  .timezone-grid {
-    gap: 4px;
-  }
-
-  .tz-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    padding: 3px 4px;
-    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-  }
-
-  .tz-region-wrap {
-    width: 100%;
-    justify-content: space-between;
-    font-size: 12px;
-  }
-
-  .tz-hours {
-    font-size: 10.5px;
-    color: var(--ink-muted);
+  .tz-overlap-note {
+    font-size: 11.5px;
+    margin-top: 8px;
+    padding-top: 8px;
   }
 
   .contact-direct-items {

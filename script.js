@@ -249,13 +249,9 @@
       faq2_q: "Do you sign a Non-Disclosure Agreement (NDA)?",
       faq2_a: "Yes. I routinely sign mutual NDAs before reviewing proprietary data, trade secrets, or detailed technical specifications with international founders and corporate clients.",
 
-      tz_title: "🌍 LIVE GLOBAL WORKING OVERLAP",
-      tz_status_live: "Live Overlap Active",
-      tz_base_location: "Base Location (UTC+7)",
-      tz1_hours: "3-4 hrs overlap (5 PM - 9 PM PT / 7 AM - 11 AM WIB)",
-      tz2_hours: "3-4 hrs overlap (8 PM - 12 AM ET / 7 AM - 11 AM WIB)",
-      tz3_hours: "4-5 hrs overlap (8 AM - 1 PM GMT / 3 PM - 8 PM WIB)",
-      tz4_hours: "Full 8-hour workday alignment (9 AM - 6 PM SGT)",
+      tz_title: "BASE TIMEZONE: JAKARTA (WIB / UTC+7)",
+      tz_status_live: "Working Hours Active",
+      tz_overlap_note: "Based in Jakarta (WIB / UTC+7). Flexible and open to coordinating synchronous meeting hours across US, European, and APAC timezones upon discussion.",
 
       cform_eyebrow: "LET'S BUILD SOMETHING PROFITABLE",
       cform_title: "Ready to launch or scale your digital product?",
@@ -523,13 +519,9 @@
       faq2_q: "Apakah bersedia menandatangani perjanjian kerahasiaan (NDA)?",
       faq2_a: "Ya. Saya terbiasa menandatangani mutual NDA sebelum mendiskusikan rahasia dagang, data internal, atau spesifikasi teknis mendalam bersama founder dan perusahaan.",
 
-      tz_title: "🌍 LIVE GLOBAL WORKING OVERLAP",
-      tz_status_live: "Sesi Overlap Aktif Sekarang",
-      tz_base_location: "Lokasi Basis (UTC+7)",
-      tz1_hours: "Overlap 3-4 jam (07.00 - 11.00 WIB / 17.00 - 21.00 PT)",
-      tz2_hours: "Overlap 3-4 jam (07.00 - 11.00 WIB / 20.00 - 00.00 ET)",
-      tz3_hours: "Overlap 4-5 jam (15.00 - 20.00 WIB / 08.00 - 13.00 GMT)",
-      tz4_hours: "Penyelarasan penuh hari kerja (09.00 - 18.00 WIB / SGT)",
+      tz_title: "ZONA WAKTU KERJA: JAKARTA (WIB / UTC+7)",
+      tz_status_live: "Jam Kerja Aktif",
+      tz_overlap_note: "Berbasis di Jakarta (WIB / UTC+7). Fleksibel dan terbuka untuk penyesuaian jadwal meeting atau koordinasi lintas zona waktu internasional (US, Eropa, APAC) sesuai kesepakatan.",
 
       cform_eyebrow: "YUK, MULAI PROYEK KAMU",
       cform_title: "Punya ide produk baru atau mau upgrade sistem yang ada?",
@@ -1038,14 +1030,10 @@
   }
 
   /* ==========================================================================
-     10. LIVE GLOBAL TIMEZONE SYNCHRONIZER & DIGITAL CLOCK
+     10. LIVE JAKARTA TIMEZONE & AVAILABILITY RUNTIME
      ========================================================================== */
   function initLiveTimezoneClock() {
     const clockWIB = document.getElementById('clockWIB');
-    const clockPST = document.getElementById('clockPST');
-    const clockEST = document.getElementById('clockEST');
-    const clockGMT = document.getElementById('clockGMT');
-    const clockSGT = document.getElementById('clockSGT');
     const statusBadge = document.getElementById('tzStatusBadge');
     const statusText = document.getElementById('tzStatusText');
 
@@ -1062,27 +1050,23 @@
             hour12: false
           });
         } catch (e) {
-          return '--:--';
+          return '--:--:--';
         }
       };
 
       if (clockWIB) clockWIB.textContent = `${timeFormat('Asia/Jakarta')} WIB`;
-      if (clockPST) clockPST.textContent = `${timeFormat('America/Los_Angeles')} PT`;
-      if (clockEST) clockEST.textContent = `${timeFormat('America/New_York')} ET`;
-      if (clockGMT) clockGMT.textContent = `${timeFormat('Europe/London')} GMT`;
-      if (clockSGT) clockSGT.textContent = `${timeFormat('Asia/Singapore')} SGT`;
 
       const jktHourStr = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Jakarta', hour: '2-digit', hour12: false });
       const jktHour = parseInt(jktHourStr, 10);
-      const isLiveOverlap = jktHour >= 7 && jktHour < 23;
+      const isWorkHours = jktHour >= 8 && jktHour < 22;
 
       if (statusBadge && statusText) {
-        if (isLiveOverlap) {
+        if (isWorkHours) {
           statusBadge.classList.remove('is-async');
-          statusText.textContent = currentLang === 'id' ? 'Sesi Overlap Aktif Sekarang' : 'Live Overlap Active';
+          statusText.textContent = currentLang === 'id' ? 'Jam Kerja Aktif' : 'Working Hours Active';
         } else {
           statusBadge.classList.add('is-async');
-          statusText.textContent = currentLang === 'id' ? 'Jeda Malam (Respon <6 Jam)' : 'Async Window (<6h Response)';
+          statusText.textContent = currentLang === 'id' ? 'Jadwal Fleksibel' : 'Flexible Scheduling';
         }
       }
     }
