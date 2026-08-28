@@ -842,6 +842,84 @@
   }
 
   /* ==========================================================================
+     7. CUSTOM SMOOTH SCROLL TRANSITION (SLOW -> FAST -> SLOW)
+     ========================================================================== */
+  function initSmoothScroll() {
+    let currentAnimId = null;
+
+    // Cubic Ease-In-Out: Starts slow -> accelerates in the middle -> gently glides to a stop
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function smoothScrollTo(targetPosition, duration) {
+      if (currentAnimId) {
+        cancelAnimationFrame(currentAnimId);
+        currentAnimId = null;
+      }
+
+      const startPosition = window.pageYOffset || document.documentElement.scrollTop;
+      const distance = targetPosition - startPosition;
+      if (Math.abs(distance) < 2) return;
+
+      const startTime = performance.now();
+
+      function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (progress < 1) {
+          currentAnimId = requestAnimationFrame(step);
+        } else {
+          currentAnimId = null;
+        }
+      }
+
+      currentAnimId = requestAnimationFrame(step);
+    }
+
+    // Cancel smooth scroll animation if user interrupts with mouse wheel or touch
+    const cancelAnimation = () => {
+      if (currentAnimId) {
+        cancelAnimationFrame(currentAnimId);
+        currentAnimId = null;
+      }
+    };
+    window.addEventListener('wheel', cancelAnimation, { passive: true });
+    window.addEventListener('touchmove', cancelAnimation, { passive: true });
+
+    // Intercept all internal anchor link clicks
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const targetElement = document.querySelector(href);
+        if (!targetElement) return;
+
+        e.preventDefault();
+
+        const header = document.getElementById('header');
+        const headerOffset = header ? header.offsetHeight + 8 : 76;
+        const targetPos = Math.max(0, targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset);
+
+        const distance = Math.abs(targetPos - window.pageYOffset);
+        // Dynamic duration: scaled between 650ms and 1100ms for natural slow -> fast -> slow momentum
+        const duration = Math.min(1100, Math.max(650, Math.round(Math.pow(distance, 0.45) * 38)));
+
+        smoothScrollTo(targetPos, duration);
+
+        try {
+          history.pushState(null, '', href);
+        } catch (err) {}
+      });
+    });
+  }
+
+  /* ==========================================================================
      INITIALIZATION ON DOM READY
      ========================================================================== */
   document.addEventListener('DOMContentLoaded', () => {
@@ -850,6 +928,7 @@
     initContactForm();
     initCopyEmail();
     initHeaderScroll();
+    initSmoothScroll();
   });
 
 })();
