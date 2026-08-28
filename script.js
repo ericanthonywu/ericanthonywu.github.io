@@ -596,58 +596,57 @@
       if (btnText) btnText.style.display = 'none';
       if (btnLoading) btnLoading.style.display = 'inline';
       submitBtn.disabled = true;
+      status.textContent = '';
+      status.className = 'form-status';
 
       const formData = new FormData(form);
-      const accessKey = formData.get('access_key');
-
-      // Graceful fallback to mailto if Web3Forms key is not yet set
-      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_KEY') {
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const scope = formData.get('engagement_type');
-        const details = formData.get('message');
-
-        const mailtoUrl = `mailto:ericanthonywu89@gmail.com?subject=${encodeURIComponent('[Client Inquiry] ' + scope)}&body=${encodeURIComponent(`Client Name: ${name}\nBusiness Email: ${email}\nEngagement Goal: ${scope}\n\nProject Scope & Objectives:\n${details}`)}`;
-        window.location.href = mailtoUrl;
-
-        status.textContent = currentLang === 'id' 
-          ? 'Membuka aplikasi email kamu dengan detail konsultasi...' 
-          : 'Launching your email client with inquiry details...';
-        status.className = 'form-status is-success';
-
-        if (btnLoading) btnLoading.style.display = 'none';
-        if (btnSuccess) btnSuccess.style.display = 'inline';
-        submitBtn.disabled = false;
-        form.reset();
-        return;
-      }
+      const data = Object.fromEntries(formData);
+      data.access_key = 'e24711e5-ecf8-4265-a880-68e184e1c72e';
 
       try {
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: formData
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
         });
         const result = await response.json();
 
         if (result.success) {
           status.textContent = currentLang === 'id' 
-            ? 'Terima kasih! Pesan kamu telah diterima. Saya akan follow up dalam waktu 24 jam.' 
-            : 'Thank you! Your inquiry has been received. I will follow up within 24 hours.';
+            ? 'Terima kasih! Pesan kamu telah terkirim langsung ke email saya. Saya akan follow up secepatnya.' 
+            : 'Thank you! Your inquiry has been sent directly to my email. I will follow up shortly.';
           status.className = 'form-status is-success';
           form.reset();
           if (btnLoading) btnLoading.style.display = 'none';
           if (btnSuccess) btnSuccess.style.display = 'inline';
+
+          setTimeout(() => {
+            if (btnSuccess) btnSuccess.style.display = 'none';
+            if (btnText) btnText.style.display = 'inline';
+            submitBtn.disabled = false;
+          }, 4000);
         } else {
           throw new Error(result.message || 'Submission failed');
         }
       } catch (err) {
+        // Fallback: If network error or adblocker blocks third-party endpoint, launch mailto
+        const mailtoSubject = encodeURIComponent(`[Client Inquiry] ${data.engagement_type || 'New Project'} from ${data.name || 'Website Visitor'}`);
+        const mailtoBody = encodeURIComponent(`Name: ${data.name || ''}\nEmail: ${data.email || ''}\nGoal: ${data.engagement_type || ''}\n\nProject Scope & Objectives:\n${data.message || ''}`);
+        window.location.href = `mailto:ericanthonywu89@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
         status.textContent = currentLang === 'id' 
-          ? 'Terjadi kendala pengiriman. Silakan kirim email langsung ke ericanthonywu89@gmail.com.' 
-          : 'Submission error. Please email directly to ericanthonywu89@gmail.com.';
-        status.className = 'form-status is-error';
-        if (btnLoading) btnLoading.style.display = 'none';
-        if (btnText) btnText.style.display = 'inline';
-        submitBtn.disabled = false;
+          ? 'Membuka aplikasi email kamu untuk mengirimkan pesan...' 
+          : 'Opening your email client to send message...';
+        status.className = 'form-status is-success';
+
+        setTimeout(() => {
+          if (btnLoading) btnLoading.style.display = 'none';
+          if (btnText) btnText.style.display = 'inline';
+          submitBtn.disabled = false;
+        }, 3000);
       }
     });
   }
