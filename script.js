@@ -190,16 +190,70 @@
       tech_cv_desc: "Explore my dedicated software engineering portfolio featuring interactive terminal interfaces, WebGL animations, and distributed backend architecture matrix.",
       tech_cv_btn: "Explore Developer Portfolio →",
 
+      c1_role: "Lead Technical Partner",
+      c1_scope: "6-Week Sprint",
+      c3_role: "Core Architect",
+      c3_scope: "SaaS Platform",
+      c4_role: "System Rescue & Build",
+      c4_scope: "POS + AI",
+
       ent_eyebrow: "ENTERPRISE SCALE & CAREER FOUNDATION",
       ent_heading: "Scalable Architectures Powering Millions of Daily Users",
+      ent_c1_title: "Digital Insurance & Microservices",
+      ent_c1_desc: "Built core backend policy underwriting engines, cutting screen latency by 30% and lifting purchase conversion by 15–20% across millions of active app users.",
+      ent_c2_title: "Cloud Architecture & Caching (80% Cost Slashes)",
+      ent_c2_desc: "Optimized data storage and caching architecture for Indonesia's premier audio streaming platform, slashing monthly cloud hosting bills by ~80%.",
+      ent_c3_title: "B2B Healthcare Portals",
+      ent_c3_desc: "Modernized enterprise healthcare administration systems, creating high-speed portals for corporate healthcare clients.",
+      ent_c4_title: "Mobile Shopping & Creator Platforms",
+      ent_c4_desc: "Built scalable mobile backends and creator marketplace systems active on the Google Play Store and Apple App Store.",
 
       price_eyebrow: "ENGAGEMENT MODELS",
       price_heading: "Transparent Engagements Tailored to Your Growth Stage",
       price_subtext: "Clear milestone scopes, direct technical ownership, and zero agency overhead.",
+      price1_badge: "MVP / FOCUSED BUILD",
+      price1_title: "Sprint Milestone",
+      price1_floor: "2–4 Weeks",
+      price1_desc: "Best for launching rapid MVP products, integrating AI sales chatbots, Stripe payment overhauls, or performance rescues.",
+      price1_f1: "✓ Defined feature milestone scope",
+      price1_f2: "✓ Weekly staging live previews",
+      price1_f3: "✓ Complete staging walkthrough & handover",
+
+      price2_badge: "MOST POPULAR",
+      price2_title: "0-to-1 Product Build",
+      price2_floor: "4–8 Weeks",
+      price2_desc: "Complete end-to-end web SaaS or mobile platform architecture from user interfaces to database & payment checkouts.",
+      price2_f1: "✓ Full stack web & mobile architecture",
+      price2_f2: "✓ Global & local payment checkouts",
+      price2_f3: "✓ AI automation & CRM integration",
+      price2_f4: "✓ Complete admin & staff walkthrough",
+
+      price3_badge: "LONG-TERM PARTNER",
+      price3_title: "Fractional Tech Lead",
+      price3_floor: "Monthly Retainer",
+      price3_desc: "Dedicated senior technical advisory, continuous feature iteration, system scaling, and cloud hosting cost slashes.",
+      price3_f1: "✓ Guaranteed weekly engineering hours",
+      price3_f2: "✓ Architecture & security reviews",
+      price3_f3: "✓ Priority on-call launch support",
+
+      proc1_step: "STEP 01",
+      proc2_step: "STEP 02",
+      proc3_step: "STEP 03",
+      proc4_step: "STEP 04",
 
       faq_eyebrow: "COMMON QUESTIONS",
       faq_heading: "Everything You Need to Know Before Working Together",
       faq_subtext: "Clear answers on code ownership, confidentiality, and project delivery.",
+      faq1_q: "Who owns the code and intellectual property?",
+      faq1_a: "You own 100% of all intellectual property, source code, repositories, and credentials upon milestone delivery. No proprietary lock-in, no hidden licensing fees.",
+      faq2_q: "Do you sign a Non-Disclosure Agreement (NDA)?",
+      faq2_a: "Yes. I routinely sign mutual NDAs before reviewing proprietary data, trade secrets, or detailed technical specifications with international founders and corporate clients.",
+
+      tz_title: "🌍 GUARANTEED DAILY WORKING OVERLAP",
+      tz1_hours: "3–4 hrs overlap (5 PM – 9 PM PT / 7 AM – 11 AM WIB)",
+      tz2_hours: "3–4 hrs overlap (8 PM – 12 AM ET / 7 AM – 11 AM WIB)",
+      tz3_hours: "4–5 hrs overlap (8 AM – 1 PM GMT / 3 PM – 8 PM WIB)",
+      tz4_hours: "Full 8-hour workday alignment (9 AM – 6 PM SGT)",
 
       cform_eyebrow: "LET'S BUILD SOMETHING PROFITABLE",
       cform_title: "Ready to launch or scale your digital product?",
@@ -408,16 +462,70 @@
       tech_cv_desc: "Jelajahi portofolio engineering saya yang lengkap dengan terminal interaktif, animasi WebGL, dan arsitektur backend microservices.",
       tech_cv_btn: "Buka Portofolio Engineer →",
 
+      c1_role: "Lead Technical Partner",
+      c1_scope: "Sprint 6 Minggu",
+      c3_role: "Arsitek Utama",
+      c3_scope: "Platform SaaS",
+      c4_role: "Penyelamatan & Build Sistem",
+      c4_scope: "POS + AI",
+
       ent_eyebrow: "PENGALAMAN ENTERPRISE & SKALA JUTAAN USER",
       ent_heading: "Sistem Andal yang Melayani Jutaan Transaksi Harian",
+      ent_c1_title: "Asuransi Digital & Microservices",
+      ent_c1_desc: "Bangun sistem inti penerbitan polis backend GoPay, pangkas loading 30% dan dongkrak konversi pembelian 15–20% buat jutaan pengguna aktif.",
+      ent_c2_title: "Arsitektur Cloud & Cache (Hemat Server 80%)",
+      ent_c2_desc: "Optimasi penyimpanan data dan caching platform streaming audio Noice, sukses pangkas tagihan server cloud bulanan hingga ~80%.",
+      ent_c3_title: "Portal Kesehatan B2B Korporat",
+      ent_c3_desc: "Modernisasi portal administrasi kesehatan korporat, ciptakan dashboard super cepat untuk klien enterprise Halodoc.",
+      ent_c4_title: "Aplikasi Belanja & Marketplace Kreator",
+      ent_c4_desc: "Bangun backend mobile berkapasitas besar dan sistem marketplace kreator yang aktif di Google Play Store dan Apple App Store.",
 
       price_eyebrow: "PILIHAN KERJA SAMA",
       price_heading: "Paket Kerja Sama Fleksibel Sesuai Tahap Bisnis Kamu",
       price_subtext: "Target jelas per milestone, kepemilikan kode 100% milik kamu, tanpa birokrasi berbelit.",
+      price1_badge: "MVP / PROJEK FOKUS",
+      price1_title: "Sprint Milestone",
+      price1_floor: "2–4 Minggu",
+      price1_desc: "Cocok untuk rilis produk MVP cepat, pasang chatbot AI sales, integrasi payment gateway, atau perbaikan performa website.",
+      price1_f1: "✓ Ruang lingkup target fitur yang jelas",
+      price1_f2: "✓ Preview staging live berkala tiap minggu",
+      price1_f3: "✓ Simulasi penggunaan & serah terima sistem",
+
+      price2_badge: "PALING DIMINATI",
+      price2_title: "0-to-1 Product Build",
+      price2_floor: "4–8 Minggu",
+      price2_desc: "Pembangunan menyeluruh platform web SaaS atau mobile app dari desain UI, database, hingga alur pembayaran live.",
+      price2_f1: "✓ Arsitektur full-stack web & mobile app",
+      price2_f2: "✓ Integrasi payment gateway lokal & global",
+      price2_f3: "✓ Automasi kecerdasan buatan & CRM",
+      price2_f4: "✓ Panduan lengkap operasional tim internal",
+
+      price3_badge: "PARTNER JANGKA PANJANG",
+      price3_title: "Fractional Tech Lead",
+      price3_floor: "Retainer Bulanan",
+      price3_desc: "Pendampingan teknis senior khusus, iterasi fitur berkala, scaling kapasitas sistem, dan pemangkasan tagihan cloud.",
+      price3_f1: "✓ Alokasi jam kerja engineering mingguan terjamin",
+      price3_f2: "✓ Review keamanan kode & arsitektur sistem",
+      price3_f3: "✓ Prioritas pendampingan langsung saat rilis live",
+
+      proc1_step: "LANGKAH 01",
+      proc2_step: "LANGKAH 02",
+      proc3_step: "LANGKAH 03",
+      proc4_step: "LANGKAH 04",
 
       faq_eyebrow: "PERTANYAAN UMUM",
       faq_heading: "Semua yang Perlu Kamu Tahu Sebelum Mulai Proyek",
       faq_subtext: "Transparansi penuh soal hak cipta kode, kerahasiaan NDA, hingga alur pengerjaan.",
+      faq1_q: "Siapa pemilik hak cipta kode dan sistem yang dibangun?",
+      faq1_a: "100% seluruh hak kekayaan intelektual (IP), source code repository, dan akses server adalah milik kamu sepenuhnya setelah serah terima. Tanpa biaya lisensi tersembunyi.",
+      faq2_q: "Apakah bersedia menandatangani perjanjian kerahasiaan (NDA)?",
+      faq2_a: "Ya. Saya terbiasa menandatangani mutual NDA sebelum mendiskusikan rahasia dagang, data internal, atau spesifikasi teknis mendalam bersama founder dan perusahaan.",
+
+      tz_title: "🌍 GARANSI OVERLAP JAM KERJA FLEKSIBEL",
+      tz1_hours: "Overlap 3–4 jam (07.00 – 11.00 WIB / 17.00 – 21.00 PT)",
+      tz2_hours: "Overlap 3–4 jam (07.00 – 11.00 WIB / 20.00 – 00.00 ET)",
+      tz3_hours: "Overlap 4–5 jam (15.00 – 20.00 WIB / 08.00 – 13.00 GMT)",
+      tz4_hours: "Penyelarasan penuh hari kerja (09.00 – 18.00 WIB / SGT)",
 
       cform_eyebrow: "YUK, MULAI PROYEK KAMU",
       cform_title: "Punya ide produk baru atau mau upgrade sistem yang ada?",
@@ -574,25 +682,33 @@
 
     if (!toggle || !drawer) return;
 
+    const closeDrawer = () => {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
     toggle.addEventListener('click', () => {
       const isOpen = drawer.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
     links.forEach(link => {
-      link.addEventListener('click', () => {
-        drawer.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeDrawer);
     });
 
     drawer.addEventListener('click', (e) => {
       if (e.target === drawer) {
-        drawer.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        closeDrawer();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
       }
     });
   }
