@@ -69,6 +69,26 @@
       d.classList.add('js');
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       if (!location.hash) window.scrollTo(0, 0);
+
+      // Instant Localized SEO Pre-render for crawlers & browsers
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var lang = params.get('lang') || localStorage.getItem('ea_lang') || 'en';
+        if (lang === 'id') {
+          d.lang = 'id';
+          document.title = 'Eric Anthony — Partner Produk & Teknologi Bisnis | Web App & AI Systems';
+          var mDesc = document.querySelector('meta[name="description"]');
+          if (mDesc) mDesc.setAttribute('content', 'Ubah ide kompleks kamu jadi produk digital beromzet tinggi, automasi AI pintar, dan aplikasi web/mobile yang hemat server hingga 80% dan scale ke jutaan user.');
+          var ogT = document.querySelector('meta[property="og:title"]');
+          if (ogT) ogT.setAttribute('content', 'Eric Anthony — Partner Produk & Teknologi Bisnis');
+          var ogD = document.querySelector('meta[property="og:description"]');
+          if (ogD) ogD.setAttribute('content', 'Bantu founder dan pebisnis bangun web app cepat, automasi chatbot AI, dan aplikasi mobile yang siap melayani jutaan transaksi.');
+          var ogL = document.querySelector('meta[property="og:locale"]');
+          if (ogL) ogL.setAttribute('content', 'id_ID');
+          var canon = document.querySelector('link[rel="canonical"]');
+          if (canon) canon.setAttribute('href', 'https://ericanthonywu.github.io/?lang=id');
+        }
+      } catch (e) {}
     })();
   </script>
 </head>

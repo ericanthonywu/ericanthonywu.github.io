@@ -511,26 +511,35 @@
     }
 
     // Dynamic SEO Metadata Synchronization
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+
     if (lang === 'id') {
-      document.title = 'Eric Anthony — Partner Produk & Teknologi Bisnis';
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute('content', 'Ubah ide kompleks kamu jadi produk digital beromzet tinggi, automasi AI pintar, dan aplikasi mobile yang hemat server hingga 80% dan scale ke jutaan user.');
-      const ogTitle = document.querySelector('meta[property="og:title"]');
+      document.title = 'Eric Anthony — Partner Produk & Teknologi Bisnis | Web App & AI Systems';
+      if (canonicalLink) canonicalLink.setAttribute('href', 'https://ericanthonywu.github.io/?lang=id');
+      if (metaDesc) metaDesc.setAttribute('content', 'Ubah ide kompleks kamu jadi produk digital beromzet tinggi, automasi AI pintar, dan aplikasi web/mobile yang hemat server hingga 80% dan scale ke jutaan user.');
+      if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, Partner Teknologi Bisnis, Jasa Pembuatan Website, Jasa Bikin Web App, Developer Chatbot WhatsApp, Konsultan IT Jakarta, Jasa Coding Aplikasi, Fullstack Developer Indonesia, GoPay, 1Engage, Startup Indonesia');
       if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony — Partner Produk & Teknologi Bisnis');
-      const ogDesc = document.querySelector('meta[property="og:description"]');
-      if (ogDesc) ogDesc.setAttribute('content', 'Ubah ide kompleks kamu jadi produk digital beromzet tinggi yang siap scale ke jutaan user.');
-      const ogLocale = document.querySelector('meta[property="og:locale"]');
+      if (ogDesc) ogDesc.setAttribute('content', 'Bantu founder dan pebisnis bangun web app cepat, automasi chatbot AI, dan aplikasi mobile yang siap melayani jutaan transaksi.');
       if (ogLocale) ogLocale.setAttribute('content', 'id_ID');
+      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony — Partner Produk & Teknologi Bisnis');
+      if (twitterDesc) twitterDesc.setAttribute('content', 'Bantu founder dan pebisnis bangun web app cepat, automasi chatbot AI, dan aplikasi mobile yang siap melayani jutaan transaksi.');
     } else {
       document.title = 'Eric Anthony — Senior Product Engineer & Technical Partner';
-      const metaDesc = document.querySelector('meta[name="description"]');
+      if (canonicalLink) canonicalLink.setAttribute('href', 'https://ericanthonywu.github.io/?lang=en');
       if (metaDesc) metaDesc.setAttribute('content', 'I turn complex ideas into high-revenue digital products, scalable SaaS platforms, and automated AI systems that cut operating costs by 80% and scale to millions of users.');
-      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (metaKeywords) metaKeywords.setAttribute('content', 'Eric Anthony, Senior Product Engineer, Technical Partner, Software Consultant, Hire Fullstack Developer, SaaS Development, AI Chatbot Automation, Cloud Cost Optimization, Web Application Engineer, GoPay, 1Engage, Jakarta, Remote');
       if (ogTitle) ogTitle.setAttribute('content', 'Eric Anthony — Senior Product Engineer & Technical Partner');
-      const ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) ogDesc.setAttribute('content', 'Turn complex ideas into high-revenue digital products, automated AI workflows, and scalable apps that accelerate customer acquisition.');
-      const ogLocale = document.querySelector('meta[property="og:locale"]');
       if (ogLocale) ogLocale.setAttribute('content', 'en_US');
+      if (twitterTitle) twitterTitle.setAttribute('content', 'Eric Anthony — Senior Product Engineer & Technical Partner');
+      if (twitterDesc) twitterDesc.setAttribute('content', 'Turn complex ideas into high-revenue digital products, automated AI workflows, and scalable apps that cut operating costs and scale to millions.');
     }
   }
 
