@@ -192,13 +192,14 @@ ul {
 .nav__list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
 }
 
 .nav__link {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--ink-secondary);
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 

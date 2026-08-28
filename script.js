@@ -13,10 +13,10 @@
     en: {
       skip_link: "Skip to main content",
       brand_role: "PRODUCT & SYSTEMS PARTNER",
-      nav_results: "Business Results",
-      nav_cases: "Client Case Studies",
-      nav_capabilities: "Deliverables",
-      nav_process: "How We Work",
+      nav_results: "Results",
+      nav_cases: "Case Studies",
+      nav_capabilities: "Services",
+      nav_process: "Process",
       nav_track: "Track Record",
       nav_tech_cv: "Engineer CV ↗",
       nav_cta: "Schedule Consultation",
@@ -221,7 +221,7 @@
     id: {
       skip_link: "Lewati ke konten utama",
       brand_role: "PARTNER PRODUK & TEKNOLOGI BISNIS",
-      nav_results: "Hasil Nyata",
+      nav_results: "Hasil",
       nav_cases: "Studi Kasus",
       nav_capabilities: "Layanan",
       nav_process: "Alur Kerja",
