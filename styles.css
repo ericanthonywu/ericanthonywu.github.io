@@ -593,10 +593,10 @@ ul {
 }
 
 .metric-box__stat {
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .metric-box__stat--blue { color: var(--accent-blue); }
