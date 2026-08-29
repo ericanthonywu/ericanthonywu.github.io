@@ -20,7 +20,7 @@
       nav_track: "Track Record",
       nav_tech_cv: "Engineer CV ↗",
       nav_cta: "Schedule Consultation",
-      status_text: "Accepting Select Projects",
+      status_text: "Available for New Projects",
       drawer_footer: "Available for consulting, contract builds, and full-time technical leadership.",
 
       hero_badge: "ERIC ANTHONY · AI-NATIVE SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
@@ -290,7 +290,7 @@
       nav_track: "Pengalaman",
       nav_tech_cv: "CV Engineer ↗",
       nav_cta: "Jadwalkan Konsultasi",
-      status_text: "Terbuka untuk Proyek Terpilih",
+      status_text: "Tersedia untuk Proyek Baru",
       drawer_footer: "Membantu perusahaan dan startup berkembang membangun platform digital skala enterprise, optimasi arsitektur cloud, hingga Fractional Tech Lead.",
 
       hero_badge: "ERIC ANTHONY · AI-NATIVE SENIOR PRODUCT ENGINEER & TECHNICAL PARTNER",
