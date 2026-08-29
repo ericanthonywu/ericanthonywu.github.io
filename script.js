@@ -29,6 +29,7 @@
       hero_cta_primary: "Schedule Project Consultation",
       hero_cta_secondary: "Explore Case Studies",
 
+      hero_metrics_badge: "CORE DELIVERABLES",
       hero_metrics_title: "what can i deliver for your business:",
 
       metric1_stat: "Web & Apps",
@@ -304,6 +305,7 @@
       hero_cta_primary: "Jadwalkan Konsultasi Proyek",
       hero_cta_secondary: "Jelajahi Studi Kasus",
 
+      hero_metrics_badge: "LAYANAN UTAMA",
       hero_metrics_title: "apa yang bisa saya berikan untuk bisnis anda:",
 
       metric1_stat: "Web & Apps",
