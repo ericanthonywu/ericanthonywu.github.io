@@ -1,4 +1,4 @@
-# Eric Anthony — Senior Product Engineer & Technical Partner
+# Eric Anthony: Senior Product Engineer & Technical Partner
 
 > Official website and portfolio for Eric Anthony: [https://ericanthonywu.github.io](https://ericanthonywu.github.io)
 
@@ -9,8 +9,8 @@
 - **SEO**: Enterprise Schema.org `@graph` (Person, WebSite, ProfessionalService, FAQPage), `sitemap.xml`, `robots.txt`, open-graph and twitter card tags.
 
 ## Structure
-- `index.html` — Semantic HTML5 markup with bilingual data-i18n tags and case studies.
-- `styles.css` — Modern responsive stylesheet with anti-slop typography and bento grids.
-- `script.js` — Client-side runtime for i18n, form handling, and interactive elements.
-- `sitemap.xml` & `robots.txt` — Search engine indexing manifests.
-- `.github/workflows/deploy.yml` — Automated GitHub Pages deployment pipeline.
+- `index.html`: Semantic HTML5 markup with bilingual data-i18n tags and case studies.
+- `styles.css`: Modern responsive stylesheet with anti-slop typography and bento grids.
+- `script.js`: Client-side runtime for i18n, form handling, and interactive elements.
+- `sitemap.xml` & `robots.txt`: Search engine indexing manifests.
+- `.github/workflows/deploy.yml`: Automated GitHub Pages deployment pipeline.
